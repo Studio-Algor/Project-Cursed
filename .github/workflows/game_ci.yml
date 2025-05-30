@@ -52,7 +52,7 @@ jobs:
         run: cd build/web && zip -r ../../game_web.zip ./ 
 
       - name: Upload Web artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: game_web
           path: game_web.zip
@@ -82,7 +82,7 @@ jobs:
         run: cd build/linux && zip -r ../../game_linux.zip ./ 
 
       - name: Upload Linux artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: game_linux
           path: game_linux.zip
@@ -112,7 +112,7 @@ jobs:
         run: cd build/windows && zip -r ../../game_windows.zip ./ 
 
       - name: Upload Windows artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: game_windows
           path: game_windows.zip
@@ -122,7 +122,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Windows artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_windows
 
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Linux artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_linux
           
@@ -164,7 +164,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Web artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_web
           
@@ -236,17 +236,17 @@ jobs:
           prerelease: true
 
       - name: Download Web artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_web
 
       - name: Download Linux artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_linux
 
       - name: Download Windows artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: game_windows
 
