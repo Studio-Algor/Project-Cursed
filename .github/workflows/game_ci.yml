@@ -1,0 +1,284 @@
+name: "Godot 4.3 CI/CD"
+
+env:
+  GODOT_VERSION: 4.4.1
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Create staging directory
+        run: mkdir -v -p build/web
+
+      - name: Build for Web
+        run: godot -v --export-release --headless "Web"
+
+      - name: Add coi-service-worker
+        run: |
+          git clone https://github.com/gzuidhof/coi-serviceworker.git
+          mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
+          sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          force_orphan: true
+          user_name: "github-ci[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "UPDATE GITHUB PAGES"
+
+      - name: Zip Web artifacts
+        run: cd build/web && zip -r ../../game_web.zip ./ 
+
+      - name: Upload Web artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: game_web
+          path: game_web.zip
+
+  linux:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Create staging directory
+        run: mkdir -v -p build/linux
+
+      - name: Build for Linux
+        run: godot -v --export-release --headless "Linux/X11" --path . --output "build/linux/Project-Cursed"
+
+      - name: Zip Linux artifacts
+        run: cd build/linux && zip -r ../../game_linux.zip ./ 
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: game_linux
+          path: game_linux.zip
+
+  windows:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Move export templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Create staging directory
+        run: mkdir -v -p build/windows
+
+      - name: Build for Windows
+        run: godot -v --export-release --headless "Windows Desktop" --path . --output "build/windows/Project-Cursed.exe"
+
+      - name: Zip Windows artifacts
+        run: cd build/windows && zip -r ../../game_windows.zip ./ 
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: game_windows
+          path: game_windows.zip
+
+  itch-upload-windows:
+    needs: windows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_windows
+
+      - name: Debug
+        run: ls
+
+      - name: Upload to itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: project-cursed
+          ITCH_USER: longingly
+          PACKAGE: game_windows.zip
+          
+  itch-upload-linux:
+    needs: linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_linux
+          
+      - name: Debug
+        run: ls
+
+      - name: Upload to itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: linux
+          ITCH_GAME: throwdwarf
+          ITCH_USER: longingly
+          PACKAGE: game_linux.zip
+
+  itch-upload-web:
+    needs: web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Web artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_web
+          
+      - name: Debug
+        run: ls
+
+      - name: Upload to itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html
+          ITCH_GAME: throwdwarf
+          ITCH_USER: longingly
+          PACKAGE: game_web.zip
+          
+  release:
+    needs: [web, linux, windows]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Set up GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: '5.x'
+
+      - name: Execute GitVersion
+        uses: gittools/actions/gitversion/execute@v0.9.15
+        with:
+          useConfigFile: true
+          configFilePath: GitVersion.yml
+
+      - name: Generate Release Notes
+        uses: johnyherangi/create-release-notes@main
+        id: create-release-notes
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Debug (I fucking hate gh actions)
+        run: |
+          ls
+          echo
+          echo
+          ls ..
+          echo
+          echo
+          ls /home/runner/work/Project-Cursed/Project-Cursed
+ 
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{env.GitVersion_MajorMinorPatch}}
+          release_name: "New ver ${{env.GitVersion_MajorMinorPatch}}"
+          body: |
+            ### New stuff:
+            ${{ steps.create-release-notes.outputs.release-notes }}
+            
+            As always thanks for playing!
+            I love you <33
+          draft: false
+          prerelease: true
+
+      - name: Download Web artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_web
+
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_linux
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: game_windows
+
+      - name: Upload Web Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: game_web.zip
+          asset_name: Project-Cursed_Web.zip
+          asset_content_type: application/zip
+
+      - name: Upload Linux Release Asset
+        id: upload-linux-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: game_linux.zip
+          asset_name: Project-Cursed_Linux.zip
+          asset_content_type: application/zip
+
+      - name: Upload Windows Release Asset
+        id: upload-windows-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: game_windows.zip
+          asset_name: Project-Cursed_Windows.zip
+          asset_content_type: application/zip
