@@ -1,15 +1,18 @@
 extends CharacterBody3D
 
-# Consts
+const SENSITIVITY = 0.003
+
+# Speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 10.0
-var speed
-
-const SENSITIVITY = 0.003
+const SPEED_FACTOR = 1
+const INERTIA_GROUND_MOVING = 7
+const INERTIA_GROUND_STOPPING = 15
+var max_speed
 
 # Sliding & Jumping
 const JUMP_VELOCITY = 4.5
-const INERTIA_FACTOR = 3
+const INERTIA_FALLING = 3
 const SLIDE_FACTOR = 5
 
 # Head bobbing
@@ -46,9 +49,9 @@ func _physics_process(delta: float) -> void:
 
 	# Handle Sprint.
 	if Input.is_action_pressed("ui_shift"):
-		speed = SPRINT_SPEED
+		max_speed = SPRINT_SPEED
 	else:
-		speed = WALK_SPEED
+		max_speed = WALK_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -56,14 +59,12 @@ func _physics_process(delta: float) -> void:
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			velocity = lerp(velocity, direction * max_speed, delta * INERTIA_GROUND_MOVING)
 		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-			velocity.z = move_toward(velocity.z, 0, speed)
+			velocity = lerp(velocity, Vector3.ZERO, delta * INERTIA_GROUND_STOPPING)
 	else:
 		# Falling
-		velocity = lerp(velocity, direction * speed, delta * INERTIA_FACTOR)
+		velocity = lerp(velocity, direction * max_speed, delta * INERTIA_FALLING)
 	
 	# Head Bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())
