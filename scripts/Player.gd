@@ -5,14 +5,17 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 10.0
 var speed
 
-const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
+
+# Sliding & Jumping
+const JUMP_VELOCITY = 4.5
 const INERTIA_FACTOR = 3
+const SLIDE_FACTOR = 5
 
 # Head bobbing
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
-var t_bob = 0.
+var t_bob = 0.3
 
 # FOV
 const BASE_FOV = 90
@@ -60,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, speed)
 	else:
 		# Falling
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * INERTIA_FACTOR)
+		velocity = lerp(velocity, direction * speed, delta * INERTIA_FACTOR)
 	
 	# Head Bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())

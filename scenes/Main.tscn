@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=14 format=3 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
+[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_elqb8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -10,10 +13,17 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_elqb8")
 
 [sub_resource type="Environment" id="Environment_0bbpv"]
-background_mode = 2
 sky = SubResource("Sky_rvslj")
+ambient_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbpv"]
+shading_mode = 0
+specular_mode = 2
+albedo_texture = ExtResource("1_rvslj")
+uv1_scale = Vector3(25, 25, 25)
+grow_amount = -0.375
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_elqb8"]
 height = 1.85
@@ -21,24 +31,39 @@ height = 1.85
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
 height = 1.85
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0.541176, 0.521569, 0)
+albedo_texture = ExtResource("1_rvslj")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
+material = SubResource("StandardMaterial3D_rvslj")
+size = Vector2(1.5, 2.1)
+
+[node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0bbpv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
+collision_mask = 15
 size = Vector3(50, 0.1, 50)
+material = SubResource("StandardMaterial3D_0bbpv")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_elqb8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+layers = 2
 transparency = 1.0
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_elqb8")
@@ -51,3 +76,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
+fov = 90.0
+
+[node name="Gun" type="Node3D" parent="Player"]
+script = ExtResource("3_0bbpv")
+
+[node name="Enemy" type="Node3D" parent="." groups=["Enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -8.252)
+script = ExtResource("4_rarhs")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Enemy" groups=["Enemies"]]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 11
+input_capture_on_drag = true
+can_sleep = false
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/RigidBody3D"]
+shape = SubResource("CapsuleShape3D_0bbpv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/RigidBody3D"]
+layers = 4
+mesh = SubResource("QuadMesh_0bbpv")
+skeleton = NodePath("../..")
