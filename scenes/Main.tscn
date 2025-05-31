@@ -47,6 +47,19 @@ size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.497396
+anchor_top = 0.49537
+anchor_right = 0.502604
+anchor_bottom = 0.50463
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0bbpv")
 

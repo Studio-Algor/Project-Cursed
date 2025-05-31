@@ -14,7 +14,8 @@ config/name="Project-Cursed"
 config/tags=PackedStringArray("fps", "rpg", "story")
 run/main_scene="uid://ca2dgxr4qoknj"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://d4dl7gs11sy7w"
+config/icon="uid://d4dl7gs11sy7w"
 
 [global_group]
 
