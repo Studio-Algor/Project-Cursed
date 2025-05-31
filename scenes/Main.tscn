@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=40 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
 [ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="4_lhr70"]
-[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="4_q8u5g"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
 [ext_resource type="Texture2D" uid="uid://d1wmenhfecpka" path="res://sprites/gun/reload/fuckulongman0002.png" id="5_1iba3"]
 [ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="6_bjd11"]
@@ -17,10 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://d3l7qqo25kx2k" path="res://sprites/gun/reload/fuckulongman0005.png" id="8_2ofn6"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://dlx2mhib1dgv6" path="res://sprites/gun/reload/fuckulongman0006.png" id="9_xa025"]
-[ext_resource type="Texture2D" uid="uid://j4s33hjv8prg" path="res://sprites/gun/reload/fuckulongman0007.png" id="10_36rkl"]
+[ext_resource type="Texture2D" uid="uid://u3un0mhwkka4" path="res://sprites/gun/reload/fixthisframe.png.png" id="10_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://bj8cmdox5ehvh" path="res://sprites/gun/reload/fuckulongman0008.png" id="11_fs0b5"]
 [ext_resource type="Texture2D" uid="uid://bdx8340icv0at" path="res://sprites/gun/reload/fuckulongman0009.png" id="12_ma7h6"]
 [ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="13_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="15_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="18_ebg2g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -55,13 +56,13 @@ animations = [{
 "texture": ExtResource("9_xa025")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_36rkl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_fs0b5")
+"texture": ExtResource("10_yxlcp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_ma7h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fs0b5")
 }],
 "loop": false,
 "name": &"reload",
@@ -96,8 +97,8 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp0k4"]
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("4_q8u5g")
-uv1_scale = Vector3(12, 30, 5.37)
+albedo_texture = ExtResource("15_yxlcp")
+uv1_scale = Vector3(50, 50, 50)
 texture_filter = 4
 grow_amount = -0.375
 
@@ -153,9 +154,10 @@ shadow_mesh = SubResource("ArrayMesh_l3wao")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjd11"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("6_bjd11")
+albedo_texture = ExtResource("18_ebg2g")
 texture_filter = 4
 disable_receive_shadows = true
+billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_bjd11"]
 material = SubResource("StandardMaterial3D_bjd11")
@@ -223,7 +225,7 @@ texture_filter = 1
 position = Vector2(-141, -272)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_dg70y")
-animation = &"idle"
+animation = &"reload"
 autoplay = "idle"
 offset = Vector2(-74.91, -142.165)
 
@@ -239,7 +241,7 @@ navigation_mesh = SubResource("NavigationMesh_q8u5g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.041, 0)
 use_collision = true
 collision_mask = 31
-size = Vector3(25, 0.5, 10)
+size = Vector3(25, 0.5, 25)
 material = ExtResource("4_lhr70")
 
 [node name="Ceiling" type="CSGBox3D" parent="Map/NavigationRegion3D"]
@@ -250,32 +252,32 @@ size = Vector3(25, 0.5, 10)
 material = ExtResource("4_lhr70")
 
 [node name="East Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -5)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 4, -5)
 use_collision = true
 collision_mask = 31
-size = Vector3(1, 8, 25)
+size = Vector3(1, 25, 25)
 material = SubResource("StandardMaterial3D_wp0k4")
 
 [node name="West Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 5)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 4, 5)
 use_collision = true
 collision_mask = 31
-size = Vector3(1, 8, 25)
-material = ExtResource("4_lhr70")
+size = Vector3(1, 25, 25)
+material = SubResource("StandardMaterial3D_wp0k4")
 
 [node name="North Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 4, 0)
 use_collision = true
 collision_mask = 31
-size = Vector3(10, 8, 1)
-material = ExtResource("4_lhr70")
+size = Vector3(25, 25, 1)
+material = SubResource("StandardMaterial3D_wp0k4")
 
 [node name="South Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 4, 0)
+transform = Transform3D(4.37114e-08, 8.74228e-08, -1, 8.74228e-08, 1, 8.74228e-08, 1, -8.74228e-08, 4.37114e-08, 12, 4, 0)
 use_collision = true
 collision_mask = 31
-size = Vector3(10, 8, 1)
-material = ExtResource("4_lhr70")
+size = Vector3(25, 25, 1)
+material = SubResource("StandardMaterial3D_wp0k4")
 
 [node name="Shelf" type="MeshInstance3D" parent="Map/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00478697, 1.78087, -4.34474)
@@ -308,10 +310,9 @@ mesh = SubResource("ArrayMesh_787br")
 skeleton = NodePath("")
 
 [node name="Stools" type="Node3D" parent="Map/NavigationRegion3D"]
-visible = false
 
 [node name="Stool" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00478697, 0.70312, -1.83184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00478697, 0.536039, -1.71698)
 gi_mode = 0
 mesh = SubResource("QuadMesh_bjd11")
 skeleton = NodePath("../..")

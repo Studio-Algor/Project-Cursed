@@ -31,10 +31,10 @@ const FOV_CHANGE = 1.5
 
 # Capture in HTML5
 func _input(_event):
-	if Input.is_action_just_pressed("ui_click"):
+	if Input.is_action_just_pressed("ui_click") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

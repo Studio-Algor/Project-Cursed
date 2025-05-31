@@ -13,7 +13,7 @@ func _ready() -> void:
 	queue_animation("idle")
 
 func _physics_process(delta: float) -> void:
-	if is_idle and Input.is_action_just_pressed("ui_click"):
+	if is_idle and Input.is_action_pressed("ui_click"):
 		if current_bullets > 0:
 			shoot()
 		else:

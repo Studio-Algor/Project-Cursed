@@ -6,6 +6,6 @@
 shading_mode = 0
 specular_mode = 2
 albedo_texture = ExtResource("1_v48hb")
-uv1_scale = Vector3(20, 50, 5)
+uv1_scale = Vector3(50, 50, 50)
 texture_filter = 4
 grow_amount = -0.375
