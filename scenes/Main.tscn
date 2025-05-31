@@ -1,9 +1,73 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=29 format=3 uid="uid://ca2dgxr4qoknj"]
 
+[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="1_rvslj"]
+[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
+[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://b181n1blwq654" path="res://sprites/gun/idle/untitled0004.png" id="4_1iba3"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://cn08u14bdcand" path="res://sprites/gun/idle/untitled0005.png" id="5_yxlcp"]
+[ext_resource type="Texture2D" uid="uid://b87ujmgmt8i5x" path="res://sprites/gun/idle/untitled0006.png" id="6_ebg2g"]
+[ext_resource type="Texture2D" uid="uid://dcmlmp452hrjn" path="res://sprites/gun/idle/untitled0007.png" id="7_2ofn6"]
+[ext_resource type="Texture2D" uid="uid://mkmwg774bdwo" path="res://sprites/gun/idle/untitled0008.png" id="8_xa025"]
+[ext_resource type="Texture2D" uid="uid://csvpmvpjai8s5" path="res://sprites/gun/idle/untitled0009.png" id="9_36rkl"]
+[ext_resource type="Texture2D" uid="uid://oyuji3mk6i44" path="res://sprites/gun/idle/untitled0010.png" id="10_fs0b5"]
+[ext_resource type="Texture2D" uid="uid://7patvgftyugv" path="res://sprites/gun/idle/untitled0011.png" id="11_ma7h6"]
+[ext_resource type="Texture2D" uid="uid://dm72jyfyxbcp5" path="res://sprites/gun/idle/untitled0012.png" id="12_e2s0e"]
+[ext_resource type="Texture2D" uid="uid://bfopjh56l4gd4" path="res://sprites/gun/idle/untitled0013.png" id="13_gsxep"]
+[ext_resource type="Texture2D" uid="uid://bgfcuif5lw4qs" path="res://sprites/gun/idle/untitled0014.png" id="14_v0vrg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bb450")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nfivy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1nqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1iba3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yxlcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ebg2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2ofn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xa025")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_36rkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fs0b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ma7h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e2s0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gsxep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v0vrg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_elqb8"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -47,18 +111,53 @@ size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = -1
-anchor_left = 0.497396
-anchor_top = 0.49537
-anchor_right = 0.502604
-anchor_bottom = 0.50463
+[node name="HUD & Gun" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Gun" type="Control" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
+texture_filter = 1
+scale = Vector2(3.605, 3.605)
+sprite_frames = SubResource("SpriteFrames_dg70y")
+autoplay = "default"
+frame_progress = 0.707816
+offset = Vector2(-74.91, -142.165)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0bbpv")
