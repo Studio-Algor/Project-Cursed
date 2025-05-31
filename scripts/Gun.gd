@@ -12,7 +12,7 @@ const RAY_LENGTH = 1000.0
 func _ready() -> void:
 	queue_animation("idle")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_idle and Input.is_action_pressed("ui_click"):
 		if current_bullets > 0:
 			shoot()
@@ -58,12 +58,16 @@ func shoot():
 	query.collision_mask &= ~(1 << 1)
 	var result: Dictionary = space_state.intersect_ray(query)
 	
-	# Check if it hit an enemy
+	# Check if it hit an enemy or NPC
 	var is_enemy
+	var is_npc
 	if not result.is_empty():
 		is_enemy = result.collider.is_in_group("Enemies")
+		is_npc = result.collider.is_in_group("NPCs")
 	if is_enemy:
 		result.collider.take_damage(result.position, 1)
+	if is_npc:
+		result.collider.talk()
 
 func reload():
 	is_idle = false

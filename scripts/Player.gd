@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 const SENSITIVITY = 0.003
+@export var is_talking: bool = false
 
 # Speed
 const WALK_SPEED = 5.0
@@ -64,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
-		if direction:
+		if direction and not is_talking:
 			velocity = lerp(velocity, direction * max_speed, delta * INERTIA_GROUND_MOVING)
 		else:
 			velocity = lerp(velocity, Vector3.ZERO, delta * INERTIA_GROUND_STOPPING)

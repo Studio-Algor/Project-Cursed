@@ -20,6 +20,7 @@ config/icon="uid://d4dl7gs11sy7w"
 [global_group]
 
 Enemies="Entities that attack the Player"
+NPCs="Non Attackable Entities that provide dialogue"
 
 [input]
 

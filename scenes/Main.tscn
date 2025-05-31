@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=45 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
+[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scenes/dialogue.gd" id="1_ebg2g"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
@@ -22,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="13_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="15_yxlcp"]
 [ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="18_ebg2g"]
+[ext_resource type="Script" uid="uid://cg4wo6ajdor22" path="res://scenes/npc.gd" id="22_2ofn6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -168,19 +170,49 @@ height = 1.85
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa025"]
 shading_mode = 0
 specular_mode = 2
-albedo_color = Color(1, 0.541176, 0.521569, 0)
+albedo_color = Color(0, 0.833171, 0.379747, 0)
 albedo_texture = ExtResource("1_rvslj")
 billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
-material = SubResource("StandardMaterial3D_rvslj")
+material = SubResource("StandardMaterial3D_xa025")
+size = Vector2(1.5, 2.1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36rkl"]
+load_path = "res://.godot/imported/prototype.png-87c9eb645b40fa53be9b5f07b1b384fe.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs0b5"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0.502566, 0.742356, 0)
+albedo_texture = SubResource("CompressedTexture2D_36rkl")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ma7h6"]
+material = SubResource("StandardMaterial3D_fs0b5")
 size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Dialogue Handler" type="Node" parent="."]
+script = ExtResource("1_ebg2g")
+metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
+
+[node name="Dialogue Box" type="RichTextLabel" parent="Dialogue Handler"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+bbcode_enabled = true
 
 [node name="HUD & Gun" type="Control" parent="."]
 layout_mode = 3
@@ -335,6 +367,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
 
+[node name="NPCS" type="Node3D" parent="."]
+
+[node name="Bartender" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191599, 1.3529, -3.48498)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("22_2ofn6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Bartender"]
+shape = SubResource("CapsuleShape3D_0bbpv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Bartender"]
+layers = 4
+mesh = SubResource("QuadMesh_0bbpv")
+
 [node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
 collision_layer = 4
@@ -349,7 +396,7 @@ shape = SubResource("CapsuleShape3D_0bbpv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
 layers = 4
-mesh = SubResource("QuadMesh_0bbpv")
+mesh = SubResource("QuadMesh_ma7h6")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
 simplify_path = true
