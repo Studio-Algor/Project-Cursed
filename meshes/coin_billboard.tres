@@ -1,0 +1,18 @@
+[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://bto41134i6ai5"]
+
+[ext_resource type="Texture2D" uid="uid://c26mwfmvuglmv" path="res://sprites/coin.png" id="1_3nlcf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nqs0"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_3nlcf")
+texture_filter = 0
+disable_receive_shadows = true
+
+[resource]
+material = SubResource("StandardMaterial3D_1nqs0")
+size = Vector2(0.1, 0.1)

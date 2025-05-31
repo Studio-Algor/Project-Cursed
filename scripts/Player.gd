@@ -29,6 +29,11 @@ const FOV_CHANGE = 1.5
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 
+# Capture in HTML5
+func _input(event):
+	if Input.is_action_just_pressed("ui_click"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

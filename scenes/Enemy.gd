@@ -60,7 +60,7 @@ func spawn_particles(hit_position: Vector3):
 	for particle in particles:
 		particle.emitting = true
 	
-	print("  Spawned Particles at: ", hit_particles.global_position)
+	if debug: print("  Spawned Particles at: ", hit_particles.global_position)
 
 func death():
 	if debug: print("Enemy Died!")

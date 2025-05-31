@@ -1,21 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqulxbf0cyo7g"]
+[gd_scene load_steps=3 format=3 uid="uid://dqulxbf0cyo7g"]
 
-[ext_resource type="Texture2D" uid="uid://c26mwfmvuglmv" path="res://sprites/coin.png" id="1_y8cl1"]
+[ext_resource type="QuadMesh" uid="uid://bto41134i6ai5" path="res://meshes/coin_billboard.tres" id="1_y8cl1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nqs0"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-specular_mode = 2
-disable_ambient_light = true
-disable_fog = true
-albedo_texture = ExtResource("1_y8cl1")
-texture_filter = 0
-disable_receive_shadows = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_1iba3"]
-material = SubResource("StandardMaterial3D_1nqs0")
-size = Vector2(0.1, 0.1)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8cl1"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+collision_mode = 1
+collision_friction = 0.91
+collision_bounce = 0.2
 
 [node name="Enemy Hit Particles" type="Node3D"]
 
@@ -25,7 +19,7 @@ emitting = false
 amount = 10
 one_shot = true
 explosiveness = 1.0
-mesh = SubResource("QuadMesh_1iba3")
+mesh = ExtResource("1_y8cl1")
 particle_flag_align_y = true
 particle_flag_rotate_y = true
 direction = Vector3(0, 1, 0)
@@ -36,3 +30,16 @@ angular_velocity_min = 412.73
 angular_velocity_max = 412.73
 angle_min = -720.0
 angle_max = 720.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visible = false
+layers = 16
+cast_shadow = 0
+gi_mode = 0
+emitting = false
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.1
+process_material = SubResource("ParticleProcessMaterial_y8cl1")
+draw_pass_1 = ExtResource("1_y8cl1")

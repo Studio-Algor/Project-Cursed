@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
-[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/wood.png" id="4_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/planks.png" id="4_q8u5g"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 
@@ -47,9 +47,9 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbpv"]
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("4_jlsqs")
+albedo_texture = ExtResource("4_q8u5g")
 uv1_scale = Vector3(25, 25, 25)
-texture_filter = 2
+texture_filter = 4
 grow_amount = -0.375
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
@@ -128,11 +128,18 @@ environment = SubResource("Environment_0bbpv")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map"]
 navigation_mesh = SubResource("NavigationMesh_q8u5g")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Map/NavigationRegion3D"]
+size = Vector3(50, 0.5, 50)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0272579, 0.0405083, 0.00189781)
 use_collision = true
-collision_mask = 15
-size = Vector3(50, 0.1, 50)
+collision_mask = 31
+size = Vector3(50, 0.5, 50)
 material = SubResource("StandardMaterial3D_0bbpv")
+
+[node name="Enemy Hit Particles" parent="." instance=ExtResource("8_jlsqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62443, 1.76632, 0)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
