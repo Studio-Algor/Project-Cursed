@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1wmenhfecpka"
-path="res://.godot/imported/fuckulongman0002.png-6c782701c1aba9554d5ae7652c5593a3.ctex"
+uid="uid://dpro24vqcql1e"
+path="res://.godot/imported/fuckulongman0003.png-62761c703e2c8f4a0ef67761cd669b38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gun/shoot&reload/fuckulongman0002.png"
-dest_files=["res://.godot/imported/fuckulongman0002.png-6c782701c1aba9554d5ae7652c5593a3.ctex"]
+source_file="res://sprites/gun/reload/fuckulongman0003.png"
+dest_files=["res://.godot/imported/fuckulongman0003.png-62761c703e2c8f4a0ef67761cd669b38.ctex"]
 
 [params]
 
