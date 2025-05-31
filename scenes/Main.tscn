@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=20 format=3 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
-[ext_resource type="PackedScene" uid="uid://cr1j8iq2k8vph" path="res://enemy.tscn" id="7_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/wood.png" id="4_jlsqs"]
+[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
@@ -39,15 +40,34 @@ ambient_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_q8u5g"]
+vertices = PackedVector3Array(-24.5, 0.45, -24.5, -24.5, 0.45, 24.5, 24.5, 0.45, 24.5, 24.5, 0.45, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbpv"]
 shading_mode = 0
 specular_mode = 2
-albedo_texture = ExtResource("1_rvslj")
+albedo_texture = ExtResource("4_jlsqs")
 uv1_scale = Vector3(25, 25, 25)
+texture_filter = 2
 grow_amount = -0.375
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
 height = 1.85
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0.541176, 0.521569, 0)
+albedo_texture = ExtResource("1_rvslj")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
+material = SubResource("StandardMaterial3D_rvslj")
+size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -100,10 +120,15 @@ autoplay = "default"
 frame_progress = 0.0251687
 offset = Vector2(-74.91, -142.165)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Map" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
 environment = SubResource("Environment_0bbpv")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map"]
+navigation_mesh = SubResource("NavigationMesh_q8u5g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/NavigationRegion3D"]
 use_collision = true
 collision_mask = 15
 size = Vector3(50, 0.1, 50)
@@ -128,7 +153,21 @@ fov = 90.0
 [node name="Gun" type="Node3D" parent="Player"]
 script = ExtResource("3_0bbpv")
 
-[node name="Enemy" parent="." instance=ExtResource("7_jlsqs")]
+[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -8.252)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("4_rarhs")
+max_speed = 5
+hit_particles_scene = ExtResource("8_jlsqs")
+player_path = NodePath("../Player")
 
-[node name="Enemy Hit Particles" parent="." instance=ExtResource("8_jlsqs")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("CapsuleShape3D_0bbpv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+layers = 4
+mesh = SubResource("QuadMesh_0bbpv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
+simplify_path = true

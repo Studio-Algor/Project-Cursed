@@ -4,6 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nqs0"]
 transparency = 1
+cull_mode = 2
 shading_mode = 0
 specular_mode = 2
 disable_ambient_light = true
@@ -11,7 +12,6 @@ disable_fog = true
 albedo_texture = ExtResource("1_y8cl1")
 texture_filter = 0
 disable_receive_shadows = true
-billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_1iba3"]
 material = SubResource("StandardMaterial3D_1nqs0")
@@ -32,3 +32,7 @@ direction = Vector3(0, 1, 0)
 spread = 90.0
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
+angular_velocity_min = 412.73
+angular_velocity_max = 412.73
+angle_min = -720.0
+angle_max = 720.0
