@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqulxbf0cyo7g"]
+
+[ext_resource type="Texture2D" uid="uid://c26mwfmvuglmv" path="res://sprites/coin.png" id="1_y8cl1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nqs0"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_y8cl1")
+texture_filter = 0
+disable_receive_shadows = true
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_1iba3"]
+material = SubResource("StandardMaterial3D_1nqs0")
+size = Vector2(0.1, 0.1)
+
+[node name="Enemy Hit Particles" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+layers = 16
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_1iba3")
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0

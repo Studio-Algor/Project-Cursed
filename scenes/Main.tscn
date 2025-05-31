@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=15 format=3 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
@@ -6,18 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
-[ext_resource type="Texture2D" uid="uid://b181n1blwq654" path="res://sprites/gun/idle/untitled0004.png" id="4_1iba3"]
-[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
-[ext_resource type="Texture2D" uid="uid://cn08u14bdcand" path="res://sprites/gun/idle/untitled0005.png" id="5_yxlcp"]
-[ext_resource type="Texture2D" uid="uid://b87ujmgmt8i5x" path="res://sprites/gun/idle/untitled0006.png" id="6_ebg2g"]
-[ext_resource type="Texture2D" uid="uid://dcmlmp452hrjn" path="res://sprites/gun/idle/untitled0007.png" id="7_2ofn6"]
-[ext_resource type="Texture2D" uid="uid://mkmwg774bdwo" path="res://sprites/gun/idle/untitled0008.png" id="8_xa025"]
-[ext_resource type="Texture2D" uid="uid://csvpmvpjai8s5" path="res://sprites/gun/idle/untitled0009.png" id="9_36rkl"]
-[ext_resource type="Texture2D" uid="uid://oyuji3mk6i44" path="res://sprites/gun/idle/untitled0010.png" id="10_fs0b5"]
-[ext_resource type="Texture2D" uid="uid://7patvgftyugv" path="res://sprites/gun/idle/untitled0011.png" id="11_ma7h6"]
-[ext_resource type="Texture2D" uid="uid://dm72jyfyxbcp5" path="res://sprites/gun/idle/untitled0012.png" id="12_e2s0e"]
-[ext_resource type="Texture2D" uid="uid://bfopjh56l4gd4" path="res://sprites/gun/idle/untitled0013.png" id="13_gsxep"]
-[ext_resource type="Texture2D" uid="uid://bgfcuif5lw4qs" path="res://sprites/gun/idle/untitled0014.png" id="14_v0vrg"]
+[ext_resource type="PackedScene" uid="uid://cr1j8iq2k8vph" path="res://enemy.tscn" id="7_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -30,39 +20,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_1nqs0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1iba3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_yxlcp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ebg2g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_2ofn6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_xa025")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_36rkl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_fs0b5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ma7h6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_e2s0e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_gsxep")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_v0vrg")
 }],
 "loop": true,
 "name": &"default",
@@ -89,25 +46,8 @@ albedo_texture = ExtResource("1_rvslj")
 uv1_scale = Vector3(25, 25, 25)
 grow_amount = -0.375
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_elqb8"]
-height = 1.85
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
 height = 1.85
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
-shading_mode = 0
-specular_mode = 2
-albedo_color = Color(1, 0.541176, 0.521569, 0)
-albedo_texture = ExtResource("1_rvslj")
-billboard_mode = 2
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
-material = SubResource("StandardMaterial3D_rvslj")
-size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -153,10 +93,11 @@ grow_vertical = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
 texture_filter = 1
-scale = Vector2(3.605, 3.605)
+position = Vector2(-131, -263)
+scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_dg70y")
 autoplay = "default"
-frame_progress = 0.707816
+frame_progress = 0.0251687
 offset = Vector2(-74.91, -142.165)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -174,12 +115,6 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_elqb8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-layers = 2
-transparency = 1.0
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_elqb8")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_rvslj")
 
@@ -193,22 +128,7 @@ fov = 90.0
 [node name="Gun" type="Node3D" parent="Player"]
 script = ExtResource("3_0bbpv")
 
-[node name="Enemy" type="Node3D" parent="." groups=["Enemies"]]
+[node name="Enemy" parent="." instance=ExtResource("7_jlsqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -8.252)
-script = ExtResource("4_rarhs")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Enemy" groups=["Enemies"]]
-disable_mode = 2
-collision_layer = 4
-collision_mask = 11
-input_capture_on_drag = true
-can_sleep = false
-lock_rotation = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/RigidBody3D"]
-shape = SubResource("CapsuleShape3D_0bbpv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy/RigidBody3D"]
-layers = 4
-mesh = SubResource("QuadMesh_0bbpv")
-skeleton = NodePath("../..")
+[node name="Enemy Hit Particles" parent="." instance=ExtResource("8_jlsqs")]

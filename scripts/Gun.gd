@@ -25,4 +25,4 @@ func _physics_process(_delta: float) -> void:
 		if not result.is_empty():
 			is_enemy = result.collider.is_in_group("Enemies")
 		if is_enemy:
-			result.collider.get_parent().take_damage(1)
+			result.collider.get_parent().take_damage(result.position, 1)
