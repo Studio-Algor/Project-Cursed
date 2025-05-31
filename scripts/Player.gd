@@ -30,7 +30,7 @@ const FOV_CHANGE = 1.5
 @onready var camera: Camera3D = $Head/Camera3D
 
 # Capture in HTML5
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_click"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Head Bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	camera.transform.origin = _headbob(t_bob) * velocity.length() / max_speed
 	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)

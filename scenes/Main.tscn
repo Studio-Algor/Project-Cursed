@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=28 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
-[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/planks.png" id="4_q8u5g"]
+[ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="4_lhr70"]
+[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="4_q8u5g"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="6_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="7_bjd11"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
@@ -41,16 +44,65 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_q8u5g"]
-vertices = PackedVector3Array(-24.5, 0.45, -24.5, -24.5, 0.45, 24.5, 24.5, 0.45, 24.5, 24.5, 0.45, -24.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-12, 8.541, -5, -12, 8.541, 5, 12, 8.541, 5, 12, 8.541, -5, -10.75, 0.791, -3.75, -10.75, 0.791, 4, 11, 0.791, 4, 11, 0.791, -3.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bbpv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp0k4"]
 shading_mode = 0
 specular_mode = 2
 albedo_texture = ExtResource("4_q8u5g")
-uv1_scale = Vector3(25, 25, 25)
+uv1_scale = Vector3(12, 30, 5.37)
 texture_filter = 4
 grow_amount = -0.375
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjd11"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("6_wp0k4")
+texture_filter = 4
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_qmy6f"]
+material = SubResource("StandardMaterial3D_bjd11")
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmy6f"]
+shading_mode = 0
+albedo_texture = ExtResource("7_bjd11")
+uv1_scale = Vector3(8, 80, 1)
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l3wao"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAgAEAAAAAwAFAAEAAgABAAUABgADAAAAAAAEAAYABQADAAYABAACAAcABQAHAAIABwAGAAQABgAHAAUA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjvArXI7wK1yO8CtcjPArXI7wK1yM8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_787br"]
+resource_name = "Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("AABgPwAAgD4AAGA/AAAAPwAAID8AAAA/AAAgPwAAgD4AACA/AAAAAAAAID8AAIA+AADAPgAAgD4AAMA+AAAAAAAAID8AAEA/AAAgPwAAgD8AAMA+AACAPwAAwD4AAEA/AADAPgAAgD4AAMA+AAAAPwAAAD4AAAA/AAAAPgAAgD4AACA/AACAPgAAID8AAAA/AADAPgAAAD8AAMA+AACAPgAAID8AAAA/AAAgPwAAQD8AAMA+AABAPwAAwD4AAAA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_qmy6f"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//fwAA/3//v/9/AAD/f/+//38AAP9//7//fwAA/3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//////////7//////////v/////////+//////////7////9//3//v////3//f/+/////f/9//7////9//3//v/9/////f/+//3////9//7//f////3//v/9/////f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_l3wao")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
 height = 1.85
@@ -125,21 +177,83 @@ environment = SubResource("Environment_0bbpv")
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map"]
 navigation_mesh = SubResource("NavigationMesh_q8u5g")
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Map/NavigationRegion3D"]
-size = Vector3(50, 0.5, 50)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0272579, 0.0405083, 0.00189781)
+[node name="Floor" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.041, 0)
 use_collision = true
 collision_mask = 31
-size = Vector3(50, 0.5, 50)
-material = SubResource("StandardMaterial3D_0bbpv")
+size = Vector3(25, 0.5, 10)
+material = ExtResource("4_lhr70")
+
+[node name="Ceiling" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+use_collision = true
+collision_mask = 31
+size = Vector3(25, 0.5, 10)
+material = ExtResource("4_lhr70")
+
+[node name="East Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -5)
+use_collision = true
+collision_mask = 31
+size = Vector3(1, 8, 25)
+material = SubResource("StandardMaterial3D_wp0k4")
+
+[node name="West Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 5)
+use_collision = true
+collision_mask = 31
+size = Vector3(1, 8, 25)
+material = ExtResource("4_lhr70")
+
+[node name="North Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 4, 0)
+use_collision = true
+collision_mask = 31
+size = Vector3(10, 8, 1)
+material = ExtResource("4_lhr70")
+
+[node name="South Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 4, 0)
+use_collision = true
+collision_mask = 31
+size = Vector3(10, 8, 1)
+material = ExtResource("4_lhr70")
+
+[node name="Shelf" type="MeshInstance3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00478697, 1.78087, -4.34474)
+gi_mode = 0
+mesh = SubResource("QuadMesh_qmy6f")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00951929, 0.846586, -3.1336)
+visible = false
+use_collision = true
+collision_mask = 30
+size = Vector3(1.5, 1.1, 5)
+
+[node name="Bar" type="Node3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(-1.37691e-08, 0, -0.5, 0, 0.61, 0, 0.315, 0, -2.18557e-08, 0, 0.184357, -2.544)
+
+[node name="Cube" type="MeshInstance3D" parent="Map/NavigationRegion3D/Bar"]
+transform = Transform3D(50, 0, 0, 0, -1.74846e-05, 100, 0, -400, -4.37114e-06, 0, 1, 0)
+mesh = SubResource("ArrayMesh_787br")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="Map/NavigationRegion3D/Bar"]
+transform = Transform3D(-2.18557e-06, -300, -4.37114e-06, 0, -1.31134e-05, 100, -50, 1.31134e-05, 1.91069e-13, -2.5, 1, -4.5)
+mesh = SubResource("ArrayMesh_787br")
+skeleton = NodePath("")
+
+[node name="Cube_003" type="MeshInstance3D" parent="Map/NavigationRegion3D/Bar"]
+transform = Transform3D(-2.18557e-06, -300, -4.37114e-06, 0, -1.31134e-05, 100, -50, 1.31134e-05, 1.91069e-13, -2.5, 1, 4.5)
+mesh = SubResource("ArrayMesh_787br")
+skeleton = NodePath("")
 
 [node name="Enemy Hit Particles" parent="." instance=ExtResource("8_jlsqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62443, 1.76632, 0)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5409, 0)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_elqb8")
@@ -152,13 +266,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
-fov = 90.0
 
 [node name="Gun" type="Node3D" parent="Player"]
 script = ExtResource("3_0bbpv")
 
 [node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -8.252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("4_rarhs")
