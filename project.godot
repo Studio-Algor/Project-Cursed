@@ -22,6 +22,10 @@ config/icon="uid://d4dl7gs11sy7w"
 Enemies="Entities that attack the Player"
 NPCs="Non Attackable Entities that provide dialogue"
 
+[gui]
+
+theme/custom_font="uid://cvhewkjmtjli6"
+
 [input]
 
 ui_left={

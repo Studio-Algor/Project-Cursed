@@ -22,6 +22,10 @@ var memories = {
 	"empty": {}
 }
 
+# NPC Color Configuration - Edit these in the editor!
+@export var npc_color_overrides: Dictionary = {}
+@export var default_speaker_color: Color = Color.YELLOW
+
 # Signals for UI updates
 signal dialogue_updated(speaker: String, text: String)
 signal choices_updated(choices: Array)
@@ -32,7 +36,53 @@ signal all_lines_complete() # New signal for when all lines in node are done
 func _ready():
 	# Initialize memory trees - each tree can hold multiple memories
 	# memories["sad"]["0"] = false, memories["happy"]["1"] = true, etc.
-	pass
+	
+	# Set up default NPC colors if none are configured
+	if npc_color_overrides.is_empty():
+		setup_default_colors()
+
+# Set up some default NPC colors as examples
+func setup_default_colors():
+	npc_color_overrides = {
+		"Bartender": Color.GREEN,
+		"Hanna": Color.PURPLE
+	}
+
+# Get color for a specific NPC name
+func get_npc_color(npc_name: String) -> Color:
+	# Case-insensitive lookup
+	for key in npc_color_overrides.keys():
+		if key.to_lower() == npc_name.to_lower():
+			return npc_color_overrides[key]
+	return default_speaker_color
+
+# Add or update NPC color override
+func set_npc_color(npc_name: String, color: Color):
+	# Find existing key with case-insensitive match
+	var existing_key = ""
+	for key in npc_color_overrides.keys():
+		if key.to_lower() == npc_name.to_lower():
+			existing_key = key
+			break
+	
+	if existing_key != "":
+		# Update existing entry
+		npc_color_overrides[existing_key] = color
+	else:
+		# Add new entry
+		npc_color_overrides[npc_name] = color
+
+# Remove NPC color override (will use default color)
+func remove_npc_color(npc_name: String):
+	# Find and remove key with case-insensitive match
+	for key in npc_color_overrides.keys():
+		if key.to_lower() == npc_name.to_lower():
+			npc_color_overrides.erase(key)
+			break
+
+# Get all configured NPC names and their colors
+func get_all_npc_colors() -> Dictionary:
+	return npc_color_overrides.duplicate()
 
 # Set up the dialogue box (call this from your scene)
 func setup_dialogue_box(rich_text_label: RichTextLabel):
@@ -208,10 +258,12 @@ func finish_dialogue_display(node: Dictionary):
 	
 	emit_signal("all_lines_complete")
 
-# Format dialogue line for RichTextLabel
+# Format dialogue line for RichTextLabel with NPC-specific colors
 func format_dialogue_line(speaker: String, text: String) -> String:
 	if speaker != "":
-		return "[b][color=yellow]" + speaker + ":[/color][/b] " + text
+		var speaker_color = get_npc_color(speaker)
+		var color_hex = "#" + speaker_color.to_html()
+		return "[b][color=" + color_hex + "]" + speaker + ":[/color][/b] " + text
 	else:
 		return text
 
