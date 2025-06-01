@@ -13,6 +13,12 @@ func _ready() -> void:
 	queue_animation("idle")
 
 func _physics_process(_delta: float) -> void:
+	if $"../../Player".is_talking and Input.is_action_just_pressed("ui_click"):
+		if debug: print("Gun is progressing dialogue.")
+		var dialogue_handler: DialogueParser = $"../../Dialogue Handler"
+		dialogue_handler.progress_dialogue()
+		return
+	
 	if is_idle and Input.is_action_pressed("ui_click"):
 		if current_bullets > 0:
 			shoot()
@@ -26,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 func queue_animation(animation_name: String) -> void:
 	var animator: AnimatedSprite2D = $AnimatedSprite2D
 	if animation_name == "shoot": animator.position = Vector2(18, -38)
-	if animation_name == "reload": animator.position = Vector2(5, -22)
+	if animation_name == "reload": animator.position = Vector2(-305, -280)
 	if animation_name == "idle": animator.position = idle_position
 	animator.play(animation_name)
 
@@ -41,8 +47,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func shoot():
 	is_idle = false
 	current_bullets -= 1
-	queue_animation("shoot")
-	
+
 	# Prepare the Ray
 	var camera: Camera3D = $"../../Player/Head/Camera3D"
 	var ro = camera.global_position
@@ -68,8 +73,14 @@ func shoot():
 		result.collider.take_damage(result.position, 1)
 	if is_npc:
 		result.collider.talk()
+	else:
+		queue_animation("shoot")
 
 func reload():
 	is_idle = false
 	current_bullets = max_bullets
 	queue_animation("reload")
+
+
+func _on_dialogue_handler_dialogue_ended() -> void:
+	is_idle = true

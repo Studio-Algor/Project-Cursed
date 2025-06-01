@@ -45,12 +45,14 @@ Bartender: do you remember now?
 Hanna: yes... yes i do...
 Bartender: ... Ok then, if you really need this item, goodluck
 Hanna: yeah... thanks
+:exit:
 ::
 
 12::
 i don't care, where is it?
 :rep_negative:
 Bartender: west of this town...
+:exit:
 ::
 
 21::

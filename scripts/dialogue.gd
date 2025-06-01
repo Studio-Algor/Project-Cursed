@@ -100,8 +100,10 @@ func parse_node_content(lines: Array) -> Dictionary:
 			var choice_text = parts[1] if parts.size() > 1 else "Sample choice text"
 			node.choices.append({"id": choice_id, "text": choice_text})
 		elif line.begins_with(":"):
-			# This is a command
+			# This is a command - remove leading and trailing colons
 			var command = line.substr(1) # Remove the leading ':'
+			if command.ends_with(":"):
+				command = command.substr(0, command.length() - 1) # Remove trailing ':'
 			node.commands.append(command)
 		else:
 			# This is dialogue text
@@ -136,7 +138,10 @@ func display_current_node():
 		return
 	
 	var node = dialogue_data[current_node]
+	
+	# Clear previous choices when entering a new node
 	current_choices = []
+	emit_signal("choices_updated", current_choices) # Send empty choices signal
 	
 	# Prepare dialogue lines for sequential display
 	current_dialogue_lines = []
@@ -271,8 +276,15 @@ func determine_next_node(choice_id: String) -> String:
 	var base_node = current_node
 	var choice_num = choice_id.replace("choice_", "")
 	
-	# Generate next node ID (e.g., from node "0" choice "1" -> node "1")
-	var next_node = base_node + choice_num
+	# Generate next node ID based on your dialogue structure
+	var next_node = ""
+	
+	if base_node == "0":
+		# From root node "0", choices lead directly to choice numbers: "1", "2", "3", "4"
+		next_node = choice_num
+	else:
+		# For other nodes, append choice number: "1" + "1" = "11", "2" + "1" = "21", etc.
+		next_node = base_node + choice_num
 	
 	# Check if the node exists
 	if dialogue_data.has(next_node):
@@ -331,6 +343,7 @@ func trigger_memory(memory_command: String):
 func end_dialogue():
 	var final_rep = npc_reputations.get(current_npc_id, 0)
 	print("Dialogue with ", current_npc_id, " ended. Final reputation: ", final_rep)
+	dialogue_box.text = ""
 	emit_signal("dialogue_ended")
 	
 	# Save game state, return to gameplay, etc.
@@ -406,3 +419,25 @@ func get_progress_info() -> Dictionary:
 		"total_lines": current_dialogue_lines.size(),
 		"is_displaying": is_displaying_dialogue
 	}
+
+# Get current available choices
+func get_current_choices() -> Array:
+	return current_choices
+
+# Get a specific choice by index
+func get_choice(index: int) -> Dictionary:
+	if index >= 0 and index < current_choices.size():
+		return current_choices[index]
+	return {}
+
+# Get choices as formatted strings for UI display
+func get_choices_as_strings() -> Array:
+	var choice_strings = []
+	for i in range(current_choices.size()):
+		var choice = current_choices[i]
+		choice_strings.append(str(i + 1) + ". " + choice.text)
+	return choice_strings
+
+# Check if choices are available
+func has_choices() -> bool:
+	return current_choices.size() > 0
