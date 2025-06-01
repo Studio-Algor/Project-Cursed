@@ -1,0 +1,100 @@
+0:: 
+Bartender: Welcome Back Beautiful! What's the reason of your sudden visit?
+:choice_1: straightforward 
+:choice_2: shut up
+:choice_3: compliment
+:choice_4: bye
+::
+
+1::
+Hanna: hey old man, im looking for a certain one of a kind item, do you know of any? 
+Bartender: Hmm, now that you mention it, i did hear from an adventurer that there is some sort of item in the Choir Demon’s Lair… But unless you really have to, you shouldn’t relive that…
+:choice_1: question
+:choice_2: indifferent 
+::
+
+2::
+Hanna: …old man, stop the flirting, i'm here on a serious quest
+:rep_positive:
+Bartender: Yeah yeah ok I'll stop your angelic presence...
+Hanna: Ughhhh
+:choice_1: straightforward 
+:choice_2: leave 
+::
+
+3::
+Hanna: Thanks for the compliment, you don't look a day over 800 either!
+:rep_positive:
+Bartender: How very rude miss! You can't speak to your elders like that! Why are you always like this! Always so very rude since the day we met!
+:memory_happy_0:
+:choice_1: "apologise"
+:choice_2: double down!
+::
+
+4::
+Hanna: Goodbye
+:exit:
+::
+
+11::
+Hanna: Relive what?
+Bartender: Did you forget? They are monsters that made you an orphan
+:memory_sad_0:
+Hanna: ...
+Bartender: do you remember now?
+Hanna: yes... yes i do...
+Bartender: ... Ok then, if you really need this item, goodluck
+Hanna: yeah... thanks
+::
+
+12::
+i don't care, where is it?
+:rep_negative:
+Bartender: west of this town...
+::
+
+21::
+Hanna: Do you know of any places that may have a special item? Like one of a kind? Im looking for something that matches that description.
+Bartender: There is a legendary item that the choir demons have, OR you could have a legendary time playing poker with me~
+:memory_angry_0:
+Hanna: I just remembered that... NEVER AGAIN!
+:rep_positive:
+Bartender: hahaha... awwwww no fun~
+:choice_1: change the subject
+:choice_2: leave
+::
+
+211::
+Hanna: so how about that item with the demons?
+Bartender: Heard from an adventurer that they stole some weird item that was one of a kind, yeah their lair is west
+Hanna: ok thanks byeeee
+:exit:
+::
+
+212::
+Keep that legendary item in mind i'll be coming back when i'm not annoyed at your existance...
+:exit:
+::
+
+22::
+Hanna: I'll talk with you when you take your meds.
+:exit:
+::
+
+31::
+Hanna: *scoffs* i'm very sorry
+Bartender: There is no universe where you would be, don't lie
+Hanna: anyways do you know of any legendary items that may be around this desolate land?
+Bartender: yeah west of here there is a lai-
+Hanna: wish me luckkkk, taa taa~
+:exit:
+::
+
+32::
+Hanna: i mean you do suck~ 
+Bartender: Rude! 
+Hanna: anyways do you know of any legendary items that may be around this desolate land?
+Bartender: yeah west of here there is a lai-
+Hanna: wish me luckkkk, taa taa~
+:exit:
+::
