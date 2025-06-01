@@ -2,7 +2,7 @@ extends Node3D
 
 @export_category("Info")
 @export var NPC_name: String = "Bartender"
-@export var DLG_path: String = "res://dialogue/bartender.txt"
+@export var DLG_path: String = "dialogue/bartender.txt"
 var is_talking: bool = false
 
 @export_category("Debug")
