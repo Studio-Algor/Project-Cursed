@@ -24,7 +24,7 @@ NPCs="Non Attackable Entities that provide dialogue"
 
 [gui]
 
-theme/custom_font="uid://cvhewkjmtjli6"
+theme/custom_font="res://fonts/atw+.ttf"
 
 [input]
 

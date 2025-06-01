@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cvhewkjmtjli6"
-path="res://.godot/imported/atwriter.ttf-b2275d235136e5e56f5492bff8e7413d.fontdata"
+uid="uid://dqa00eab4posf"
+path="res://.godot/imported/atw+.ttf-9349cb00a523ae95280e8f4c3581e578.fontdata"
 
 [deps]
 
-source_file="res://fonts/atwriter.ttf"
-dest_files=["res://.godot/imported/atwriter.ttf-b2275d235136e5e56f5492bff8e7413d.fontdata"]
+source_file="res://fonts/atw+.ttf"
+dest_files=["res://.godot/imported/atw+.ttf-9349cb00a523ae95280e8f4c3581e578.fontdata"]
 
 [params]
 

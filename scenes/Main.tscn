@@ -122,7 +122,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 shading_mode = 0
 specular_mode = 2
 albedo_texture = ExtResource("15_yxlcp")
-uv1_scale = Vector3(50, 50, 50)
+uv1_scale = Vector3(25, 25, 25)
 texture_filter = 4
 grow_amount = -0.375
 
