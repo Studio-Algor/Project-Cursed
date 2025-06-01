@@ -1,0 +1,188 @@
+0::
+Owner: oh hello there sweety... What trouble have you gotten yourself into this time?
+:choice_1: angry
+:choice_2: confused
+:choice_3: retaliation
+:choice_4: ragequit
+::
+
+1::
+Hanna: Huh? why are you assuming im in trouble?
+Owner: Because every time i see you, you are! Honey, i am many things, but im no- ugh i am a liar too *coughs*, either way i am correct
+Hanna: ...
+:choice_1: accept defeat 
+:choice_2: denial
+::
+
+11::
+Hanna: fair enough... you win, i am here because im in trouble...
+Owner: My abilities are too strong for you sweety
+Hanna: ugghhhh, yeah yeah... anyways im looking for a rare item, one of a kind
+Owner: knowledge is money hun~
+:choice_1: guilt trip
+:choice_2: blackmail
+:choice_3: pay her
+::
+
+111::
+Hanna: i dont have time for this, its life or death...
+Owner: i see...the merchant i buy stock from had his "prized possesion" stolen by a group of bandints... 
+Hanna: where? 
+Owner: northeast of the town there should be a cave where they reside...
+Hanna: thanks byeee
+Owner: i better be payed hansomely when you get out of this situation!
+Hanna: will do!
+:exit:
+
+112::
+Hanna: i will break the pendant you gave me if you dont give me the location.
+Owner: this style doesnt look great on you hun...
+Hanna: *grasps pendant*
+Owner: OK ok, i get it... there is a cave northeast, you will find something there probably
+:rep_negative:
+Hanna: Sorry for this!
+:exit:
+::
+
+113::
+Hanna: fine fine... here is some gold...*clattering*
+Owner: oooh hoo hooo this is like when i made you pay me when you wanted to use the bathroom! there was an arrow pointing to it! Bahahaha *coughs*
+:memory_angry_1:
+Hanna: i pray for the day you die
+Owner: prayers loose to capitalism sweety...
+:choice_1: anyways...
+:choice_2: leave
+::
+
+1131::
+Hanna: anyways, the rare item location please
+Owner: its at a bandit camp in a cave to the northeast
+Hanna: thanks, burn
+Owner: wont do!
+:rep_positive:
+::
+
+1132::
+Hanna: i'll deal with you another time...
+Owner: love ya too sweety~
+Hanna: die
+:exit:
+::
+
+12::
+Hanna: Noooo... I must have talked to you when not in trouble atleast once!
+Owner: not even once...
+Hanna: you are lying...
+Owner: I swear on my mountain of gold im not
+Hanna: god damn it... anyways i need help
+Owner: really now?
+Hanna: any one of a kind items you know about?
+Owner: This is a very give and give relationship you know?
+Hanna: ill pay you back when im done with this...
+Owner: thats the third time you have said that
+Hanna: Well this time i promise
+Owner: you have also sai-
+Hanna: aaghhhhhhh i cant hear youuuuu
+Owner: fine, there is a one of a kind item northeast at a bandit camp in a cave...
+Hanna: thanks byeeeeeee
+Owner: i want my money this time
+Hanna: Fiiiineeee...
+:exit:
+::
+
+2::
+Hanna: Huuuuhhh?? Whaaaat??? I could neverrrr!!
+Owner: Spit it out...
+Hanna: fineee
+Owner: what is it?
+Hanna: i need to find a legendary item...
+Owner: How in the seven hells did you get this deep in trouble
+Hanna: Dont ask
+Owner: this seems worse than that one time...
+:choice_1: confused
+:choice_2: ignore
+::
+
+21::
+Hanna: Huh? What time?
+Owner: You forgetful lamb
+Hanna: What is it?
+Owner: You were 6? no 7... you got stolen by a group of weirdos and my husband broke his hip bringing you back!
+:choice_1: husband?
+:choice_2: concerned
+
+211::
+Hanna: You have a husband?
+Owner: the old flirt downstairs?
+:memory_happy_1:
+Hanna: Ahahahaha~ you have such bad taste!
+Owner: ...
+Hanna: anywayyyss... Do you know of any legendary items?
+Owner: Just go to the cave northeast... Dont die you liven up this place whenever you pass by...
+:rep_positive:
+Hanna: awww thanksss... I'll see ya then
+:exit:
+::
+
+212::
+Hanna: Someone broke their hip for me?
+Owner: Yeah the bartender broke it carying the gold they were asking for...
+:memory_happy_11:
+Hanna: Ohh yeahhh... I remember how hard you were laughing at him hahahaha
+Owner: They still took a buttload of my honestly earned gold!
+Hanna: tottally honest...
+Owner: what was that?
+Hanna: Nothing, dont worry about it
+Owner: I taught you well...
+:rep_positive:
+Hanna: Anyways... I'd like to know the location of the item now~
+Owner: Northeast in a cave...
+Hanna: Thanks! Talk to ya later!
+:exit:
+::
+
+22::
+Hanna: I just want the location of the item...
+Owner: *tsk* northeast in a cave
+:rep_negative:
+Hanna: Goodbye
+:exit:
+::
+
+3::
+Hanna: thats just rude...
+Owner: deal with it
+Hanna: ughhh... Fine
+Owner: Whats the issue then
+Hanna: im looking for a one of a kind item
+Owner: the pendant i gave is one of a kind
+Hanna: a different one of a kind item, one that i havent found or made
+Owner: what if you lose it again? Will that count?
+:choice_1: perplexed
+:choice_2: denial
+
+31::
+Hanna: Ive lost it before?
+Owner: You once dropped it between the cracks of this old saloon... You were crying for hours~ till we found it
+:memory_sad_1:
+Hanna: oh yeah...
+Owner: Im guessing it wont...
+Hanna: yeah...
+Owner: Ok then, there is one in a cave northeast apparently 
+Hanna: that works, i'll be going then
+Owner: Break a leg! not literally!
+:exit:
+::
+
+32::
+Hanna: No
+Owner: I see...
+Hanna: Any other ideas? 
+Owner: Some bandits stole some rare item from the merchant i trade with
+Hanna: And you know where they are?
+Owner: Yeah northeast in a cave
+Hanna: Ahah! A lead! I'll get going then~
+Owner: Bye byee~
+:exit:
+::
+
