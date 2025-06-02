@@ -33,7 +33,7 @@ Hanna: YES YES! As my friend... You should help me!
 Ventriloquist: y-y-y-yeah... what do you need?
 Hanna: Do you know of any rare one of a kind items per chance?
 Ventriloquist: I m-mean... I do h-have something you gave m-me... I would only give it if you gave me something i-in return th-though...
-:memory_empty_1:
+:memory_empty_0:
 Hanna: Ohhhh...
 Hanna: What would you want as a replacement?
 Ventriloquist: A-A f-flower...
@@ -61,7 +61,7 @@ Ventriloquist: yeah...
 12::
 Hanna: I dont... Sorry
 Ventriloquist: I-im the g-girl you used to hang out with when s-stuck in this saloon...
-:memory_happy_4: 
+:memory_happy_3: 
 Hanna: OHHHH! Its you!
 Ventriloquist: Y-You remember now?
 Hanna: yeah i do! Ohhhhhh... Its been so long!
@@ -78,7 +78,7 @@ Hanna: Ohhh yeah... sorry you were fun to talk to i forgot completely!
 Ventriloquist: a-a-ga-kha-d-d... S-So w-what is it?
 Hanna: Im looking for a one of a kind item...
 Ventriloquist: I-I-I'll give you one i-if you give me a flower...
-:memory_sad_3: 
+:memory_sad_2: 
 Hanna: Ohh... Yeah i remember that one!
 Ventriloquist: Y-You remember? 
 Hanna: Yeah! The white one at the top of the mountain northeast right?
@@ -111,7 +111,7 @@ Hanna: Have we met before?
 Ventriloquist: Y-Yeah we were once friends...
 Hanna: The only young friend i had wasss...Wait You are the younger girl i used to hang out with?
 Ventriloquist: Y-Yes...
-:memory_happy_4:
+:memory_happy_3:
 :choise_1: Compliment
 :choise_2: straightforward
 
@@ -124,7 +124,7 @@ Ventriloquist: Anyways... You have a reason for coming?
 Hanna: yeah im looking for a one of a kind item...
 Ventriloquist: I-If you get me the flower you promised i will give you one...
 Hanna: Really??
-:memory_sad_3:
+:memory_sad_2:
 Ventriloquist: Y-Yes...
 Hanna: Ok then~ taa taa~
 Ventriloquist: haha... t-taa taa...
