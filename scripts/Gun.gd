@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 		var dialogue_handler: DialogueParser = $"../../Dialogue Handler"
 		dialogue_handler.progress_dialogue()
 		return
-	
+		
 	if is_idle and Input.is_action_pressed("ui_click"):
 		if current_bullets > 0:
 			shoot()

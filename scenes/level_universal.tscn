@@ -1,0 +1,599 @@
+[gd_scene load_steps=36 format=4 uid="uid://dsgbrttwd5w0i"]
+
+[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_5yfbn"]
+[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scripts/pause_menu.gd" id="2_fp7bw"]
+[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="3_pkfo5"]
+[ext_resource type="Texture2D" uid="uid://bjs12nrsxttki" path="res://sprites/Wasp.png" id="4_k3adw"]
+[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="5_5l3bq"]
+[ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="6_6lah0"]
+[ext_resource type="Texture2D" uid="uid://vw735n6xc3yv" path="res://sprites/Change Tab.png" id="7_fijbj"]
+[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="8_vcnkf"]
+[ext_resource type="PackedScene" uid="uid://mwj1j2ia6qnf" path="res://scenes/sound effects/shoot.tscn" id="9_4ogna"]
+[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="10_0qyeb"]
+[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="11_sdtj2"]
+[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="12_pkcyt"]
+[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="13_32neu"]
+[ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="14_yxg2k"]
+[ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="15_h17yv"]
+[ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="16_u7mnn"]
+[ext_resource type="Texture2D" uid="uid://bf7knbdpgf7gy" path="res://sprites/gun/reload/finishedreload0005.png" id="17_f2rup"]
+[ext_resource type="Texture2D" uid="uid://bv862488ronrk" path="res://sprites/gun/reload/finishedreload0006.png" id="18_l2rbb"]
+[ext_resource type="Texture2D" uid="uid://bux3w0weywbio" path="res://sprites/gun/reload/finishedreload0007.png" id="19_yl2q1"]
+[ext_resource type="Texture2D" uid="uid://bkqtvvgu3guh" path="res://sprites/gun/reload/finishedreload0008.png" id="20_ae3eg"]
+[ext_resource type="Texture2D" uid="uid://dlw8psg8xd4hd" path="res://sprites/gun/reload/finishedreload0009.png" id="21_c86y0"]
+[ext_resource type="Texture2D" uid="uid://brrmef1c0p3hm" path="res://sprites/gun/reload/finishedreload0010.png" id="22_2seci"]
+[ext_resource type="Texture2D" uid="uid://bldrbok5i2a6d" path="res://sprites/gun/reload/finishedreload0011.png" id="23_t4sud"]
+[ext_resource type="Texture2D" uid="uid://ccb48eolrf6mn" path="res://sprites/gun/reload/finishedreload0012.png" id="24_g6hcf"]
+[ext_resource type="Texture2D" uid="uid://df8xp8q1d3a6t" path="res://sprites/gun/reload/finishedreload0013.png" id="25_i4ww5"]
+[ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="26_xold1"]
+[ext_resource type="AudioStream" uid="uid://blt4rj0p4qj5h" path="res://sound/effects/bullet_toss.wav" id="27_5w4fj"]
+[ext_resource type="AudioStream" uid="uid://dvib06fk60y2p" path="res://sound/effects/reload.wav" id="28_2gsxr"]
+[ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="29_pml82"]
+[ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="30_nhs2k"]
+[ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="31_83u07"]
+[ext_resource type="AudioStream" uid="uid://hvmqh72evdtr" path="res://sound/effects/jump.wav" id="32_ewlmp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0qyeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sdtj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pkcyt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_32neu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_yxg2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h17yv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u7mnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f2rup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_l2rbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yl2q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ae3eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c86y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2seci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_t4sud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_g6hcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_i4ww5")
+}],
+"loop": false,
+"name": &"reload",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_xold1")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
+height = 1.85
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_3vyb7"]
+data = PackedByteArray("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")
+format = 3
+loop_mode = 1
+loop_end = 20000
+
+[node name="Level Universal" type="Node"]
+
+[node name="Dialogue Handler" type="Node" parent="." groups=["Dialogue Parser"]]
+script = ExtResource("1_5yfbn")
+metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
+
+[node name="Dialogue Box" type="RichTextLabel" parent="Dialogue Handler"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+bbcode_enabled = true
+
+[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("tabs", "happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_fp7bw")
+tabs = [NodePath("Memory"), NodePath("Options & Credits")]
+happy_memory_label = NodePath("Memory/Happy/Happy Descriptions")
+sad_memory_label = NodePath("Memory/Sad/Sad Descriptions")
+angry_memory_label = NodePath("Memory/Angry/Angry Descriptions")
+empty_memory_label = NodePath("Memory/Empty/Empty Descriptions")
+
+[node name="Memory" type="Control" parent="Pause Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Pause Menu/Memory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Caption" type="RichTextLabel" parent="Pause Menu/Memory"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Memories"
+
+[node name="Happy" type="Control" parent="Pause Menu/Memory"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Happy"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("3_pkfo5")
+stretch_mode = 4
+
+[node name="Happy Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Happy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Angry" type="Control" parent="Pause Menu/Memory"]
+layout_mode = 1
+anchor_left = 0.4
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Angry"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_k3adw")
+stretch_mode = 4
+
+[node name="Angry Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Angry"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Sad" type="Control" parent="Pause Menu/Memory"]
+layout_mode = 1
+anchor_left = 0.6
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Sad"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("5_5l3bq")
+stretch_mode = 4
+
+[node name="Sad Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Sad"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Empty" type="Control" parent="Pause Menu/Memory"]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Empty"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("6_6lah0")
+stretch_mode = 4
+
+[node name="Empty Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Empty"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Options & Credits" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Pause Menu/Options & Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Caption" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Credits"
+
+[node name="Credits" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.165
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -33.92
+offset_right = 21.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "- Programming & Direction by StaringLongingly
+- Writing by Ice_Kabob
+- Meshes by Ice_Kabob
+- Sprites by:
+	~RayVa
+	~Ice_Kabob
+	~Dank_Lemonade"
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -8.0
+offset_right = 1131.0
+offset_bottom = 504.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_fijbj")
+
+[node name="HUD & Gun" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Crosshair" type="Control" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Vert" type="ColorRect" parent="HUD & Gun/Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Vert2" type="ColorRect" parent="HUD & Gun/Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1, 4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Gun" type="Control" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("8_vcnkf")
+shoot_sfx = ExtResource("9_4ogna")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
+texture_filter = 1
+position = Vector2(-305, -280)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dg70y")
+animation = &"reload"
+autoplay = "idle"
+frame = 12
+frame_progress = 1.0
+offset = Vector2(-74.91, -142.165)
+
+[node name="Bullet Toss" type="AudioStreamPlayer" parent="HUD & Gun/Gun"]
+stream = ExtResource("27_5w4fj")
+volume_db = -11.244
+
+[node name="Reload" type="AudioStreamPlayer" parent="HUD & Gun/Gun"]
+stream = ExtResource("28_2gsxr")
+
+[node name="Choices" type="Control" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -37.925
+offset_bottom = 42.07
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("29_pml82")
+
+[node name="choice_1" type="RichTextLabel" parent="HUD & Gun/Choices"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = -85.0
+offset_bottom = 0.00500488
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="choice_2" type="RichTextLabel" parent="HUD & Gun/Choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+offset_bottom = -129.995
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="choice_3" type="RichTextLabel" parent="HUD & Gun/Choices"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_right = 1230.0
+offset_bottom = 0.00500488
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="choice_4" type="RichTextLabel" parent="HUD & Gun/Choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 126.0
+offset_bottom = 131.005
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="Middle" type="TextureRect" parent="HUD & Gun/Choices"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -77.0725
+offset_right = -76.0
+offset_bottom = -77.0725
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("30_nhs2k")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("footsteps") groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16482, 0)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("31_83u07")
+footsteps = NodePath("Footsteps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_rvslj")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="Player"]
+stream = SubResource("AudioStreamWAV_3vyb7")
+volume_db = -12.876
+pitch_scale = 1.52
+
+[node name="Jump" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("32_ewlmp")
+volume_db = -15.927
+pitch_scale = 1.57
+
+[connection signal="choices_updated" from="Dialogue Handler" to="HUD & Gun/Choices" method="_on_dialogue_handler_choices_updated"]
+[connection signal="dialogue_ended" from="Dialogue Handler" to="Pause Menu" method="_on_dialogue_handler_dialogue_ended"]
+[connection signal="dialogue_ended" from="Dialogue Handler" to="HUD & Gun/Gun" method="_on_dialogue_handler_dialogue_ended"]
+[connection signal="dialogue_ended" from="Dialogue Handler" to="Player" method="_on_dialogue_handler_dialogue_ended"]
+[connection signal="animation_finished" from="HUD & Gun/Gun/AnimatedSprite2D" to="HUD & Gun/Gun" method="_on_animated_sprite_2d_animation_finished"]

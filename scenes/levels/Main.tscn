@@ -1,11 +1,8 @@
-[gd_scene load_steps=34 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=31 format=4 uid="uid://ca2dgxr4qoknj"]
 
-[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_njhi0"]
-[ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/ui/pause_menu.tscn" id="2_b6o6j"]
+[ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_qo7a2"]
 [ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="3_5ee8h"]
-[ext_resource type="PackedScene" uid="uid://g4xj4uewp7s1" path="res://scenes/ui/hud_&_gun.tscn" id="3_sjicx"]
 [ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="6_2nudb"]
-[ext_resource type="PackedScene" uid="uid://n6us2tlmmuc5" path="res://scenes/player.tscn" id="9_sjicx"]
 [ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="28_y7on2"]
 [ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="29_1m2di"]
 [ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="30_f7dve"]
@@ -201,24 +198,7 @@ size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Dialogue Handler" type="Node" parent="."]
-script = ExtResource("1_njhi0")
-metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
-
-[node name="Dialogue Box" type="RichTextLabel" parent="Dialogue Handler"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -57.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-bbcode_enabled = true
-
-[node name="Pause Menu" parent="." instance=ExtResource("2_b6o6j")]
-
-[node name="HUD & Gun" parent="." instance=ExtResource("3_sjicx")]
+[node name="Level Universal" parent="." instance=ExtResource("1_qo7a2")]
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -350,9 +330,6 @@ gi_mode = 0
 mesh = SubResource("QuadMesh_bjd11")
 skeleton = NodePath("../..")
 
-[node name="Player" parent="." instance=ExtResource("9_sjicx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16482, 0)
-
 [node name="NPCS" type="Node3D" parent="."]
 
 [node name="Bartender" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
@@ -383,4 +360,4 @@ shape = SubResource("CapsuleShape3D_0bbpv")
 layers = 4
 mesh = SubResource("QuadMesh_pnhog")
 
-[connection signal="dialogue_ended" from="Dialogue Handler" to="NPCS/Bartender" method="_on_dialogue_handler_dialogue_ended"]
+[editable path="Level Universal"]

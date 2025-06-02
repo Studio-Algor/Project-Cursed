@@ -1,9 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=18 format=3 uid="uid://cuk2wgleypos2"]
 
-[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_m6xh6"]
-[ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/ui/pause_menu.tscn" id="1_ns2lu"]
-[ext_resource type="PackedScene" uid="uid://g4xj4uewp7s1" path="res://scenes/ui/hud_&_gun.tscn" id="3_akroh"]
-[ext_resource type="PackedScene" uid="uid://n6us2tlmmuc5" path="res://scenes/player.tscn" id="8_akroh"]
+[ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_55271"]
 [ext_resource type="PackedScene" uid="uid://35moj3odvr7k" path="res://scenes/desert/bush.tscn" id="24_83sxt"]
 [ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scripts/decals.gd" id="25_sg2la"]
 [ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scripts/enemies_manager.gd" id="28_q8yx2"]
@@ -63,24 +60,7 @@ size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Dialogue Handler" type="Node" parent="."]
-script = ExtResource("1_m6xh6")
-metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
-
-[node name="Dialogue Box" type="RichTextLabel" parent="Dialogue Handler"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -57.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-bbcode_enabled = true
-
-[node name="Pause Menu" parent="." instance=ExtResource("1_ns2lu")]
-
-[node name="HUD & Gun" parent="." instance=ExtResource("3_akroh")]
+[node name="Level Universal" parent="." instance=ExtResource("1_55271")]
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -119,9 +99,6 @@ maximum_size = Vector2(0.7, 0.7)
 amount = 150
 batch_size = 5
 
-[node name="Player" parent="." instance=ExtResource("8_akroh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86676, 0)
-
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("28_q8yx2")
 debug = true
@@ -133,7 +110,7 @@ collision_mask = 31
 script = ExtResource("31_f7kjo")
 max_speed = 5
 hit_particles_scene = ExtResource("32_5pqon")
-player_path = NodePath("../../Player")
+player_path = NodePath("../../Level Universal/Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Enemy"]
 shape = SubResource("CapsuleShape3D_0bbpv")
@@ -144,3 +121,5 @@ mesh = SubResource("QuadMesh_ma7h6")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemies/Enemy"]
 simplify_path = true
+
+[editable path="Level Universal"]

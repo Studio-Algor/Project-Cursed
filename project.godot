@@ -21,6 +21,8 @@ config/icon="uid://d4dl7gs11sy7w"
 
 Enemies="Entities that attack the Player"
 NPCs="Non Attackable Entities that provide dialogue"
+"Dialogue Parser"="Parser for NPC Dialogue"
+Player="The Player."
 
 [gui]
 

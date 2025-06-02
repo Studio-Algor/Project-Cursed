@@ -44,7 +44,7 @@ func find_dialogue_parser() -> DialogueParser:
 		return parser
 	
 	# Search in the scene tree
-	var nodes = get_tree().get_nodes_in_group("dialogue_parser")
+	var nodes = get_tree().get_nodes_in_group("Dialogue Parser")
 	if nodes.size() > 0:
 		return nodes[0]
 	
