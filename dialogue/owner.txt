@@ -127,7 +127,7 @@ Hanna: awww thanksss... I'll see ya then
 212::
 Hanna: Someone broke their hip for me?
 Owner: Yeah the bartender broke it carying the gold they were asking for...
-:memory_happy_11:
+:memory_happy_2:
 Hanna: Ohh yeahhh... I remember how hard you were laughing at him hahahaha
 Owner: They still took a buttload of my honestly earned gold!
 Hanna: tottally honest...
@@ -186,3 +186,6 @@ Owner: Bye byee~
 :exit:
 ::
 
+4::
+:exit:
+::

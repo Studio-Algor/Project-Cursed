@@ -1,8 +1,9 @@
-memory_happy_0: you remember insulting the bartenders beard when you first met him
-memory_sad_0: you remember annoying the bartender as messengers told you of your parents passing from the choir demons
-memory_angry_0: you remember playing poker with the bartender and losing 86 times in a row
-memory_angry_1: you remember paying the owner 1 silver piece for her to show you the way to the bathroom, only for there to be a neon sign pointing to it
-memory_happy_1: you remember the first time you learnt that the owner and bartender where married, it still baffles you
-memory_happy_11: you remember laughing with the owner on the stupendous way he broke his hip as he made you orange juice
-memory_sad_1: you remember how terible you felt for loosing that beautiful pendant
+happy_0: insulting the bartenders beard when you first met him
+happy_1: the first time you learnt that the owner and bartender where married, it still baffles you
+happy_2: laughing with the owner on the stupendous way he broke his hip as he made you orange juice
 
+angry_0: playing poker with the bartender and losing 86 times in a row
+angry_1: paying the owner 1 silver piece for her to show you the way to the bathroom, only for there to be a neon sign pointing to it
+
+sad_0: annoying the bartender as messengers told you of your parents passing from the choir demons
+sad_1: how terrible you felt for loosing that beautiful pendant

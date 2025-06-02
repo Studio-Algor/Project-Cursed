@@ -35,9 +35,6 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_click") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

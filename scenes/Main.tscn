@@ -1,14 +1,17 @@
-[gd_scene load_steps=55 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=62 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_ebg2g"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scenes/pause_menu.gd" id="2_dg70y"]
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
 [ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
+[ext_resource type="Texture2D" uid="uid://bjs12nrsxttki" path="res://sprites/Wasp.png" id="3_pnhog"]
 [ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="4_lhr70"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="5_2c4at"]
 [ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="6_bjd11"]
 [ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="6_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="7_bjd11"]
@@ -101,17 +104,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_elqb8"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_rvslj"]
-sky_material = SubResource("ProceduralSkyMaterial_elqb8")
-
 [sub_resource type="Environment" id="Environment_0bbpv"]
-sky = SubResource("Sky_rvslj")
-ambient_light_source = 1
+background_color = Color(1, 1, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.01
 tonemap_mode = 2
+tonemap_exposure = 1.19
+tonemap_white = 0.83
+ssao_enabled = true
+ssao_radius = 2.35
+ssao_intensity = 2.46
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_q8u5g"]
@@ -119,7 +122,6 @@ vertices = PackedVector3Array(-12, 8.541, -5, -12, 8.541, 5, 12, 8.541, 5, 12, 8
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp0k4"]
-shading_mode = 0
 specular_mode = 2
 albedo_texture = ExtResource("15_yxlcp")
 uv1_scale = Vector3(25, 25, 25)
@@ -128,7 +130,6 @@ grow_amount = -0.375
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwfav"]
 transparency = 1
-shading_mode = 0
 albedo_texture = ExtResource("6_bjd11")
 texture_filter = 4
 disable_receive_shadows = true
@@ -136,6 +137,42 @@ disable_receive_shadows = true
 [sub_resource type="QuadMesh" id="QuadMesh_qmy6f"]
 material = SubResource("StandardMaterial3D_mwfav")
 size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnhog"]
+specular_mode = 2
+albedo_color = Color(0.13, 0.07254, 0.0286, 1)
+uv1_scale = Vector3(0.055, 1, 1)
+texture_filter = 4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2c4at"]
+_surfaces = [{
+"aabb": AABB(-0.0105188, -0.0279202, -0.01, 0.0210251, 0.171932, 0.021931),
+"format": 34359742465,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEABAAAAAMAAgABAAUABgAEAAMAAgAHAAMABwACAAUACAADAAcABgADAAgABAAJAAEACQAEAAYACQAKAAEABQABAAoABgALAAkACgAJAAsACgAMAAUADAAKAAsABQAMAA0ADQAMAAsADgALAAYADQALAA4ABgAPAA4ADwAGAAgAEAANAA4ADwAIABEAEAAOABIAEgAOAA8ADQAQABMAEgATABAADQAUAAUAEwAUAA0ABwAFABQABwAVAAgAFQAHABQACAAVABYAFgAVABQAFgAUABMAFgARAAgAEgAXABMAFwAWABMAFwARABYADwAXABIADwARABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("iiIsPNJ3Ez4cekM8CtcjPNJ3Ez4K1yM8iiIsPNJ3Ez4K1yM8iiIsPNy45LwcekM8CUUZPNJ3Ez4cekM8CtcjPArXI7wK1yM8CUUZPArXIzwcekM8iiIsPNy45LwK1yM8GFcsvNy45LwcekM8CkUZPNJ3Ez4K1yO8CtcjPNJ3Ez4K1yO8CkUZPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CUUZvArXIzwK1yO8CkUZvArXIzwcekM8CtcjvNJ3Ez4K1yO8GFcsvNJ3Ez4cekM8CUUZvNJ3Ez4K1yO8CtcjvNJ3Ez4K1yM8CtcjvArXI7wK1yM8GFcsvNy45LwK1yM8GFcsvNJ3Ez4K1yM8CkUZvNJ3Ez4cekM8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g6wdg"]
+resource_name = "Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.0105188, -0.0279202, -0.01, 0.0210251, 0.171932, 0.021931),
+"attribute_data": PackedByteArray("AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AAAgP4QQAj/43rs+AAAAPwAAwD4AAAA/EEIIPgAAAD8AACA/AABAPwAAAD4AAAA/AAAgP3zvPT8AACA/AABAPwAAID8AAEA/EEIIPgAAAD8QQgg+AAAAPwAAID987z0/AAAgP3zvPT8AACA/fO89PwAAAAAAAIA/AAAgPwAAQD8AACA/fO89PwAAID+EEAI/AAAgPwAAgD4AACA/hBACPwAAID8AAAA/AAAAAAAAgD8AACA/AACAPgAAID8AAIA+AAAgPwAAgD/43rs+AAAAPwAAID+EEAI/AAAgP4QQAj/43rs+AAAAPwAAAAAAAIA/AADAPgAAgD4AAAA+AACAPgAAAAAAAIA/AAAAAAAAgD8AACA/AAAAPwAAwD4AAAA/AADAPgAAgD4AACA/hBACPwAAID987z0/EEIIPgAAAD/43rs+AAAAPwAAID8AAEA/AAAgPwAAQD8AAAAAAACAPwAAID8AAIA/AAAgPwAAAD8AACA/AACAPgAAID8AAIA+AAAgPwAAAD8AACA/AABAPwAAAAAAAIA/AAAgPwAAQD8AACA/AACAPwAAID8AAIA+AAAAAAAAgD8AACA/AAAAPwAAID8AAAA/AAAAPgAAgD743rs+AAAAPxBCCD4AAAA/AAAAPgAAAD8QQgg+AAAAPwAAwD4AAIA+AADAPgAAAD/43rs+AAAAPwAAID8AAEA/AAAAAAAAgD8AAAA+AACAPgAAAD4AAAA/"),
+"format": 34359742487,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABAAFAAEABgAHAAgABgAJAAcACQAKAAcACQALAAoADAANAA4ADgAPAAwAEAARABIAEAASABMAEAAUABEAFAAVABEAFAAWABUAFgAXABUAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANAA3ADUANwA4ADUAOAA5ADUAOAA6ADkAOgA7ADkAPAA9AD4APwA8AD4APwA+AEAAPABBAD0AQQBCAD0AQgBDAD0ARABFAEYARgBHAEQA"),
+"material": SubResource("StandardMaterial3D_pnhog"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("iiIsPNJ3Ez4cekM8CtcjPNJ3Ez4K1yM8iiIsPNJ3Ez4K1yM8CUUZPNJ3Ez4cekM8CkUZPNJ3Ez4K1yO8CtcjPNJ3Ez4K1yO8CUUZvNJ3Ez4K1yO8CtcjvNJ3Ez4K1yM8CtcjvNJ3Ez4K1yO8CkUZvNJ3Ez4cekM8GFcsvNJ3Ez4K1yM8GFcsvNJ3Ez4cekM8CUUZvNJ3Ez4K1yO8CUUZvArXIzwK1yO8CkUZvArXIzwcekM8CkUZvNJ3Ez4cekM8CkUZvArXIzwcekM8GFcsvNy45LwcekM8GFcsvNJ3Ez4cekM8CkUZvNJ3Ez4cekM8CUUZPArXIzwcekM8iiIsPNy45LwcekM8CUUZPNJ3Ez4cekM8iiIsPNJ3Ez4cekM8GFcsvNy45LwcekM8iiIsPNy45LwcekM8iiIsPNy45LwK1yM8GFcsvNy45LwK1yM8CkUZPNJ3Ez4K1yO8CUUZPNJ3Ez4cekM8CUUZPArXIzwcekM8CkUZPArXIzwK1yO8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPNJ3Ez4K1yM8CtcjPNJ3Ez4K1yO8CtcjPArXI7wK1yO8CUUZPArXIzwcekM8CkUZvArXIzwcekM8CUUZvArXIzwK1yO8CkUZPArXIzwK1yO8GFcsvNJ3Ez4K1yM8GFcsvNJ3Ez4cekM8GFcsvNy45LwcekM8GFcsvNy45LwK1yM8iiIsPNJ3Ez4K1yM8iiIsPNy45LwK1yM8iiIsPNy45LwcekM8iiIsPNJ3Ez4cekM8GFcsvNJ3Ez4K1yM8CtcjvArXI7wK1yM8CtcjvNJ3Ez4K1yM8GFcsvNy45LwK1yM8iiIsPNy45LwK1yM8CtcjPArXI7wK1yM8iiIsPNJ3Ez4K1yM8CtcjPNJ3Ez4K1yM8CtcjvArXI7wK1yO8CkUZPArXIzwK1yO8CUUZvArXIzwK1yO8CtcjvNJ3Ez4K1yO8CUUZvNJ3Ez4K1yO8CtcjPArXI7wK1yO8CtcjPNJ3Ez4K1yO8CkUZPNJ3Ez4K1yO8CtcjvNJ3Ez4K1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvNJ3Ez4K1yO8/3///////7//f////4P/v/9///////+//3////+D/7//f////4P/v/9///////+//3/+/3T9/7//f/7/8pn/v/9//v////+//3/+//eY/7//f/7/////P/9//v////8/////f////z////9/////P////3////8/////f////z//f/9/pW0tCf9//38ifW4B/3//f/B+hwD/f/9/////P/9//3/VYxQO/3//f7GR2Aj/f/9/////P/9//3////8//38AAP//////fwAA////v/9/AAD//////38AAP////8AAP9/////vwAA/3////+/AAD/f////78AAP9/////v/9/AAD///8//38AAP///z//fwAA////P/9/AAD///+/////f/9/KP3///9//3//P////3//f7k6////f0+FAAD/f///7tT/v/9///8AvP+//3///5Tb/7//f///////vwAA/3///wAAAAD/f////78AAP9///8AAAAA/3///wAA////f////7////9/////v////3////+/////f////7//////ZXzMgf////9lfMyB/////////7//////ZXzMgf////9lfDJ+/////yCA7v//////IIDu//////////+//////179rr7/////2qsR6v/////aq+yV/////5yAToD/////////v/////9e/U/B/////5yAsP//////////vwAA/3//f6R4AAD/f/9/V/0AAP9//3+keAAA/3//f6R4")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2c4at")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ofn6"]
 shading_mode = 0
@@ -216,7 +253,6 @@ shadow_mesh = SubResource("ArrayMesh_l3wao")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjd11"]
 transparency = 1
-shading_mode = 0
 albedo_texture = ExtResource("18_ebg2g")
 texture_filter = 4
 disable_receive_shadows = true
@@ -241,6 +277,21 @@ billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
 material = SubResource("StandardMaterial3D_xa025")
+size = Vector2(1.5, 2.1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v0vrg"]
+load_path = "res://.godot/imported/prototype.png-87c9eb645b40fa53be9b5f07b1b384fe.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg70y"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 0, 0.207843, 0)
+albedo_texture = SubResource("CompressedTexture2D_v0vrg")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pnhog"]
+material = SubResource("StandardMaterial3D_dg70y")
 size = Vector2(1.5, 2.1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36rkl"]
@@ -275,7 +326,198 @@ grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
 
+[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_dg70y")
+debug = true
+happy_memory_label = NodePath("Happy/Happy Descriptions")
+sad_memory_label = NodePath("Sad/Sad Descriptions")
+angry_memory_label = NodePath("Angry/Angry Descriptions")
+empty_memory_label = NodePath("Empty/Empty Descriptions")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Memories" type="RichTextLabel" parent="Pause Menu"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Memories:"
+
+[node name="Happy" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Happy"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("7_bjd11")
+stretch_mode = 4
+
+[node name="Happy Descriptions" type="RichTextLabel" parent="Pause Menu/Happy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Angry" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchor_left = 0.4
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Angry"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("3_pnhog")
+stretch_mode = 4
+
+[node name="Angry Descriptions" type="RichTextLabel" parent="Pause Menu/Angry"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Sad" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchor_left = 0.6
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Sad"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("5_2c4at")
+stretch_mode = 4
+
+[node name="Sad Descriptions" type="RichTextLabel" parent="Pause Menu/Sad"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Empty" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Pause Menu/Empty"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("15_yxlcp")
+stretch_mode = 4
+
+[node name="Empty Descriptions" type="RichTextLabel" parent="Pause Menu/Empty"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
 [node name="HUD & Gun" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -507,11 +749,20 @@ use_collision = true
 collision_mask = 30
 size = Vector3(1.5, 1.1, 5)
 
-[node name="hopefullybetterbar" type="Node3D" parent="Map/NavigationRegion3D"]
+[node name="barfixed" type="Node3D" parent="Map/NavigationRegion3D"]
 transform = Transform3D(0.248129, 0, 0, 0, 0.377731, 0, 0, 0, 0.377731, -0.047428, 0.843684, -2.36637)
 
+[node name="Cube" type="MeshInstance3D" parent="Map/NavigationRegion3D/barfixed"]
+transform = Transform3D(673.465, 0, 0, 0, -1.31134e-06, 120, 0, -30, -5.24537e-06, 0, 0, -1.275)
+mesh = SubResource("ArrayMesh_g6wdg")
+skeleton = NodePath("")
+
+[node name="hopefullybetterbar" type="Node3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(0.248129, 0, 0, 0, 0.377731, 0, 0, 0, 0.377731, -0.047428, 0.843684, -2.36637)
+visible = false
+
 [node name="Cube" type="MeshInstance3D" parent="Map/NavigationRegion3D/hopefullybetterbar"]
-transform = Transform3D(900, 0, 0, 0, -3.57628e-06, 120, 0, -30, -1.43051e-05, 0, 0, 0)
+transform = Transform3D(900, 0, 0, 0, -3.57628e-06, 120, 0, -30, -1.43051e-05, 0, -0.207197, 0)
 mesh = SubResource("ArrayMesh_xa025")
 skeleton = NodePath("")
 
@@ -537,6 +788,30 @@ skeleton = NodePath("")
 [node name="Stools" type="Node3D" parent="Map/NavigationRegion3D"]
 
 [node name="Stool" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65909, 0.645743, -1.71698)
+gi_mode = 0
+mesh = SubResource("QuadMesh_bjd11")
+skeleton = NodePath("../..")
+
+[node name="Stool2" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.770732, 0.645743, -1.71698)
+gi_mode = 0
+mesh = SubResource("QuadMesh_bjd11")
+skeleton = NodePath("../..")
+
+[node name="Stool3" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63742, 0.645743, -1.71698)
+gi_mode = 0
+mesh = SubResource("QuadMesh_bjd11")
+skeleton = NodePath("../..")
+
+[node name="Stool4" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.823961, 0.645743, -1.71698)
+gi_mode = 0
+mesh = SubResource("QuadMesh_bjd11")
+skeleton = NodePath("../..")
+
+[node name="Stool5" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00478697, 0.645743, -1.71698)
 gi_mode = 0
 mesh = SubResource("QuadMesh_bjd11")
@@ -563,7 +838,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000
 [node name="NPCS" type="Node3D" parent="."]
 
 [node name="Bartender" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191599, 1.3529, -3.48498)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191599, 1.3529, -3.70019)
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("22_2ofn6")
@@ -574,6 +849,21 @@ shape = SubResource("CapsuleShape3D_0bbpv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Bartender"]
 layers = 4
 mesh = SubResource("QuadMesh_0bbpv")
+
+[node name="Owner" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69862, 1.3529, -3.21148)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("22_2ofn6")
+NPC_name = "Owner"
+DLG_path = "dialogue/owner.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Owner"]
+shape = SubResource("CapsuleShape3D_0bbpv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Owner"]
+layers = 4
+mesh = SubResource("QuadMesh_pnhog")
 
 [node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)

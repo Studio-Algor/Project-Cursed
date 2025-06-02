@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="1_v48hb"]
 
 [resource]
-shading_mode = 0
 specular_mode = 2
 albedo_texture = ExtResource("1_v48hb")
 uv1_scale = Vector3(50, 50, 50)
