@@ -1,0 +1,274 @@
+[gd_scene load_steps=25 format=3 uid="uid://g4xj4uewp7s1"]
+
+[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="1_t1map"]
+[ext_resource type="PackedScene" uid="uid://mwj1j2ia6qnf" path="res://scenes/sound effects/shoot.tscn" id="2_ogmqg"]
+[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="2_rooyt"]
+[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="3_7i0n5"]
+[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="4_1hmd2"]
+[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="5_fbhtj"]
+[ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="6_3tyfe"]
+[ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="7_5rrxp"]
+[ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="8_ol7oe"]
+[ext_resource type="Texture2D" uid="uid://bf7knbdpgf7gy" path="res://sprites/gun/reload/finishedreload0005.png" id="9_t7uqe"]
+[ext_resource type="Texture2D" uid="uid://bv862488ronrk" path="res://sprites/gun/reload/finishedreload0006.png" id="10_j0dvg"]
+[ext_resource type="Texture2D" uid="uid://bux3w0weywbio" path="res://sprites/gun/reload/finishedreload0007.png" id="11_t5adv"]
+[ext_resource type="Texture2D" uid="uid://bkqtvvgu3guh" path="res://sprites/gun/reload/finishedreload0008.png" id="12_xfw1c"]
+[ext_resource type="Texture2D" uid="uid://dlw8psg8xd4hd" path="res://sprites/gun/reload/finishedreload0009.png" id="13_6j65l"]
+[ext_resource type="Texture2D" uid="uid://brrmef1c0p3hm" path="res://sprites/gun/reload/finishedreload0010.png" id="14_kejc5"]
+[ext_resource type="Texture2D" uid="uid://bldrbok5i2a6d" path="res://sprites/gun/reload/finishedreload0011.png" id="15_wmge6"]
+[ext_resource type="Texture2D" uid="uid://ccb48eolrf6mn" path="res://sprites/gun/reload/finishedreload0012.png" id="16_esedx"]
+[ext_resource type="Texture2D" uid="uid://df8xp8q1d3a6t" path="res://sprites/gun/reload/finishedreload0013.png" id="17_m2t4h"]
+[ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="18_u8qr8"]
+[ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="19_kvcja"]
+[ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="20_2bj2v"]
+[ext_resource type="AudioStream" uid="uid://blt4rj0p4qj5h" path="res://sound/effects/bullet_toss.wav" id="20_nv2e5"]
+[ext_resource type="AudioStream" uid="uid://dvib06fk60y2p" path="res://sound/effects/reload.wav" id="20_sw05m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rooyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7i0n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1hmd2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fbhtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3tyfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5rrxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ol7oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t7uqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j0dvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t5adv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xfw1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6j65l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kejc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wmge6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_esedx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m2t4h")
+}],
+"loop": false,
+"name": &"reload",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_u8qr8")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="HUD & Gun" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Vert" type="ColorRect" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Vert2" type="ColorRect" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1, 4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Gun" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_t1map")
+shoot_sfx = ExtResource("2_ogmqg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gun"]
+texture_filter = 1
+position = Vector2(-305, -280)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_dg70y")
+animation = &"reload"
+autoplay = "idle"
+frame = 12
+frame_progress = 1.0
+offset = Vector2(-74.91, -142.165)
+
+[node name="Bullet Toss" type="AudioStreamPlayer" parent="Gun"]
+stream = ExtResource("20_nv2e5")
+
+[node name="Reload" type="AudioStreamPlayer" parent="Gun"]
+stream = ExtResource("20_sw05m")
+
+[node name="Choices" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -37.925
+offset_bottom = 42.07
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_kvcja")
+
+[node name="choice_1" type="RichTextLabel" parent="Choices"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = -85.0
+offset_bottom = 0.00500488
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="choice_2" type="RichTextLabel" parent="Choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -132.0
+offset_bottom = -129.995
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="choice_3" type="RichTextLabel" parent="Choices"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_right = 1230.0
+offset_bottom = 0.00500488
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="choice_4" type="RichTextLabel" parent="Choices"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 126.0
+offset_bottom = 131.005
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="Middle" type="TextureRect" parent="Choices"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -77.0725
+offset_right = -76.0
+offset_bottom = -77.0725
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("20_2bj2v")
+expand_mode = 1
+stretch_mode = 2
+
+[connection signal="animation_finished" from="Gun/AnimatedSprite2D" to="Gun" method="_on_animated_sprite_2d_animation_finished"]

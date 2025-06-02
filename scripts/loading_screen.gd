@@ -1,6 +1,7 @@
 extends Control
 
 @export var levels: Array[PackedScene]
+@export var level_intro_strings: Array[String]
 @export var instant_loading_screen: bool = false
 var level_index = 0
 var current_level: Node
@@ -11,9 +12,14 @@ func _ready() -> void:
 # Called when the node enters the scene tree for the first time.
 func load_next_level() -> void:
 	$"Loading Screen".visible = true
+	set_loading_screen_text(level_intro_strings.get(level_index))
 	if current_level != null: current_level.queue_free()
 	if not instant_loading_screen: await get_tree().create_timer(2).timeout
 	current_level = levels.get(level_index).instantiate()
 	add_child(current_level)
 	level_index += 1
 	$"Loading Screen".visible = false
+
+func set_loading_screen_text(text: String) -> void:
+	var children: Array[Node] = $"Loading Screen".get_children()
+	for child in children: if child is RichTextLabel: child.text = text

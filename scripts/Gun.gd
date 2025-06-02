@@ -1,9 +1,13 @@
 extends Control
 
+@export_category("General")
 @export var idle_position = Vector2(-141, -272)
 @export var max_bullets = 6
 var current_bullets = max_bullets
 var is_idle = true 
+
+@export_category("Sfx")
+@export var shoot_sfx: PackedScene
 
 @export_category("Debug")
 @export var debug = false
@@ -74,12 +78,17 @@ func shoot():
 	if is_npc:
 		result.collider.talk()
 	else:
+		add_child(shoot_sfx.instantiate())
 		queue_animation("shoot")
 
 func reload():
 	is_idle = false
 	current_bullets = max_bullets
 	queue_animation("reload")
+	await get_tree().create_timer(.3).timeout # Wait before playing the sfx
+	find_child("Bullet Toss").playing = true
+	await get_tree().create_timer(.1).timeout
+	find_child("Reload").playing = true
 
 
 func _on_dialogue_handler_dialogue_ended() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cde67ifyewf63"]
 
-[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scenes/pause_menu.gd" id="1_v4r4p"]
+[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scripts/pause_menu.gd" id="1_v4r4p"]
 [ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="2_1s2dm"]
 [ext_resource type="Texture2D" uid="uid://bjs12nrsxttki" path="res://sprites/Wasp.png" id="3_88e76"]
 [ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="4_knqa7"]

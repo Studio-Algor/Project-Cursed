@@ -1,105 +1,17 @@
-[gd_scene load_steps=42 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=21 format=3 uid="uid://cuk2wgleypos2"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_m6xh6"]
-[ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/pause_menu.tscn" id="1_ns2lu"]
-[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="8_dg1ud"]
-[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="9_h5jdj"]
-[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="10_s8pi7"]
-[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="11_simrk"]
-[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="12_asxkx"]
-[ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="13_xklgu"]
-[ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="14_l4iwg"]
-[ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="15_1buko"]
-[ext_resource type="Texture2D" uid="uid://bf7knbdpgf7gy" path="res://sprites/gun/reload/finishedreload0005.png" id="16_ewtkg"]
-[ext_resource type="Texture2D" uid="uid://bv862488ronrk" path="res://sprites/gun/reload/finishedreload0006.png" id="17_i5rg1"]
-[ext_resource type="Texture2D" uid="uid://bux3w0weywbio" path="res://sprites/gun/reload/finishedreload0007.png" id="18_llflg"]
-[ext_resource type="Texture2D" uid="uid://bkqtvvgu3guh" path="res://sprites/gun/reload/finishedreload0008.png" id="19_25cdo"]
-[ext_resource type="Texture2D" uid="uid://dlw8psg8xd4hd" path="res://sprites/gun/reload/finishedreload0009.png" id="20_yqtct"]
-[ext_resource type="Texture2D" uid="uid://brrmef1c0p3hm" path="res://sprites/gun/reload/finishedreload0010.png" id="21_3genc"]
-[ext_resource type="Texture2D" uid="uid://bldrbok5i2a6d" path="res://sprites/gun/reload/finishedreload0011.png" id="22_7hs8x"]
-[ext_resource type="Texture2D" uid="uid://ccb48eolrf6mn" path="res://sprites/gun/reload/finishedreload0012.png" id="23_bj3b3"]
-[ext_resource type="Texture2D" uid="uid://df8xp8q1d3a6t" path="res://sprites/gun/reload/finishedreload0013.png" id="24_60r7l"]
+[ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/ui/pause_menu.tscn" id="1_ns2lu"]
+[ext_resource type="PackedScene" uid="uid://g4xj4uewp7s1" path="res://scenes/ui/hud_&_gun.tscn" id="3_akroh"]
+[ext_resource type="PackedScene" uid="uid://n6us2tlmmuc5" path="res://scenes/player.tscn" id="8_akroh"]
 [ext_resource type="PackedScene" uid="uid://35moj3odvr7k" path="res://scenes/desert/bush.tscn" id="24_83sxt"]
-[ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="25_aigmi"]
-[ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scenes/levels/decals.gd" id="25_sg2la"]
-[ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="26_nn32a"]
-[ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="27_6tpet"]
-[ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scenes/levels/enemies_manager.gd" id="28_q8yx2"]
+[ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scripts/decals.gd" id="25_sg2la"]
+[ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scripts/enemies_manager.gd" id="28_q8yx2"]
 [ext_resource type="Texture2D" uid="uid://b1hpyj05hgv2m" path="res://sprites/desert/sand.png" id="28_rw0qd"]
 [ext_resource type="PackedScene" uid="uid://duk6adwr0cikg" path="res://scenes/desert/cactus.tscn" id="29_631dt"]
-[ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="30_ofw7q"]
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="31_f7kjo"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="32_5pqon"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="33_32jpr"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_h5jdj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_s8pi7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_simrk")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_asxkx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_xklgu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_l4iwg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_1buko")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_ewtkg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_i5rg1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_llflg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_25cdo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_yqtct")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_3genc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_7hs8x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_bj3b3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_60r7l")
-}],
-"loop": false,
-"name": &"reload",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_aigmi")
-}],
-"loop": false,
-"name": &"shoot",
-"speed": 5.0
-}]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2l3qn"]
 sky_top_color = Color(0.260647, 0.523507, 0.767478, 1)
@@ -135,9 +47,6 @@ uv1_scale = Vector3(1200.07, 1200.07, 1200.07)
 texture_filter = 4
 grow_amount = -0.375
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
-height = 1.85
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs0b5"]
@@ -154,8 +63,6 @@ size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Pause Menu" parent="." instance=ExtResource("1_ns2lu")]
-
 [node name="Dialogue Handler" type="Node" parent="."]
 script = ExtResource("1_m6xh6")
 metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
@@ -171,176 +78,9 @@ grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
 
-[node name="HUD & Gun" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
+[node name="Pause Menu" parent="." instance=ExtResource("1_ns2lu")]
 
-[node name="Crosshair" type="Control" parent="HUD & Gun"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Vert" type="ColorRect" parent="HUD & Gun/Crosshair"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -1.0
-offset_right = 4.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(4, 1)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="Vert2" type="ColorRect" parent="HUD & Gun/Crosshair"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -4.0
-offset_right = 1.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(1, 4)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="Gun" type="Control" parent="HUD & Gun"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("8_dg1ud")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
-texture_filter = 1
-position = Vector2(-305, -280)
-scale = Vector2(3.5, 3.5)
-sprite_frames = SubResource("SpriteFrames_dg70y")
-animation = &"reload"
-autoplay = "idle"
-frame = 12
-frame_progress = 1.0
-offset = Vector2(-74.91, -142.165)
-
-[node name="Choices" type="Control" parent="HUD & Gun"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -37.925
-offset_bottom = 42.07
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("26_nn32a")
-
-[node name="choice_1" type="RichTextLabel" parent="HUD & Gun/Choices"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -576.0
-offset_right = -85.0
-offset_bottom = 0.00500488
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-bbcode_enabled = true
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="choice_2" type="RichTextLabel" parent="HUD & Gun/Choices"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -132.0
-offset_bottom = -129.995
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-bbcode_enabled = true
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="choice_3" type="RichTextLabel" parent="HUD & Gun/Choices"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 89.0
-offset_right = 1230.0
-offset_bottom = 0.00500488
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-bbcode_enabled = true
-vertical_alignment = 1
-
-[node name="choice_4" type="RichTextLabel" parent="HUD & Gun/Choices"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 126.0
-offset_bottom = 131.005
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-bbcode_enabled = true
-horizontal_alignment = 1
-
-[node name="Middle" type="TextureRect" parent="HUD & Gun/Choices"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -77.0725
-offset_right = -76.0
-offset_bottom = -77.0725
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("27_6tpet")
-expand_mode = 1
-stretch_mode = 2
+[node name="HUD & Gun" parent="." instance=ExtResource("3_akroh")]
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -379,20 +119,8 @@ maximum_size = Vector2(0.7, 0.7)
 amount = 150
 batch_size = 5
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5409, 0)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("30_ofw7q")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_rvslj")
-
-[node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
+[node name="Player" parent="." instance=ExtResource("8_akroh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86676, 0)
 
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("28_q8yx2")
@@ -416,5 +144,3 @@ mesh = SubResource("QuadMesh_ma7h6")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemies/Enemy"]
 simplify_path = true
-
-[connection signal="animation_finished" from="HUD & Gun/Gun/AnimatedSprite2D" to="HUD & Gun/Gun" method="_on_animated_sprite_2d_animation_finished"]

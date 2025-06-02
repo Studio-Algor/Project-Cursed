@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 const SENSITIVITY = 0.003
 @export var is_talking: bool = false
+@export var footsteps: AudioStreamPlayer
 
 # Speed
 const WALK_SPEED = 5.0
@@ -49,18 +50,23 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_talking:
+		$Jump.play()
 		velocity.y = JUMP_VELOCITY
 
 	# Handle Sprint.
 	if Input.is_action_pressed("ui_shift"):
+		footsteps.pitch_scale = 1.5
 		max_speed = SPRINT_SPEED
 	else:
+		footsteps.pitch_scale = 1
 		max_speed = WALK_SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var moving_on_ground = input_dir.length() > 0 and is_on_floor()
+	if footsteps.playing != moving_on_ground: footsteps.playing = moving_on_ground
 	if is_on_floor():
 		if direction and not is_talking:
 			velocity = lerp(velocity, direction * max_speed, delta * INERTIA_GROUND_MOVING)

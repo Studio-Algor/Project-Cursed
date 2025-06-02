@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mwj1j2ia6qnf"]
+
+[ext_resource type="AudioStream" uid="uid://bqn8qcheixwpn" path="res://sound/effects/shoot.wav" id="1_ps73w"]
+
+[node name="Shoot" type="AudioStreamPlayer"]
+stream = ExtResource("1_ps73w")
+autoplay = true
