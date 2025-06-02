@@ -1,0 +1,151 @@
+0::
+Ventriloquist: oh OH I-I-Its you... h-h-hello
+Hanna: Hello?
+:choise_1: confused
+:choise_2: straightforward
+:choise_3: question
+:choise_4: ignore
+::
+
+1::
+Hanna: Do i know you?
+Ventriloquist: Y-You dont remember me? 
+:choise_1: lie
+:choise_2: truth
+::
+
+11::
+Hanna: No! I remember youuu...
+Ventriloquist: oh OH you do? Im so h-happyy.
+:rep_positive:
+Hanna: yeahh...
+Hanna: Anyways...
+Ventriloquist: H-H-How has l-life been?
+Hanna: oh... Yeah its been something alright...
+Ventriloquist: oh OH... D-D-Do you want some h-help... from a fr-friend...
+Hanna: Friend?
+:choise_1: capitalise!
+:choise_2: deny
+::
+
+111::
+Hanna: YES YES! As my friend... You should help me!
+Ventriloquist: y-y-y-yeah... what do you need?
+Hanna: Do you know of any rare one of a kind items per chance?
+Ventriloquist: I m-mean... I do h-have something you gave m-me... I would only give it if you gave me something i-in return th-though...
+:memory_empty_1:
+Hanna: Ohhhh...
+Hanna: What would you want as a replacement?
+Ventriloquist: A-A f-flower...
+Hanna: A flower?
+Ventriloquist: Th-the one you promised to g-get me... When we were younger?
+Hanna: im sorry i dont remember that...
+:rep_negative:
+Ventriloquist: oh... Go to the mountain northeast above the cave... It should be a large white flower at the top...
+Hanna: oh ok... I'll be going then!
+:exit:
+::
+
+112::
+Hanna: We aren't friends?
+Ventriloquist: Wh-what?
+:rep_negative:
+Hanna: I do need some help though...
+Ventriloquist: What do you need?
+Hanna: I need a one of a kind item...
+Ventriloquist: Bring me a white flower from the top of the northeast mountain then...
+Hanna: oh, ok! Thanks!
+Ventriloquist: yeah...
+:exit:
+
+12::
+Hanna: I dont... Sorry
+Ventriloquist: I-im the g-girl you used to hang out with when s-stuck in this saloon...
+:memory_happy_4: 
+Hanna: OHHHH! Its you!
+Ventriloquist: Y-You remember now?
+Hanna: yeah i do! Ohhhhhh... Its been so long!
+Hanna: No wonder i didnt remember you! you changed so much!
+Ventriloquist: oh OH! I-I did?
+:rep_positive:
+Hanna: Yes! you look so much cuter! Its crazy!
+:rep_positive:
+Ventriloquist: wh-wh-wh-WHAT? iwagfiusgafstdfasvgvawdapoajba
+Hanna: Hahahaha~ You are hilarious~
+Ventriloquist: a-a-ga-kha-d-d... A-A-Anyways... What did you come here f-for?
+Hanna: Ohhh yeah... sorry you were fun to talk to i forgot completely!
+:rep_positive:
+Ventriloquist: a-a-ga-kha-d-d... S-So w-what is it?
+Hanna: Im looking for a one of a kind item...
+Ventriloquist: I-I-I'll give you one i-if you give me a flower...
+:memory_sad_3: 
+Hanna: Ohh... Yeah i remember that one!
+Ventriloquist: Y-You remember? 
+Hanna: Yeah! The white one at the top of the mountain northeast right?
+Ventriloquist: Y-Y-YES THAT ONE!
+Hanna: I remembered something for once! 
+Ventriloquist: H-H-Hooray!
+Hanna: Well... I'll see ya when i have the flower!
+Ventriloquist: S-S-See y-ya!
+:exit:
+::
+
+2::
+Hanna: Anyways...
+Ventriloquist: what is it?
+Hanna: Im looking for a one of a kind item...
+Ventriloquist: I-I have o-one
+Hanna: OOHH... i really really need it...
+Ventriloquist: I-Its pretty important to me...
+Hanna: Name The Price!
+Ventriloquist: Y-Y... A white flower at the top of the mountain northeast...
+:rep_negative: 
+Hanna: You betcha! 
+Ventriloquist: G-Goodbye... I guess...
+:exit:
+
+3::
+Hanna: I dont remember seeing you around this place previously... Who are you?
+Ventriloquist: I-Im a r-regular...
+Hanna: Have we met before?
+Ventriloquist: Y-Yeah we were once friends...
+Hanna: The only young friend i had wasss...Wait You are the younger girl i used to hang out with?
+Ventriloquist: Y-Yes...
+:memory_happy_4:
+:choise_1: Compliment
+:choise_2: straightforward
+
+31::
+Hanna: Oh my GOD, you are so cute!
+Ventriloquist: wh-wh-wh-WHAT? iwagfiusgafstdfasvgvawdapoajbaentriloquist
+Hanna: Hahahaha...
+:rep_positive:
+Ventriloquist: Anyways... You have a reason for coming?
+Hanna: yeah im looking for a one of a kind item...
+Ventriloquist: I-If you get me the flower you promised i will give you one...
+Hanna: Really??
+:memory_sad_3:
+Ventriloquist: Y-Yes...
+Hanna: Ok then~ taa taa~
+Ventriloquist: haha... t-taa taa...
+Hanna: nice try~
+:exit:
+::
+
+32::
+Hanna: Reunited alas~
+Ventriloquist: hahahaha y-yeah...
+Hanna: Id love to chat but i dont have much time...
+Ventriloquist: oh OH, w-why is that?
+Hanna: gotta find a certain one of a kind item stat...
+Ventriloquist: I-I-I'll give you o-one if you bring me the white flower from the top of the northeast mountain
+Hanna: Aight Bet!
+Ventriloquist: See ya!
+:exit:
+
+4::
+Hanna: ...
+Ventriloquist: o-oh... bye...
+:rep_negative:
+:exit:
+
