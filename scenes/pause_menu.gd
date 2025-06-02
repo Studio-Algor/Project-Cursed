@@ -4,17 +4,22 @@ var is_paused = false
 var dialogue_parser: DialogueParser
 var memory_descriptions = {}
 
-@export_category("Debug")
-@export var debug = false
+@export_category("Tabs")
+@export var tabs: Array[Control]
+var current_tab = 0
 
-@export_category("Memory UI")
+@export_category("Memory Texts")
 @export var happy_memory_label: RichTextLabel
 @export var sad_memory_label: RichTextLabel
 @export var angry_memory_label: RichTextLabel
 @export var empty_memory_label: RichTextLabel
 
+@export_category("Debug")
+@export var debug = false
+
 func _ready() -> void:
 	is_paused = true
+	select_tab(current_tab)
 	pause(is_paused)
 	
 	# Find the DialogueParser in the scene
@@ -74,11 +79,24 @@ func load_memory_descriptions():
 			memory_descriptions[memory_id] = description
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("ui_cancel"):
-		return
+	# Pausing
+	if event.is_action_pressed("ui_cancel"):
+		is_paused = not is_paused
+		pause(is_paused)
 	
-	is_paused = not is_paused
-	pause(is_paused)
+	# Change Tab
+	if event.is_action_pressed("ui_left"):
+		current_tab -= 1
+		if current_tab < 0:
+			if debug: print("Already reached first tab")
+			current_tab = 0
+		select_tab(current_tab)
+	if event.is_action_pressed("ui_right"):
+		current_tab += 1
+		if current_tab >= tabs.size():
+			if debug: print("Already reached final tab")
+			current_tab = tabs.size() - 1
+		select_tab(current_tab)
 
 func pause(paused: bool):
 	if paused: 
@@ -166,3 +184,9 @@ func get_all_memory_progress() -> Dictionary:
 	for emotion in ["happy", "sad", "angry", "empty"]:
 		progress[emotion] = get_memory_progress(emotion)
 	return progress
+
+func select_tab(index: int):
+	if debug: print("Changed tab to index: ", index)
+	for tab in tabs:
+		tab.visible = false
+	tabs.get(index).visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=63 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_ebg2g"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="6_bjd11"]
 [ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="6_e2s0e"]
 [ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="7_bjd11"]
+[ext_resource type="Texture2D" uid="uid://vw735n6xc3yv" path="res://sprites/Change Tab.png" id="7_g6wdg"]
 [ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="7_gsxep"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="8_v0vrg"]
@@ -326,7 +327,7 @@ grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
 
-[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
+[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("tabs", "happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -336,13 +337,22 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_dg70y")
-debug = true
-happy_memory_label = NodePath("Happy/Happy Descriptions")
-sad_memory_label = NodePath("Sad/Sad Descriptions")
-angry_memory_label = NodePath("Angry/Angry Descriptions")
-empty_memory_label = NodePath("Empty/Empty Descriptions")
+tabs = [NodePath("Memory"), NodePath("Options & Credits")]
+happy_memory_label = NodePath("Memory/Happy/Happy Descriptions")
+sad_memory_label = NodePath("Memory/Sad/Sad Descriptions")
+angry_memory_label = NodePath("Memory/Angry/Angry Descriptions")
+empty_memory_label = NodePath("Memory/Empty/Empty Descriptions")
 
-[node name="ColorRect" type="ColorRect" parent="Pause Menu"]
+[node name="Memory" type="Control" parent="Pause Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Pause Menu/Memory"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,16 +361,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
 
-[node name="Memories" type="RichTextLabel" parent="Pause Menu"]
-layout_mode = 0
+[node name="Caption" type="RichTextLabel" parent="Pause Menu/Memory"]
 offset_left = 13.0
 offset_top = 6.0
 offset_right = 766.0
 offset_bottom = 271.0
 theme_override_font_sizes/normal_font_size = 60
-text = "Memories:"
+text = "Memories"
 
-[node name="Happy" type="Control" parent="Pause Menu"]
+[node name="Happy" type="Control" parent="Pause Menu/Memory"]
 layout_mode = 1
 anchor_left = 0.2
 anchor_right = 0.2
@@ -369,7 +378,7 @@ offset_left = -60.0
 offset_right = 60.0
 grow_horizontal = 2
 
-[node name="Icon" type="TextureRect" parent="Pause Menu/Happy"]
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Happy"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -384,7 +393,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("7_bjd11")
 stretch_mode = 4
 
-[node name="Happy Descriptions" type="RichTextLabel" parent="Pause Menu/Happy"]
+[node name="Happy Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Happy"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.75
@@ -399,7 +408,7 @@ text = "-insulting the bartenders beard when you first met him
 
 -playing poker with the bartender and losing 86 times in a row"
 
-[node name="Angry" type="Control" parent="Pause Menu"]
+[node name="Angry" type="Control" parent="Pause Menu/Memory"]
 layout_mode = 1
 anchor_left = 0.4
 anchor_right = 0.4
@@ -408,7 +417,7 @@ offset_left = -60.0
 offset_right = 60.0
 grow_horizontal = 2
 
-[node name="Icon" type="TextureRect" parent="Pause Menu/Angry"]
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Angry"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -423,7 +432,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("3_pnhog")
 stretch_mode = 4
 
-[node name="Angry Descriptions" type="RichTextLabel" parent="Pause Menu/Angry"]
+[node name="Angry Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Angry"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.75
@@ -438,7 +447,7 @@ text = "-insulting the bartenders beard when you first met him
 
 -playing poker with the bartender and losing 86 times in a row"
 
-[node name="Sad" type="Control" parent="Pause Menu"]
+[node name="Sad" type="Control" parent="Pause Menu/Memory"]
 layout_mode = 1
 anchor_left = 0.6
 anchor_right = 0.6
@@ -447,7 +456,7 @@ offset_left = -60.0
 offset_right = 60.0
 grow_horizontal = 2
 
-[node name="Icon" type="TextureRect" parent="Pause Menu/Sad"]
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Sad"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -462,7 +471,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("5_2c4at")
 stretch_mode = 4
 
-[node name="Sad Descriptions" type="RichTextLabel" parent="Pause Menu/Sad"]
+[node name="Sad Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Sad"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.75
@@ -477,7 +486,7 @@ text = "-insulting the bartenders beard when you first met him
 
 -playing poker with the bartender and losing 86 times in a row"
 
-[node name="Empty" type="Control" parent="Pause Menu"]
+[node name="Empty" type="Control" parent="Pause Menu/Memory"]
 layout_mode = 1
 anchor_left = 0.8
 anchor_right = 0.8
@@ -486,7 +495,7 @@ offset_left = -60.0
 offset_right = 60.0
 grow_horizontal = 2
 
-[node name="Icon" type="TextureRect" parent="Pause Menu/Empty"]
+[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Empty"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -501,7 +510,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("15_yxlcp")
 stretch_mode = 4
 
-[node name="Empty Descriptions" type="RichTextLabel" parent="Pause Menu/Empty"]
+[node name="Empty Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Empty"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.75
@@ -515,6 +524,62 @@ bbcode_enabled = true
 text = "-insulting the bartenders beard when you first met him
 
 -playing poker with the bartender and losing 86 times in a row"
+
+[node name="Options & Credits" type="Control" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Pause Menu/Options & Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Caption" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Credits"
+
+[node name="Credits" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.165
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -33.92
+offset_right = 21.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "- Programming & Direction by StaringLongingly
+- Writing by Ice_Kabob
+- Meshes by Ice_Kabob
+- Sprites by Just RayVa"
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -8.0
+offset_right = 1131.0
+offset_bottom = 504.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_g6wdg")
 
 [node name="HUD & Gun" type="Control" parent="."]
 visible = false
