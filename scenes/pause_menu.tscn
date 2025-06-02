@@ -248,7 +248,10 @@ theme_override_font_sizes/normal_font_size = 30
 text = "- Programming & Direction by StaringLongingly
 - Writing by Ice_Kabob
 - Meshes by Ice_Kabob
-- Sprites by Just RayVa"
+- Sprites by:
+	~RayVa
+	~Ice_Kabob
+	~Dank_Lemonade"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

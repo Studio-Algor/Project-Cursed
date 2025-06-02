@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=42 format=3 uid="uid://cuk2wgleypos2"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_m6xh6"]
 [ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/pause_menu.tscn" id="1_ns2lu"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scenes/levels/decals.gd" id="25_sg2la"]
 [ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="26_nn32a"]
 [ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="27_6tpet"]
+[ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scenes/levels/enemies_manager.gd" id="28_q8yx2"]
 [ext_resource type="Texture2D" uid="uid://b1hpyj05hgv2m" path="res://sprites/desert/sand.png" id="28_rw0qd"]
 [ext_resource type="PackedScene" uid="uid://duk6adwr0cikg" path="res://scenes/desert/cactus.tscn" id="29_631dt"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="30_ofw7q"]
@@ -393,23 +394,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000145495)
 
-[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource("28_q8yx2")
+debug = true
+
+[node name="Enemy" type="CharacterBody3D" parent="Enemies" groups=["Enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("31_f7kjo")
 max_speed = 5
 hit_particles_scene = ExtResource("32_5pqon")
-player_path = NodePath("../Player")
+player_path = NodePath("../../Player")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Enemy"]
 shape = SubResource("CapsuleShape3D_0bbpv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemies/Enemy"]
 layers = 4
 mesh = SubResource("QuadMesh_ma7h6")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemies/Enemy"]
 simplify_path = true
 
 [connection signal="animation_finished" from="HUD & Gun/Gun/AnimatedSprite2D" to="HUD & Gun/Gun" method="_on_animated_sprite_2d_animation_finished"]

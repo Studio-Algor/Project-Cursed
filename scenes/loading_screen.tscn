@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv3hmyjyeumvd"]
+
+[ext_resource type="Script" uid="uid://bxml1lm37inap" path="res://scenes/loading_screen.gd" id="1_hprjd"]
+[ext_resource type="PackedScene" uid="uid://cuk2wgleypos2" path="res://scenes/levels/Desert.tscn" id="2_5phy8"]
+[ext_resource type="PackedScene" uid="uid://ca2dgxr4qoknj" path="res://scenes/levels/Main.tscn" id="2_ku3bi"]
+
+[node name="ROOT" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hprjd")
+levels = Array[PackedScene]([ExtResource("2_5phy8"), ExtResource("2_ku3bi")])
+
+[node name="Loading Screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Loading Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Loading Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "A little while later..."
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -64,4 +64,5 @@ func spawn_particles(hit_position: Vector3):
 
 func death():
 	if debug: print("Enemy Died!")
+	$"..".enemy_died()
 	queue_free()  # Remove the enemy if HP is 0 or below

@@ -8,4 +8,3 @@ sad_1: you felt terrible for loosing that beautiful pendant
 empty_0: you gave the young girl a rare item for some reason, you dont remember what
 happy_3: Hanging out with the young girl was the only reason you had alot of fun
 sad_2: When you had to leave for a long time you promised her that you would get the white flower that grows at the top of the northeast mountain
-

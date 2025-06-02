@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=56 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_njhi0"]
 [ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/pause_menu.tscn" id="2_b6o6j"]
@@ -31,7 +31,6 @@
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="32_1njp3"]
 [ext_resource type="Script" uid="uid://cg4wo6ajdor22" path="res://scripts/npc.gd" id="33_2c8jv"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="34_nhqn2"]
-[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="35_nnunx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -290,21 +289,6 @@ billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_pnhog"]
 material = SubResource("StandardMaterial3D_dg70y")
-size = Vector2(1.5, 2.1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36rkl"]
-load_path = "res://.godot/imported/prototype.png-87c9eb645b40fa53be9b5f07b1b384fe.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs0b5"]
-shading_mode = 0
-specular_mode = 2
-albedo_color = Color(1, 0.502566, 0.742356, 0)
-albedo_texture = SubResource("CompressedTexture2D_36rkl")
-billboard_mode = 2
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_ma7h6"]
-material = SubResource("StandardMaterial3D_fs0b5")
 size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
@@ -674,25 +658,6 @@ shape = SubResource("CapsuleShape3D_0bbpv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Owner"]
 layers = 4
 mesh = SubResource("QuadMesh_pnhog")
-
-[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
-collision_layer = 4
-collision_mask = 31
-script = ExtResource("35_nnunx")
-max_speed = 5
-hit_particles_scene = ExtResource("31_kxule")
-player_path = NodePath("../Player")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
-shape = SubResource("CapsuleShape3D_0bbpv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
-layers = 4
-mesh = SubResource("QuadMesh_ma7h6")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
-simplify_path = true
 
 [connection signal="choices_updated" from="Dialogue Handler" to="HUD & Gun/Choices" method="_on_dialogue_handler_choices_updated"]
 [connection signal="dialogue_ended" from="Dialogue Handler" to="HUD & Gun/Gun" method="_on_dialogue_handler_dialogue_ended"]

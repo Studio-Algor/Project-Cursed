@@ -4,6 +4,9 @@ var is_paused = false
 var dialogue_parser: DialogueParser
 var memory_descriptions = {}
 
+@export_category("General")
+@export var pause_on_startup = false
+
 @export_category("Tabs")
 @export var tabs: Array[Control]
 var current_tab = 0
@@ -18,9 +21,8 @@ var current_tab = 0
 @export var debug = false
 
 func _ready() -> void:
-	is_paused = true
 	select_tab(current_tab)
-	pause(is_paused)
+	pause(pause_on_startup)
 	
 	# Find the DialogueParser in the scene
 	dialogue_parser = find_dialogue_parser()

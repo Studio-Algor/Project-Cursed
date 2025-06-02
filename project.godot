@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Project-Cursed"
 config/tags=PackedStringArray("fps", "rpg", "story")
-run/main_scene="uid://cuk2wgleypos2"
+run/main_scene="uid://bv3hmyjyeumvd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/image="uid://d4dl7gs11sy7w"
 config/icon="uid://d4dl7gs11sy7w"
