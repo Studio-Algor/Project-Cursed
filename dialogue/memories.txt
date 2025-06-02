@@ -1,9 +1,11 @@
 happy_0: insulting the bartenders beard when you first met him
-happy_1: the first time you learnt that the owner and bartender where married, it still baffles you
-happy_2: laughing with the owner on the stupendous way he broke his hip as he made you orange juice
-
+sad_0: annoying the bartender as messengers told you of your parents passing from the choir demons
 angry_0: playing poker with the bartender and losing 86 times in a row
 angry_1: paying the owner 1 silver piece for her to show you the way to the bathroom, only for there to be a neon sign pointing to it
+happy_1: the first time you learnt that the owner and bartender where married, it still baffles you
+happy_2: laughing with the owner on the stupendous way he broke his hip as he made you orange juice
+sad_1: you felt terrible for loosing that beautiful pendant
+empty_0: you gave the young girl a rare item for some reason, you dont remember what
+happy_3: Hanging out with the young girl was the only reason you had alot of fun
+sad_2: When you had to leave for a long time you promised her that you would get the white flower that grows at the top of the northeast mountain
 
-sad_0: annoying the bartender as messengers told you of your parents passing from the choir demons
-sad_1: how terrible you felt for loosing that beautiful pendant
