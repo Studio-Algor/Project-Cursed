@@ -1,52 +1,49 @@
-[gd_scene load_steps=63 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=60 format=4 uid="uid://ca2dgxr4qoknj"]
 
-[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="1_bb450"]
-[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_ebg2g"]
-[ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="1_elqb8"]
-[ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="1_rvslj"]
-[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scenes/pause_menu.gd" id="2_dg70y"]
-[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="2_nfivy"]
-[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="3_0bbpv"]
-[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="3_1nqs0"]
-[ext_resource type="Texture2D" uid="uid://bjs12nrsxttki" path="res://sprites/Wasp.png" id="3_pnhog"]
-[ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="4_lhr70"]
-[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="4_rarhs"]
-[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="5_2c4at"]
-[ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="6_bjd11"]
-[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="6_e2s0e"]
-[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="7_bjd11"]
-[ext_resource type="Texture2D" uid="uid://vw735n6xc3yv" path="res://sprites/Change Tab.png" id="7_g6wdg"]
-[ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="7_gsxep"]
-[ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="8_jlsqs"]
-[ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="8_v0vrg"]
-[ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="9_dg70y"]
-[ext_resource type="Texture2D" uid="uid://bf7knbdpgf7gy" path="res://sprites/gun/reload/finishedreload0005.png" id="10_pnhog"]
-[ext_resource type="Texture2D" uid="uid://bv862488ronrk" path="res://sprites/gun/reload/finishedreload0006.png" id="11_2c4at"]
-[ext_resource type="Texture2D" uid="uid://bux3w0weywbio" path="res://sprites/gun/reload/finishedreload0007.png" id="12_g6wdg"]
-[ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="13_e2s0e"]
-[ext_resource type="Texture2D" uid="uid://bkqtvvgu3guh" path="res://sprites/gun/reload/finishedreload0008.png" id="13_hq6as"]
-[ext_resource type="Texture2D" uid="uid://dlw8psg8xd4hd" path="res://sprites/gun/reload/finishedreload0009.png" id="14_kxyth"]
-[ext_resource type="Texture2D" uid="uid://brrmef1c0p3hm" path="res://sprites/gun/reload/finishedreload0010.png" id="15_cobve"]
-[ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="15_yxlcp"]
-[ext_resource type="Texture2D" uid="uid://bldrbok5i2a6d" path="res://sprites/gun/reload/finishedreload0011.png" id="16_cmqll"]
-[ext_resource type="Texture2D" uid="uid://ccb48eolrf6mn" path="res://sprites/gun/reload/finishedreload0012.png" id="17_8cp6k"]
-[ext_resource type="Texture2D" uid="uid://df8xp8q1d3a6t" path="res://sprites/gun/reload/finishedreload0013.png" id="18_8b871"]
-[ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="18_ebg2g"]
-[ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="20_gsxep"]
-[ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="21_v0vrg"]
-[ext_resource type="Script" uid="uid://cg4wo6ajdor22" path="res://scripts/npc.gd" id="22_2ofn6"]
+[ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_njhi0"]
+[ext_resource type="PackedScene" uid="uid://cde67ifyewf63" path="res://scenes/pause_menu.tscn" id="2_b6o6j"]
+[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="3_5ee8h"]
+[ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="6_2nudb"]
+[ext_resource type="Script" uid="uid://535pnipwb6tb" path="res://scripts/Gun.gd" id="8_88g1f"]
+[ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="9_6kgvn"]
+[ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="10_7ohyq"]
+[ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="11_ftlne"]
+[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="12_ady1f"]
+[ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="13_s7tqb"]
+[ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="14_jf6qw"]
+[ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="15_5fpmp"]
+[ext_resource type="Texture2D" uid="uid://bf7knbdpgf7gy" path="res://sprites/gun/reload/finishedreload0005.png" id="16_aov8w"]
+[ext_resource type="Texture2D" uid="uid://bv862488ronrk" path="res://sprites/gun/reload/finishedreload0006.png" id="17_hnaau"]
+[ext_resource type="Texture2D" uid="uid://bux3w0weywbio" path="res://sprites/gun/reload/finishedreload0007.png" id="18_6m7at"]
+[ext_resource type="Texture2D" uid="uid://bkqtvvgu3guh" path="res://sprites/gun/reload/finishedreload0008.png" id="19_hvdvd"]
+[ext_resource type="Texture2D" uid="uid://dlw8psg8xd4hd" path="res://sprites/gun/reload/finishedreload0009.png" id="20_td86o"]
+[ext_resource type="Texture2D" uid="uid://brrmef1c0p3hm" path="res://sprites/gun/reload/finishedreload0010.png" id="21_hx51p"]
+[ext_resource type="Texture2D" uid="uid://bldrbok5i2a6d" path="res://sprites/gun/reload/finishedreload0011.png" id="22_ucrtl"]
+[ext_resource type="Texture2D" uid="uid://ccb48eolrf6mn" path="res://sprites/gun/reload/finishedreload0012.png" id="23_p7sl2"]
+[ext_resource type="Texture2D" uid="uid://df8xp8q1d3a6t" path="res://sprites/gun/reload/finishedreload0013.png" id="24_iotlw"]
+[ext_resource type="Texture2D" uid="uid://dlsnrtrw5nicn" path="res://sprites/gun/shoot/fuckulongman0001.png" id="25_02oug"]
+[ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="26_ghd2a"]
+[ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="27_kk107"]
+[ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="28_y7on2"]
+[ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="29_1m2di"]
+[ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="30_f7dve"]
+[ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="31_kxule"]
+[ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="32_1njp3"]
+[ext_resource type="Script" uid="uid://cg4wo6ajdor22" path="res://scripts/npc.gd" id="33_2c8jv"]
+[ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="34_nhqn2"]
+[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="35_nnunx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_bb450")
+"texture": ExtResource("9_6kgvn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_nfivy")
+"texture": ExtResource("10_7ohyq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1nqs0")
+"texture": ExtResource("11_ftlne")
 }],
 "loop": true,
 "name": &"idle",
@@ -54,43 +51,43 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_e2s0e")
+"texture": ExtResource("12_ady1f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_gsxep")
+"texture": ExtResource("13_s7tqb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_v0vrg")
+"texture": ExtResource("14_jf6qw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_dg70y")
+"texture": ExtResource("15_5fpmp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_pnhog")
+"texture": ExtResource("16_aov8w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_2c4at")
+"texture": ExtResource("17_hnaau")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_g6wdg")
+"texture": ExtResource("18_6m7at")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_hq6as")
+"texture": ExtResource("19_hvdvd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_kxyth")
+"texture": ExtResource("20_td86o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_cobve")
+"texture": ExtResource("21_hx51p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_cmqll")
+"texture": ExtResource("22_ucrtl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_8cp6k")
+"texture": ExtResource("23_p7sl2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_8b871")
+"texture": ExtResource("24_iotlw")
 }],
 "loop": false,
 "name": &"reload",
@@ -98,7 +95,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_e2s0e")
+"texture": ExtResource("25_02oug")
 }],
 "loop": false,
 "name": &"shoot",
@@ -124,14 +121,14 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp0k4"]
 specular_mode = 2
-albedo_texture = ExtResource("15_yxlcp")
+albedo_texture = ExtResource("6_2nudb")
 uv1_scale = Vector3(25, 25, 25)
 texture_filter = 4
 grow_amount = -0.375
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwfav"]
 transparency = 1
-albedo_texture = ExtResource("6_bjd11")
+albedo_texture = ExtResource("29_1m2di")
 texture_filter = 4
 disable_receive_shadows = true
 
@@ -177,7 +174,7 @@ shadow_mesh = SubResource("ArrayMesh_2c4at")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ofn6"]
 shading_mode = 0
-albedo_texture = ExtResource("7_bjd11")
+albedo_texture = ExtResource("3_5ee8h")
 uv1_scale = Vector3(0.885, 3.275, -1.08)
 uv1_triplanar_sharpness = 0.0136024
 texture_filter = 4
@@ -216,7 +213,7 @@ shadow_mesh = SubResource("ArrayMesh_qmd23")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmy6f"]
 shading_mode = 0
-albedo_texture = ExtResource("7_bjd11")
+albedo_texture = ExtResource("3_5ee8h")
 uv1_scale = Vector3(8, 80, 1)
 texture_filter = 2
 
@@ -252,15 +249,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l3wao")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjd11"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6wdg"]
 transparency = 1
-albedo_texture = ExtResource("18_ebg2g")
+albedo_texture = ExtResource("30_f7dve")
 texture_filter = 4
 disable_receive_shadows = true
 billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_bjd11"]
-material = SubResource("StandardMaterial3D_bjd11")
+material = SubResource("StandardMaterial3D_g6wdg")
 size = Vector2(0.6, 0.6)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
@@ -272,7 +269,7 @@ height = 1.85
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0, 0.833171, 0.379747, 0)
-albedo_texture = ExtResource("1_rvslj")
+albedo_texture = ExtResource("34_nhqn2")
 billboard_mode = 2
 billboard_keep_scale = true
 
@@ -313,7 +310,7 @@ size = Vector2(1.5, 2.1)
 [node name="Node3D" type="Node3D"]
 
 [node name="Dialogue Handler" type="Node" parent="."]
-script = ExtResource("1_ebg2g")
+script = ExtResource("1_njhi0")
 metadata/_custom_type_script = "uid://c4aas6rmg5h8h"
 
 [node name="Dialogue Box" type="RichTextLabel" parent="Dialogue Handler"]
@@ -327,259 +324,7 @@ grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
 
-[node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("tabs", "happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("2_dg70y")
-tabs = [NodePath("Memory"), NodePath("Options & Credits")]
-happy_memory_label = NodePath("Memory/Happy/Happy Descriptions")
-sad_memory_label = NodePath("Memory/Sad/Sad Descriptions")
-angry_memory_label = NodePath("Memory/Angry/Angry Descriptions")
-empty_memory_label = NodePath("Memory/Empty/Empty Descriptions")
-
-[node name="Memory" type="Control" parent="Pause Menu"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="ColorRect" parent="Pause Menu/Memory"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
-
-[node name="Caption" type="RichTextLabel" parent="Pause Menu/Memory"]
-offset_left = 13.0
-offset_top = 6.0
-offset_right = 766.0
-offset_bottom = 271.0
-theme_override_font_sizes/normal_font_size = 60
-text = "Memories"
-
-[node name="Happy" type="Control" parent="Pause Menu/Memory"]
-layout_mode = 1
-anchor_left = 0.2
-anchor_right = 0.2
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_right = 60.0
-grow_horizontal = 2
-
-[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Happy"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_top = 107.0
-offset_right = 32.0
-offset_bottom = 171.0
-grow_horizontal = 2
-pivot_offset = Vector2(32, 32)
-texture = ExtResource("7_bjd11")
-stretch_mode = 4
-
-[node name="Happy Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Happy"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.75
-anchor_right = 1.75
-offset_top = 207.0
-offset_right = -1.52588e-05
-offset_bottom = 664.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "-insulting the bartenders beard when you first met him
-
--playing poker with the bartender and losing 86 times in a row"
-
-[node name="Angry" type="Control" parent="Pause Menu/Memory"]
-layout_mode = 1
-anchor_left = 0.4
-anchor_right = 0.4
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_right = 60.0
-grow_horizontal = 2
-
-[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Angry"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_top = 107.0
-offset_right = 32.0
-offset_bottom = 171.0
-grow_horizontal = 2
-pivot_offset = Vector2(32, 32)
-texture = ExtResource("3_pnhog")
-stretch_mode = 4
-
-[node name="Angry Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Angry"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.75
-anchor_right = 1.75
-offset_top = 207.0
-offset_right = -1.52588e-05
-offset_bottom = 664.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "-insulting the bartenders beard when you first met him
-
--playing poker with the bartender and losing 86 times in a row"
-
-[node name="Sad" type="Control" parent="Pause Menu/Memory"]
-layout_mode = 1
-anchor_left = 0.6
-anchor_right = 0.6
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_right = 60.0
-grow_horizontal = 2
-
-[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Sad"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_top = 107.0
-offset_right = 32.0
-offset_bottom = 171.0
-grow_horizontal = 2
-pivot_offset = Vector2(32, 32)
-texture = ExtResource("5_2c4at")
-stretch_mode = 4
-
-[node name="Sad Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Sad"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.75
-anchor_right = 1.75
-offset_top = 207.0
-offset_right = -1.52588e-05
-offset_bottom = 664.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "-insulting the bartenders beard when you first met him
-
--playing poker with the bartender and losing 86 times in a row"
-
-[node name="Empty" type="Control" parent="Pause Menu/Memory"]
-layout_mode = 1
-anchor_left = 0.8
-anchor_right = 0.8
-anchor_bottom = 1.0
-offset_left = -60.0
-offset_right = 60.0
-grow_horizontal = 2
-
-[node name="Icon" type="TextureRect" parent="Pause Menu/Memory/Empty"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_top = 107.0
-offset_right = 32.0
-offset_bottom = 171.0
-grow_horizontal = 2
-pivot_offset = Vector2(32, 32)
-texture = ExtResource("15_yxlcp")
-stretch_mode = 4
-
-[node name="Empty Descriptions" type="RichTextLabel" parent="Pause Menu/Memory/Empty"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.75
-anchor_right = 1.75
-offset_top = 207.0
-offset_right = -1.52588e-05
-offset_bottom = 664.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "-insulting the bartenders beard when you first met him
-
--playing poker with the bartender and losing 86 times in a row"
-
-[node name="Options & Credits" type="Control" parent="Pause Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="ColorRect" parent="Pause Menu/Options & Credits"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
-
-[node name="Caption" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
-offset_left = 13.0
-offset_top = 6.0
-offset_right = 766.0
-offset_bottom = 271.0
-theme_override_font_sizes/normal_font_size = 60
-text = "Credits"
-
-[node name="Credits" type="RichTextLabel" parent="Pause Menu/Options & Credits"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.165
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = -33.92
-offset_right = 21.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "- Programming & Direction by StaringLongingly
-- Writing by Ice_Kabob
-- Meshes by Ice_Kabob
-- Sprites by Just RayVa"
-
-[node name="TextureRect" type="TextureRect" parent="Pause Menu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_top = -8.0
-offset_right = 1131.0
-offset_bottom = 504.0
-grow_horizontal = 0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_g6wdg")
+[node name="Pause Menu" parent="." instance=ExtResource("2_b6o6j")]
 
 [node name="HUD & Gun" type="Control" parent="."]
 visible = false
@@ -649,7 +394,7 @@ offset_left = -40.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-script = ExtResource("3_0bbpv")
+script = ExtResource("8_88g1f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
 texture_filter = 1
@@ -673,7 +418,7 @@ offset_bottom = 42.07
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("20_gsxep")
+script = ExtResource("26_ghd2a")
 
 [node name="choice_1" type="RichTextLabel" parent="HUD & Gun/Choices"]
 layout_mode = 1
@@ -748,7 +493,7 @@ offset_bottom = -77.0725
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("21_v0vrg")
+texture = ExtResource("27_kk107")
 expand_mode = 1
 stretch_mode = 2
 
@@ -765,14 +510,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.041, 0)
 use_collision = true
 collision_mask = 31
 size = Vector3(25, 0.5, 25)
-material = ExtResource("4_lhr70")
+material = ExtResource("28_y7on2")
 
 [node name="Ceiling" type="CSGBox3D" parent="Map/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 use_collision = true
 collision_mask = 31
 size = Vector3(25, 0.5, 10)
-material = ExtResource("4_lhr70")
+material = ExtResource("28_y7on2")
 
 [node name="East Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 4, -5)
@@ -882,14 +627,14 @@ gi_mode = 0
 mesh = SubResource("QuadMesh_bjd11")
 skeleton = NodePath("../..")
 
-[node name="Enemy Hit Particles" parent="." instance=ExtResource("8_jlsqs")]
+[node name="Enemy Hit Particles" parent="." instance=ExtResource("31_kxule")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.62443, 1.76632, 0)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5409, 0)
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_elqb8")
+script = ExtResource("32_1njp3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_rvslj")
@@ -906,7 +651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148296, -0.0058043, 0.000
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191599, 1.3529, -3.70019)
 collision_layer = 4
 collision_mask = 31
-script = ExtResource("22_2ofn6")
+script = ExtResource("33_2c8jv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Bartender"]
 shape = SubResource("CapsuleShape3D_0bbpv")
@@ -919,7 +664,7 @@ mesh = SubResource("QuadMesh_0bbpv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69862, 1.3529, -3.21148)
 collision_layer = 4
 collision_mask = 31
-script = ExtResource("22_2ofn6")
+script = ExtResource("33_2c8jv")
 NPC_name = "Owner"
 DLG_path = "dialogue/owner.txt"
 
@@ -934,9 +679,9 @@ mesh = SubResource("QuadMesh_pnhog")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
 collision_layer = 4
 collision_mask = 31
-script = ExtResource("4_rarhs")
+script = ExtResource("35_nnunx")
 max_speed = 5
-hit_particles_scene = ExtResource("8_jlsqs")
+hit_particles_scene = ExtResource("31_kxule")
 player_path = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]

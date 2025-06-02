@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://duk6adwr0cikg"]
+
+[ext_resource type="Texture2D" uid="uid://r1p8awv6aly4" path="res://sprites/desert/cactus.png" id="1_fy5iu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khquj"]
+transparency = 1
+albedo_texture = ExtResource("1_fy5iu")
+texture_filter = 4
+disable_receive_shadows = true
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_ewc1k"]
+material = SubResource("StandardMaterial3D_khquj")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k7v5t"]
+radius = 1.5
+height = 3.0
+
+[node name="Cactus" type="MeshInstance3D"]
+gi_mode = 0
+mesh = SubResource("QuadMesh_ewc1k")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_mask = 31
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_k7v5t")

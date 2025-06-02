@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cr1j8iq2k8vph"]
 
-[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scenes/Enemy.gd" id="1_qi2p4"]
+[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="1_qi2p4"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="3_epg4t"]
 

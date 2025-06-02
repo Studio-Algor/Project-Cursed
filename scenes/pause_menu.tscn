@@ -1,0 +1,264 @@
+[gd_scene load_steps=7 format=3 uid="uid://cde67ifyewf63"]
+
+[ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scenes/pause_menu.gd" id="1_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="2_1s2dm"]
+[ext_resource type="Texture2D" uid="uid://bjs12nrsxttki" path="res://sprites/Wasp.png" id="3_88e76"]
+[ext_resource type="Texture2D" uid="uid://w8qmqqihjbbe" path="res://sprites/saloon/planks.png" id="4_knqa7"]
+[ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="5_71k7c"]
+[ext_resource type="Texture2D" uid="uid://vw735n6xc3yv" path="res://sprites/Change Tab.png" id="6_cmnsq"]
+
+[node name="Pause Menu" type="Control" node_paths=PackedStringArray("tabs", "happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_v4r4p")
+tabs = [NodePath("Memory"), NodePath("Options & Credits")]
+happy_memory_label = NodePath("Memory/Happy/Happy Descriptions")
+sad_memory_label = NodePath("Memory/Sad/Sad Descriptions")
+angry_memory_label = NodePath("Memory/Angry/Angry Descriptions")
+empty_memory_label = NodePath("Memory/Empty/Empty Descriptions")
+
+[node name="Memory" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Memory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Caption" type="RichTextLabel" parent="Memory"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Memories"
+
+[node name="Happy" type="Control" parent="Memory"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Memory/Happy"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_1s2dm")
+stretch_mode = 4
+
+[node name="Happy Descriptions" type="RichTextLabel" parent="Memory/Happy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Angry" type="Control" parent="Memory"]
+layout_mode = 1
+anchor_left = 0.4
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Memory/Angry"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("3_88e76")
+stretch_mode = 4
+
+[node name="Angry Descriptions" type="RichTextLabel" parent="Memory/Angry"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Sad" type="Control" parent="Memory"]
+layout_mode = 1
+anchor_left = 0.6
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Memory/Sad"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_knqa7")
+stretch_mode = 4
+
+[node name="Sad Descriptions" type="RichTextLabel" parent="Memory/Sad"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Empty" type="Control" parent="Memory"]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = 60.0
+grow_horizontal = 2
+
+[node name="Icon" type="TextureRect" parent="Memory/Empty"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 171.0
+grow_horizontal = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("5_71k7c")
+stretch_mode = 4
+
+[node name="Empty Descriptions" type="RichTextLabel" parent="Memory/Empty"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+offset_top = 207.0
+offset_right = -1.52588e-05
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "-insulting the bartenders beard when you first met him
+
+-playing poker with the bartender and losing 86 times in a row"
+
+[node name="Options & Credits" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Options & Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.792157)
+
+[node name="Caption" type="RichTextLabel" parent="Options & Credits"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 766.0
+offset_bottom = 271.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Credits"
+
+[node name="Credits" type="RichTextLabel" parent="Options & Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.165
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -33.92
+offset_right = 21.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "- Programming & Direction by StaringLongingly
+- Writing by Ice_Kabob
+- Meshes by Ice_Kabob
+- Sprites by Just RayVa"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -8.0
+offset_right = 1131.0
+offset_bottom = 504.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_cmnsq")

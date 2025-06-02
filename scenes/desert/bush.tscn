@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://35moj3odvr7k"]
+
+[ext_resource type="Texture2D" uid="uid://cpscas3dr6u7s" path="res://sprites/desert/bush.png" id="1_toiid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8yx2"]
+transparency = 1
+albedo_texture = ExtResource("1_toiid")
+texture_filter = 4
+disable_receive_shadows = true
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_4e8lv"]
+material = SubResource("StandardMaterial3D_q8yx2")
+
+[node name="Bush" type="MeshInstance3D"]
+gi_mode = 0
+mesh = SubResource("QuadMesh_4e8lv")
+skeleton = NodePath("../..")
