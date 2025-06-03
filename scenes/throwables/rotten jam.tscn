@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://dg5h8rtgr6rmh"]
+
+[ext_resource type="Script" uid="uid://b2ty6uwy77ibx" path="res://scripts/throwable.gd" id="1_3bu02"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2nnd5"]
+load_path = "res://.godot/imported/Sample Jar.png-13ccfa1967aaea4ff5825593126e30b8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ef5ia"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_2nnd5")
+texture_filter = 4
+disable_receive_shadows = true
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_nputv"]
+material = SubResource("StandardMaterial3D_ef5ia")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2nnd5"]
+radius = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bk7v4"]
+radius = 1.0
+
+[sub_resource type="Curve" id="Curve_2nnd5"]
+_data = [Vector2(0.404412, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.25993, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ef5ia"]
+curve = SubResource("Curve_2nnd5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2nnd5"]
+direction = Vector3(0, 1, 0)
+spread = 130.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+scale_min = 0.0
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_ef5ia")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nputv"]
+albedo_color = Color(0.106876, 0.00415917, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_16dhb"]
+material = SubResource("StandardMaterial3D_nputv")
+radius = 0.025
+height = 0.05
+
+[sub_resource type="Skin" id="Skin_2nnd5"]
+bind_count = 8
+bind/0/name = &""
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/1/name = &""
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/2/name = &""
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/3/name = &""
+bind/3/bone = -1
+bind/3/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/4/name = &""
+bind/4/bone = -1
+bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/5/name = &""
+bind/5/bone = -1
+bind/5/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/6/name = &""
+bind/6/bone = -1
+bind/6/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/7/name = &""
+bind/7/bone = -1
+bind/7/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Throwable" type="Node3D"]
+script = ExtResource("1_3bu02")
+direct_damage = 5.0
+explosion_damage = 10.0
+direct_radius = 0.1
+debug = true
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+gi_mode = 0
+mesh = SubResource("QuadMesh_nputv")
+
+[node name="Direct" type="Area3D" parent="." groups=["DH_Throwables"]]
+collision_layer = 8
+collision_mask = 13
+
+[node name="DH" type="CollisionShape3D" parent="Direct"]
+shape = SubResource("SphereShape3D_2nnd5")
+
+[node name="Explosion" type="Area3D" parent="." groups=["EH_Throwables"]]
+collision_layer = 32
+collision_mask = 13
+input_ray_pickable = false
+
+[node name="EH" type="CollisionShape3D" parent="Explosion"]
+shape = SubResource("SphereShape3D_bk7v4")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Explosion"]
+amount = 64
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2nnd5")
+draw_pass_1 = SubResource("CapsuleMesh_16dhb")
+draw_skin = SubResource("Skin_2nnd5")
+
+[connection signal="body_entered" from="Direct" to="." method="_on_direct_body_entered"]
+[connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]
+[connection signal="body_exited" from="Explosion" to="." method="_on_explosion_body_exited"]

@@ -43,9 +43,10 @@ func queue_animation(animation_name: String) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	# Play idle animation when another animation finishes
 	var animator: AnimatedSprite2D = $AnimatedSprite2D
-	if debug: print("Going Back to Idle")
+	if debug: print("Going Back to Idle for Gun")
 	animator.position = idle_position
 	animator.play("idle")
+	$"../Throwing".visible = true
 	is_idle = true
 
 func shoot():
@@ -62,26 +63,35 @@ func shoot():
 	var space_state = camera.get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(ro, rm)
 	query.collide_with_bodies = true
-	query.collide_with_areas = false
+	query.collide_with_areas = true
 	query.collision_mask = (1 << 32) - 1
-	query.collision_mask &= ~(1 << 1)
+	query.collision_mask = exclude_bit_at_position(query.collision_mask, 2)
+	query.collision_mask = exclude_bit_at_position(query.collision_mask, 6)
 	var result: Dictionary = space_state.intersect_ray(query)
 	
 	# Check if it hit an enemy or NPC
 	var is_enemy
 	var is_npc
+	var is_dh_throwable
 	if not result.is_empty():
 		is_enemy = result.collider.is_in_group("Enemies")
+		is_dh_throwable = result.collider.is_in_group("DH_Throwables")
 		is_npc = result.collider.is_in_group("NPCs")
+		if debug: print("Collided with body: ", result.collider)
 	if is_enemy:
 		result.collider.take_damage(result.position, 1)
+	if is_dh_throwable:
+		result.collider.get_parent().explode()
+	
 	if is_npc:
 		result.collider.talk()
 	else:
+		# If its not an npc, shoot
 		add_child(shoot_sfx.instantiate())
 		queue_animation("shoot")
 
 func reload():
+	$"../Throwing".visible = false
 	is_idle = false
 	current_bullets = max_bullets
 	queue_animation("reload")
@@ -93,3 +103,6 @@ func reload():
 
 func _on_dialogue_handler_dialogue_ended() -> void:
 	is_idle = true
+
+func exclude_bit_at_position(original_mask: int, layer_index: int) -> int:
+	return original_mask & ~(1 << layer_index-1)

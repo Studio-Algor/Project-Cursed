@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export_category("Stats")
-@export var max_hp = 10
+@export var max_hp: float = 10
 var hp: float
 @export var max_speed = 10
 

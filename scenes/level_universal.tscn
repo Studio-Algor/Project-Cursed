@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dsgbrttwd5w0i"]
+[gd_scene load_steps=59 format=4 uid="uid://dsgbrttwd5w0i"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_5yfbn"]
 [ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scripts/pause_menu.gd" id="2_fp7bw"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cgwudyprvx6ef" path="res://sprites/gun/idle/untitled0001.png" id="10_0qyeb"]
 [ext_resource type="Texture2D" uid="uid://dpmy5c7xuyps7" path="res://sprites/gun/idle/untitled0002.png" id="11_sdtj2"]
 [ext_resource type="Texture2D" uid="uid://bqtkvk1tdkpsr" path="res://sprites/gun/idle/untitled0003.png" id="12_pkcyt"]
-[ext_resource type="Texture2D" uid="uid://cejmul7sbi0h3" path="res://sprites/gun/reload/finishedreload0001.png" id="13_32neu"]
 [ext_resource type="Texture2D" uid="uid://cr7qr82kgn8lh" path="res://sprites/gun/reload/finishedreload0002.png" id="14_yxg2k"]
 [ext_resource type="Texture2D" uid="uid://cmcgpwb2yp461" path="res://sprites/gun/reload/finishedreload0003.png" id="15_h17yv"]
 [ext_resource type="Texture2D" uid="uid://bmpvpt80qcjqp" path="res://sprites/gun/reload/finishedreload0004.png" id="16_u7mnn"]
@@ -29,9 +28,31 @@
 [ext_resource type="AudioStream" uid="uid://blt4rj0p4qj5h" path="res://sound/effects/bullet_toss.wav" id="27_5w4fj"]
 [ext_resource type="AudioStream" uid="uid://dvib06fk60y2p" path="res://sound/effects/reload.wav" id="28_2gsxr"]
 [ext_resource type="Script" uid="uid://bv3qdp73rvt1h" path="res://scripts/choices_text_manager.gd" id="29_pml82"]
+[ext_resource type="Script" uid="uid://bc23tgh4rok4m" path="res://scenes/switch_selected_item.gd" id="30_4ogna"]
 [ext_resource type="Texture2D" uid="uid://bkgwgi228dska" path="res://sprites/Dialogue_Options.png" id="30_nhs2k"]
 [ext_resource type="Script" uid="uid://da3wqt7cfwi7r" path="res://scripts/Player.gd" id="31_83u07"]
+[ext_resource type="Texture2D" uid="uid://bs62y2v6wldgm" path="res://sprites/items/Sample Jar.png" id="31_pkfo5"]
+[ext_resource type="Texture2D" uid="uid://cyji57mlwu1nc" path="res://sprites/hand/holding/handholdbottom0001.png" id="32_2seci"]
 [ext_resource type="AudioStream" uid="uid://hvmqh72evdtr" path="res://sound/effects/jump.wav" id="32_ewlmp"]
+[ext_resource type="Texture2D" uid="uid://bhyqxrqslhy6v" path="res://sprites/hand/holding/handholdbottom0002.png" id="33_t4sud"]
+[ext_resource type="Texture2D" uid="uid://betdwqdxhe1vn" path="res://sprites/hand/holding/handholdbottom0003.png" id="34_g6hcf"]
+[ext_resource type="Texture2D" uid="uid://btaxpdaqd314f" path="res://sprites/hand/throwing/throwfinished1.png" id="35_2seci"]
+[ext_resource type="Texture2D" uid="uid://dmtkd7hecadgc" path="res://sprites/hand/throwing/throwfinished2.png" id="36_t4sud"]
+[ext_resource type="Texture2D" uid="uid://cr4j111ffh8dn" path="res://sprites/hand/throwing/throwfinished3.png" id="37_g6hcf"]
+[ext_resource type="Texture2D" uid="uid://uf0oa322flcv" path="res://sprites/hand/throwing/throwfinished4.png" id="38_i4ww5"]
+[ext_resource type="PackedScene" uid="uid://dg5h8rtgr6rmh" path="res://scenes/throwables/rotten jam.tscn" id="38_vcnkf"]
+[ext_resource type="Texture2D" uid="uid://dvg8dnb88cowa" path="res://sprites/hand/throwing/throwfinished5.png" id="39_xold1"]
+[ext_resource type="Texture2D" uid="uid://ds2jtjulu1n6p" path="res://sprites/hand/throwing/throwfinished6.png" id="40_5w4fj"]
+[ext_resource type="Texture2D" uid="uid://djfyx8s1s5rlk" path="res://sprites/hand/throwing/throwfinished7.png" id="41_2gsxr"]
+[ext_resource type="Texture2D" uid="uid://cfnwv7pox1rhe" path="res://sprites/hand/throwing/throwfinished8.png" id="42_pml82"]
+[ext_resource type="Texture2D" uid="uid://bf0smnb8kx8hx" path="res://sprites/hand/holding/handholdtop0001.png" id="43_2seci"]
+[ext_resource type="Texture2D" uid="uid://depljbgsccv3t" path="res://sprites/hand/holding/handholdtop0002.png" id="44_t4sud"]
+[ext_resource type="Texture2D" uid="uid://dnqqvcioldgl6" path="res://sprites/hand/holding/handholdtop0003.png" id="45_g6hcf"]
+[ext_resource type="Texture2D" uid="uid://b6wjed4ovr0d4" path="res://sprites/hand/throwing/fingerfinished1.png" id="46_nhs2k"]
+[ext_resource type="Texture2D" uid="uid://coeaqufgrqwmh" path="res://sprites/hand/throwing/fingerfinished2.png" id="47_83u07"]
+[ext_resource type="Texture2D" uid="uid://bgetf62a23hyi" path="res://sprites/hand/throwing/fingerfinished3.png" id="48_ewlmp"]
+[ext_resource type="Texture2D" uid="uid://jbc7irm3s00u" path="res://sprites/hand/throwing/fingerfinished4.png" id="49_w1yib"]
+[ext_resource type="Texture2D" uid="uid://cuig82w0ylxne" path="res://sprites/hand/throwing/fingerfinished5.png" id="50_uar52"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -50,9 +71,6 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_32neu")
-}, {
 "duration": 1.0,
 "texture": ExtResource("14_yxg2k")
 }, {
@@ -102,6 +120,89 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_pkcyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_2seci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_t4sud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_g6hcf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_2seci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_t4sud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_g6hcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_i4ww5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_xold1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_5w4fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_2gsxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_pml82")
+}],
+"loop": false,
+"name": &"throwing",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ogna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_2seci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_t4sud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_g6hcf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_nhs2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_83u07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ewlmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_w1yib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_uar52")
+}],
+"loop": false,
+"name": &"throwing",
+"speed": 12.0
+}]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvslj"]
 height = 1.85
 
@@ -130,6 +231,7 @@ bbcode_enabled = true
 
 [node name="Pause Menu" type="Control" parent="." node_paths=PackedStringArray("tabs", "happy_memory_label", "sad_memory_label", "angry_memory_label", "empty_memory_label")]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,7 +490,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_fijbj")
 
 [node name="HUD & Gun" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -457,6 +558,7 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("8_vcnkf")
 shoot_sfx = ExtResource("9_4ogna")
+debug = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD & Gun/Gun"]
 texture_filter = 1
@@ -465,7 +567,7 @@ scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_dg70y")
 animation = &"reload"
 autoplay = "idle"
-frame = 12
+frame = 11
 frame_progress = 1.0
 offset = Vector2(-74.91, -142.165)
 
@@ -566,12 +668,53 @@ texture = ExtResource("30_nhs2k")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("footsteps") groups=["Player"]]
+[node name="Throwing" type="Control" parent="HUD & Gun"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -58.0
+offset_right = 57.0
+offset_bottom = -18.0
+grow_vertical = 0
+scale = Vector2(1.77175, 1.77175)
+script = ExtResource("30_4ogna")
+
+[node name="Item" type="Sprite2D" parent="HUD & Gun/Throwing"]
+z_index = 1
+texture_filter = 1
+position = Vector2(123, -116)
+rotation = -0.56812
+scale = Vector2(4.95377, 4.95377)
+texture = ExtResource("31_pkfo5")
+
+[node name="Hand (Bottom)" type="AnimatedSprite2D" parent="HUD & Gun/Throwing"]
+texture_filter = 1
+position = Vector2(344.856, -94.8213)
+sprite_frames = SubResource("SpriteFrames_pkcyt")
+animation = &"throwing"
+autoplay = "idle"
+frame = 2
+
+[node name="Hand (Top)" type="AnimatedSprite2D" parent="HUD & Gun/Throwing"]
+z_index = 2
+texture_filter = 1
+position = Vector2(346.549, -85.7906)
+sprite_frames = SubResource("SpriteFrames_4ogna")
+animation = &"throwing"
+autoplay = "idle"
+frame = 2
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16482, 0)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("31_83u07")
-footsteps = NodePath("Footsteps")
+inventory_items = Array[PackedScene]([ExtResource("38_vcnkf")])
+inventory_amount = Array[int]([2])
+throw_offset = Vector3(-0.6, -0.2, -0.5)
+empty_hand_texture = ExtResource("4_k3adw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_rvslj")
@@ -592,8 +735,12 @@ stream = ExtResource("32_ewlmp")
 volume_db = -15.927
 pitch_scale = 1.57
 
+[node name="Throwables" type="Node" parent="."]
+
 [connection signal="choices_updated" from="Dialogue Handler" to="HUD & Gun/Choices" method="_on_dialogue_handler_choices_updated"]
 [connection signal="dialogue_ended" from="Dialogue Handler" to="Pause Menu" method="_on_dialogue_handler_dialogue_ended"]
 [connection signal="dialogue_ended" from="Dialogue Handler" to="HUD & Gun/Gun" method="_on_dialogue_handler_dialogue_ended"]
 [connection signal="dialogue_ended" from="Dialogue Handler" to="Player" method="_on_dialogue_handler_dialogue_ended"]
 [connection signal="animation_finished" from="HUD & Gun/Gun/AnimatedSprite2D" to="HUD & Gun/Gun" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Bottom)" to="HUD & Gun/Throwing" method="_on_hand_bottom_animation_finished"]
+[connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Top)" to="HUD & Gun/Throwing" method="_on_hand_top_animation_finished"]
