@@ -138,6 +138,48 @@ jobs:
           ITCH_USER: longingly
           PACKAGE: game_windows.zip
           
+  itch-upload-linux:
+    needs: linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: game_linux
+          
+      - name: Debug
+        run: ls
+
+      - name: Upload to itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: linux
+          ITCH_GAME: project-cursed
+          ITCH_USER: longingly
+          PACKAGE: game_linux.zip
+
+  itch-upload-web:
+    needs: web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Web artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: game_web
+          
+      - name: Debug
+        run: ls
+
+      - name: Upload to itch.io
+        uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html
+          ITCH_GAME: project-cursed
+          ITCH_USER: longingly
+          PACKAGE: game_web.zip
+          
   release:
     needs: [web, linux, windows]
     runs-on: ubuntu-latest
