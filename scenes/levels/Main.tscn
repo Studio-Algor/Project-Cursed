@@ -165,7 +165,7 @@ billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_bjd11"]
 material = SubResource("StandardMaterial3D_g6wdg")
-size = Vector2(0.6, 0.6)
+size = Vector2(0.8, 0.8)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 
@@ -299,6 +299,7 @@ mesh = SubResource("ArrayMesh_787br")
 skeleton = NodePath("")
 
 [node name="Stools" type="Node3D" parent="Map/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0506375, -0.375163)
 
 [node name="Stool" type="MeshInstance3D" parent="Map/NavigationRegion3D/Stools"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65909, 0.645743, -1.71698)
