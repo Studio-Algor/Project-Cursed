@@ -84,6 +84,7 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 		child.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	# Finished the attack
 	if is_in_melee_range(): player.take_damage(melee_damage)
+	queue_animation("idle")
 	is_attacking = false
 
 func is_in_melee_range() -> bool:

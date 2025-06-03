@@ -68,11 +68,6 @@ func _on_explosion_body_entered(body: Node3D) -> void:
 		return
 		
 	if debug: print("Explosion Hit on Throwable: ", self.name, " hit ", body.name)
-	
-	# Apply explosion damage
-	if explosion_damage > 0 and body.has_method("take_damage"):
-		body.take_damage(global_position, explosion_damage)
-		if debug: print("Applied explosion damage: ", explosion_damage, " to ", body.name)
 
 func set_direction(new_direction: Vector3):
 	var normalized_direction = new_direction.normalized()
@@ -96,6 +91,7 @@ func explode():
 			body.take_damage(body.global_position, explosion_damage)
 	has_exploded = true
 	velocity = Vector3.ZERO
+	
 
 func _on_explosion_finished():
 	"""Called when explosion animation/effect is complete"""

@@ -118,13 +118,14 @@ func _on_dialogue_handler_dialogue_ended() -> void:
 	is_talking = false
 
 func throw_current_item() -> void:
+	$"../HUD & Gun/Throwing".queue_animation("throwing")
+	inventory_amount[item_held_index] -= 1
 	await get_tree().create_timer(.2).timeout # Throw delay
 	last_thrown_item = inventory_items[item_held_index].instantiate()
-	inventory_amount[item_held_index] -= 1
 	
 	$"../Throwables".add_child(last_thrown_item)
 	last_thrown_item.global_position = $Head.global_position
-	$"../HUD & Gun/Throwing".queue_animation("throwing")
+
 	last_thrown_item.throw(velocity, throw_offset)
 	
 	if inventory_amount[item_held_index] == 0: $"../HUD & Gun/Throwing/Item".texture = empty_hand_texture
