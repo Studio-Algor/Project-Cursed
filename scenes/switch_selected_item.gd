@@ -39,3 +39,5 @@ func _on_hand_bottom_animation_finished() -> void:
 
 func _on_hand_top_animation_finished() -> void:
 	$"Hand (Top)".visible = false
+	$"Hand (Top)2".visible = false
+	$"Hand (Top)3".visible = false

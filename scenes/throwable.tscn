@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0wnpkpllujdv"]
+[gd_scene load_steps=14 format=3 uid="uid://d0wnpkpllujdv"]
 
 [ext_resource type="Script" uid="uid://b2ty6uwy77ibx" path="res://scripts/throwable.gd" id="1_y31su"]
+[ext_resource type="AudioStream" uid="uid://cp35acaxdhvy8" path="res://sound/effects/glass_breaking.wav" id="2_ef5ia"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2nnd5"]
 load_path = "res://.godot/imported/Sample Jar.png-13ccfa1967aaea4ff5825593126e30b8.s3tc.ctex"
@@ -106,6 +107,9 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_2nnd5")
 draw_pass_1 = SubResource("CapsuleMesh_16dhb")
 draw_skin = SubResource("Skin_2nnd5")
+
+[node name="Explosion SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ef5ia")
 
 [connection signal="body_entered" from="Direct" to="." method="_on_direct_body_entered"]
 [connection signal="body_entered" from="Explosion" to="." method="_on_explosion_body_entered"]

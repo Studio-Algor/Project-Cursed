@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://dsgbrttwd5w0i"]
+[gd_scene load_steps=60 format=4 uid="uid://dsgbrttwd5w0i"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_5yfbn"]
 [ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scripts/pause_menu.gd" id="2_fp7bw"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://bgetf62a23hyi" path="res://sprites/hand/throwing/fingerfinished3.png" id="48_ewlmp"]
 [ext_resource type="Texture2D" uid="uid://jbc7irm3s00u" path="res://sprites/hand/throwing/fingerfinished4.png" id="49_w1yib"]
 [ext_resource type="Texture2D" uid="uid://cuig82w0ylxne" path="res://sprites/hand/throwing/fingerfinished5.png" id="50_uar52"]
+[ext_resource type="Texture2D" uid="uid://s3rs023f1gd7" path="res://sprites/pendant.png" id="53_t4sud"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -706,6 +707,24 @@ animation = &"throwing"
 autoplay = "idle"
 frame = 2
 
+[node name="Hand (Top)2" type="AnimatedSprite2D" parent="HUD & Gun/Throwing"]
+z_index = 2
+texture_filter = 1
+position = Vector2(346.549, -85.7906)
+sprite_frames = SubResource("SpriteFrames_4ogna")
+animation = &"throwing"
+autoplay = "idle"
+frame = 2
+
+[node name="Hand (Top)3" type="AnimatedSprite2D" parent="HUD & Gun/Throwing"]
+z_index = 2
+texture_filter = 1
+position = Vector2(346.549, -85.7906)
+sprite_frames = SubResource("SpriteFrames_4ogna")
+animation = &"throwing"
+autoplay = "idle"
+frame = 2
+
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16482, 0)
 collision_layer = 2
@@ -714,7 +733,7 @@ script = ExtResource("31_83u07")
 inventory_items = Array[PackedScene]([ExtResource("38_vcnkf")])
 inventory_amount = Array[int]([2])
 throw_offset = Vector3(-0.6, -0.2, -0.5)
-empty_hand_texture = ExtResource("4_k3adw")
+empty_hand_texture = ExtResource("53_t4sud")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_rvslj")
@@ -744,3 +763,5 @@ pitch_scale = 1.57
 [connection signal="animation_finished" from="HUD & Gun/Gun/AnimatedSprite2D" to="HUD & Gun/Gun" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Bottom)" to="HUD & Gun/Throwing" method="_on_hand_bottom_animation_finished"]
 [connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Top)" to="HUD & Gun/Throwing" method="_on_hand_top_animation_finished"]
+[connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Top)2" to="HUD & Gun/Throwing" method="_on_hand_top_animation_finished"]
+[connection signal="animation_finished" from="HUD & Gun/Throwing/Hand (Top)3" to="HUD & Gun/Throwing" method="_on_hand_top_animation_finished"]

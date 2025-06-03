@@ -85,6 +85,7 @@ func explode():
 	if has_exploded:
 		return
 		
+	$"Explosion SFX".play()
 	$Mesh.visible = false
 	$Explosion/GPUParticles3D.one_shot = true
 	$Explosion/GPUParticles3D.emitting = true
