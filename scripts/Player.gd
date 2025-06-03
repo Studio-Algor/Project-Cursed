@@ -3,6 +3,10 @@ extends CharacterBody3D
 const SENSITIVITY = 0.003
 var is_talking: bool = false
 
+@export_category("Stats")
+@export var max_hp: float
+var hp: float
+
 @export_category("Inventory")
 @export var inventory_items: Array[PackedScene]
 @export var inventory_amount: Array[int]
@@ -41,7 +45,9 @@ const FOV_CHANGE = 1.5
 @export_category("Debug")
 @export var debug: bool = false
 
-func _ready() -> void: if inventory_amount[item_held_index] == 0: $"../HUD & Gun/Throwing/Item".texture = empty_hand_texture
+func _ready() -> void:
+	if inventory_amount[item_held_index] == 0: $"../HUD & Gun/Throwing/Item".texture = empty_hand_texture
+	hp = max_hp
 
 # Capture in HTML5
 func _input(_event):
@@ -130,3 +136,19 @@ func previous_item():
 func next_item():
 	if item_held_index < inventory_items.size() - 1: item_held_index += 1
 	elif debug: print("Rightmost Item Already Selected")
+
+func take_damage(damage: float = 0):
+	$Hit.play()
+	# Damage Calculations
+	hp -= damage
+	if debug:
+		print("Enemy Hit!")
+		print("  Damage: ", damage)
+		print("  Current HP: ", hp)
+		print("  Position: ", global_position)
+		
+	if hp <= 0:
+		death()
+		
+func death():
+	pass

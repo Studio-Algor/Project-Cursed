@@ -1,14 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=13 format=3 uid="uid://cuk2wgleypos2"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_55271"]
+[ext_resource type="PackedScene" uid="uid://cdbioqw7ry1ef" path="res://scenes/desert/bandit.tscn" id="7_8q4qk"]
 [ext_resource type="PackedScene" uid="uid://35moj3odvr7k" path="res://scenes/desert/bush.tscn" id="24_83sxt"]
 [ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scripts/decals.gd" id="25_sg2la"]
 [ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scripts/enemies_manager.gd" id="28_q8yx2"]
 [ext_resource type="Texture2D" uid="uid://b1hpyj05hgv2m" path="res://sprites/desert/sand.png" id="28_rw0qd"]
 [ext_resource type="PackedScene" uid="uid://duk6adwr0cikg" path="res://scenes/desert/cactus.tscn" id="29_631dt"]
-[ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="31_f7kjo"]
-[ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="32_5pqon"]
-[ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="33_32jpr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2l3qn"]
 sky_top_color = Color(0.260647, 0.523507, 0.767478, 1)
@@ -43,20 +41,6 @@ albedo_texture = ExtResource("28_rw0qd")
 uv1_scale = Vector3(1200.07, 1200.07, 1200.07)
 texture_filter = 4
 grow_amount = -0.375
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs0b5"]
-shading_mode = 0
-specular_mode = 2
-albedo_color = Color(1, 0.502566, 0.742356, 0)
-albedo_texture = ExtResource("33_32jpr")
-billboard_mode = 2
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_ma7h6"]
-material = SubResource("StandardMaterial3D_fs0b5")
-size = Vector2(1.5, 2.1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -103,23 +87,7 @@ batch_size = 5
 script = ExtResource("28_q8yx2")
 debug = true
 
-[node name="Enemy" type="CharacterBody3D" parent="Enemies" groups=["Enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12384, 1.69558, -2.76642)
-collision_layer = 4
-collision_mask = 31
-script = ExtResource("31_f7kjo")
-max_speed = 5
-hit_particles_scene = ExtResource("32_5pqon")
-player_path = NodePath("../../Level Universal/Player")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemies/Enemy"]
-shape = SubResource("CapsuleShape3D_0bbpv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemies/Enemy"]
-layers = 4
-mesh = SubResource("QuadMesh_ma7h6")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemies/Enemy"]
-simplify_path = true
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_8q4qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94517, 3.2708)
 
 [editable path="Level Universal"]

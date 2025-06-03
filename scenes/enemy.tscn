@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr1j8iq2k8vph"]
+[gd_scene load_steps=7 format=3 uid="uid://cv7kgl3ll8n6a"]
 
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="1_qi2p4"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="2_iifgy"]
@@ -6,34 +6,31 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvslj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs0b5"]
 shading_mode = 0
 specular_mode = 2
-albedo_color = Color(1, 0.541176, 0.521569, 0)
+albedo_color = Color(1, 0.502566, 0.742356, 0)
 albedo_texture = ExtResource("3_epg4t")
 billboard_mode = 2
 billboard_keep_scale = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
-material = SubResource("StandardMaterial3D_rvslj")
+[sub_resource type="QuadMesh" id="QuadMesh_ma7h6"]
+material = SubResource("StandardMaterial3D_fs0b5")
 size = Vector2(1.5, 2.1)
 
-[node name="Enemy" type="Node3D" groups=["Enemies"]]
+[node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
+collision_layer = 4
+collision_mask = 31
 script = ExtResource("1_qi2p4")
+max_speed = 5
 hit_particles_scene = ExtResource("2_iifgy")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemies"]]
-disable_mode = 2
-collision_layer = 4
-collision_mask = 11
-input_capture_on_drag = true
-can_sleep = false
-lock_rotation = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0bbpv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 4
-mesh = SubResource("QuadMesh_0bbpv")
-skeleton = NodePath("../..")
+mesh = SubResource("QuadMesh_ma7h6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+simplify_path = true
