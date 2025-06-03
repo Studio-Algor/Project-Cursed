@@ -11,6 +11,17 @@ func _ready() -> void:
 	$Item.visible = is_idle
 	queue_animation("idle")
 
+func _process(delta: float) -> void:
+	# Scale based on viewport size
+	var base_resolution = Vector2(1920, 1080)
+	var current_resolution = get_viewport().get_visible_rect().size
+	var scale_factor = current_resolution / base_resolution
+	for child in get_children(): if child is AnimatedSprite2D:
+		child.scale = Vector2(scale_factor.x, scale_factor.y)
+	
+	for child in get_children(): if child is Sprite2D:
+		child.scale = 4.954 * Vector2(scale_factor.x, scale_factor.y)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_previous_weapon"): $"../../Player".previous_item()
 	if event.is_action_pressed("ui_next_weapon"): $"../../Player".next_item()

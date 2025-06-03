@@ -16,6 +16,13 @@ const RAY_LENGTH = 1000.0
 func _ready() -> void:
 	queue_animation("idle")
 
+func _process(delta: float) -> void:
+	# Scale based on viewport size
+	var base_resolution = Vector2(1920, 1080)
+	var current_resolution = get_viewport().get_visible_rect().size
+	var scale_factor = current_resolution / base_resolution
+	$AnimatedSprite2D.scale = 3.5 * Vector2(scale_factor.x, scale_factor.y)
+
 func _physics_process(_delta: float) -> void:
 	if $"../../Player".is_talking and Input.is_action_just_pressed("ui_click"):
 		if debug: print("Gun is progressing dialogue.")
