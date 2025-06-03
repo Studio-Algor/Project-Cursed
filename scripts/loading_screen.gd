@@ -21,5 +21,6 @@ func load_next_level() -> void:
 	$"Loading Screen".visible = false
 
 func set_loading_screen_text(text: String) -> void:
+	if text == null: text = ""
 	var children: Array[Node] = $"Loading Screen".get_children()
 	for child in children: if child is RichTextLabel: child.text = text
