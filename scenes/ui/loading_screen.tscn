@@ -15,7 +15,6 @@ mouse_filter = 2
 script = ExtResource("1_hprjd")
 levels = Array[PackedScene]([ExtResource("2_5phy8"), ExtResource("2_ku3bi")])
 level_intro_strings = Array[String](["On a desert...", "A little while later..."])
-instant_loading_screen = true
 
 [node name="Loading Screen" type="Control" parent="."]
 layout_mode = 1
