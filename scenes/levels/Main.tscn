@@ -216,10 +216,10 @@ size = Vector3(25, 0.5, 25)
 material = ExtResource("28_y7on2")
 
 [node name="Ceiling" type="CSGBox3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.696, 0)
 use_collision = true
 collision_mask = 31
-size = Vector3(25, 0.5, 10)
+size = Vector3(25, 0.5, 25)
 material = ExtResource("28_y7on2")
 
 [node name="East Wall" type="CSGBox3D" parent="Map/NavigationRegion3D"]
