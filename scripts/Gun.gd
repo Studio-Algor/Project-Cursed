@@ -32,7 +32,6 @@ func _physics_process(_delta: float) -> void:
 	if is_idle and current_bullets < max_bullets and Input.is_action_just_pressed("ui_reload"):
 		reload()
 
-
 func queue_animation(animation_name: String) -> void:
 	var animator: AnimatedSprite2D = $AnimatedSprite2D
 	if animation_name == "shoot": animator.position = Vector2(18, -38)

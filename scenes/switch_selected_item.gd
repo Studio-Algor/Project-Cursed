@@ -36,7 +36,6 @@ func _on_hand_bottom_animation_finished() -> void:
 		is_idle = true
 		$Item.visible = true
 
-
 func _on_hand_top_animation_finished() -> void:
 	$"Hand (Top)".visible = false
 	$"Hand (Top)2".visible = false

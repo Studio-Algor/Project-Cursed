@@ -55,7 +55,7 @@ func _input(_event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
-	if Input.is_action_just_pressed("ui_right_click") and inventory_amount[item_held_index] > 0 and $"../HUD & Gun/Throwing".is_idle:
+	if Input.is_action_just_pressed("ui_right_click") and inventory_amount[item_held_index] > 0 and $"../HUD & Gun/Throwing".is_idle and $"../HUD & Gun/Gun".is_idle:
 		throw_current_item()
 
 func _unhandled_input(event: InputEvent) -> void:
