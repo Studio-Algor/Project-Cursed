@@ -16,7 +16,7 @@ const RAY_LENGTH = 1000.0
 func _ready() -> void:
 	queue_animation("idle")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Scale based on viewport size
 	var base_resolution = Vector2(1920, 1080)
 	var current_resolution = get_viewport().get_visible_rect().size
@@ -29,10 +29,13 @@ func _physics_process(_delta: float) -> void:
 		var dialogue_handler: DialogueParser = $"../../Dialogue Handler"
 		dialogue_handler.progress_dialogue()
 		return
-		
+	
+	if is_idle and Input.is_action_just_pressed("ui_interact"):
+		shoot_interact(true)
+	
 	if is_idle and Input.is_action_pressed("ui_click"):
 		if current_bullets > 0:
-			shoot()
+			shoot_interact(false)
 		else:
 			reload()
 			
@@ -55,7 +58,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	$"../Throwing".visible = true
 	is_idle = true
 
-func shoot():
+func shoot_interact(is_interacting: bool):
 	is_idle = false
 	current_bullets -= 1
 
@@ -89,7 +92,7 @@ func shoot():
 	if is_dh_throwable:
 		result.collider.get_parent().explode()
 	
-	if is_npc:
+	if is_npc and is_interacting:
 		result.collider.talk()
 	else:
 		# If its not an npc, shoot

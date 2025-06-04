@@ -155,7 +155,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: linux
-          ITCH_GAME: throwdwarf
+          ITCH_GAME: project-cursed
           ITCH_USER: longingly
           PACKAGE: game_linux.zip
 
@@ -176,7 +176,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html
-          ITCH_GAME: throwdwarf
+          ITCH_GAME: project-cursed
           ITCH_USER: longingly
           PACKAGE: game_web.zip
           

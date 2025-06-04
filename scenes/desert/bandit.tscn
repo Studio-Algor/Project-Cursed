@@ -62,7 +62,6 @@ script = ExtResource("1_rkhdv")
 max_speed = 5
 melee_range = 2
 hit_particles_scene = ExtResource("2_5mrb3")
-debug = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0bbpv")
@@ -71,6 +70,7 @@ shape = SubResource("CapsuleShape3D_0bbpv")
 simplify_path = true
 
 [node name="Animators" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141199, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Animators"]
 transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)

@@ -11,7 +11,7 @@ func _ready() -> void:
 	$Item.visible = is_idle
 	queue_animation("idle")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Scale based on viewport size
 	var base_resolution = Vector2(1920, 1080)
 	var current_resolution = get_viewport().get_visible_rect().size

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=15 format=3 uid="uid://cuk2wgleypos2"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_55271"]
 [ext_resource type="PackedScene" uid="uid://cdbioqw7ry1ef" path="res://scenes/desert/bandit.tscn" id="7_8q4qk"]
+[ext_resource type="Script" uid="uid://bv233a031iljb" path="res://scripts/EnemySpawnData.gd" id="7_ywymk"]
 [ext_resource type="PackedScene" uid="uid://35moj3odvr7k" path="res://scenes/desert/bush.tscn" id="24_83sxt"]
 [ext_resource type="Script" uid="uid://o5uhfp6k5pw6" path="res://scripts/decals.gd" id="25_sg2la"]
 [ext_resource type="Script" uid="uid://c1iqvc4nmeoi0" path="res://scripts/enemies_manager.gd" id="28_q8yx2"]
@@ -42,9 +43,21 @@ uv1_scale = Vector3(1200.07, 1200.07, 1200.07)
 texture_filter = 4
 grow_amount = -0.375
 
+[sub_resource type="Resource" id="Resource_55271"]
+script = ExtResource("7_ywymk")
+scene = ExtResource("7_8q4qk")
+amount = 5
+position_bounds_min = Vector3(-20, 1.9, -20)
+position_bounds_max = Vector3(20, 1.9, 20)
+deadzone_radius = 2.0
+metadata/_custom_type_script = "uid://bv233a031iljb"
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Level Universal" parent="." instance=ExtResource("1_55271")]
+
+[node name="Player" parent="Level Universal" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -85,9 +98,7 @@ batch_size = 5
 
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("28_q8yx2")
+enemies_data = Array[ExtResource("7_ywymk")]([SubResource("Resource_55271")])
 debug = true
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("7_8q4qk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94517, 3.2708)
 
 [editable path="Level Universal"]
