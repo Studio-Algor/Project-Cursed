@@ -46,8 +46,11 @@ const FOV_CHANGE = 1.5
 @export var debug: bool = false
 
 func _ready() -> void:
+	var pos = global_position
 	if inventory_amount[item_held_index] == 0: $"../HUD & Gun/Throwing/Item".texture = empty_hand_texture
 	hp = max_hp
+	await get_tree().create_timer(.1).timeout
+	global_position = pos
 
 # Capture in HTML5
 func _input(_event):

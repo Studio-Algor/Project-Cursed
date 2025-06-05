@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c2xuqgckkjyeo" path="res://scripts/Enemy.gd" id="1_rkhdv"]
 [ext_resource type="PackedScene" uid="uid://dqulxbf0cyo7g" path="res://scenes/particles/enemy_hit_particles.tscn" id="2_5mrb3"]
-[ext_resource type="Texture2D" uid="uid://dsgwnw2py404k" path="res://sprites/bandit/bandit_run/banditrun1.png" id="3_2u7wn"]
-[ext_resource type="Texture2D" uid="uid://pot0w6ibk25w" path="res://sprites/bandit/bandit slice/banditslice1.png" id="3_rp414"]
-[ext_resource type="Texture2D" uid="uid://b0ufy350a334q" path="res://sprites/bandit/bandit slice/banditslice2.png" id="4_0a87e"]
-[ext_resource type="Texture2D" uid="uid://cbp6yokeo2un3" path="res://sprites/bandit/bandit_run/banditrun2.png" id="4_nu7j2"]
-[ext_resource type="Texture2D" uid="uid://cq4y3su2cby0q" path="res://sprites/bandit/bandit slice/banditslice3.png" id="5_4ptt8"]
-[ext_resource type="Texture2D" uid="uid://8uxvtf71pubd" path="res://sprites/bandit/bandit slice/banditslice4.png" id="6_k7b14"]
-[ext_resource type="Texture2D" uid="uid://dpm4aaebku7i8" path="res://sprites/bandit/bandit slice/banditslice5.png" id="7_obrtk"]
-[ext_resource type="Texture2D" uid="uid://cvlyc8onifhjh" path="res://sprites/bandit/bandit slice/banditslice6.png" id="8_y0fx8"]
-[ext_resource type="Texture2D" uid="uid://bn4ckcxhhbldh" path="res://sprites/bandit/bandit slice/banditslice7.png" id="9_agcb4"]
+[ext_resource type="Texture2D" uid="uid://dsgwnw2py404k" path="res://sprites/enemies/bandit/melee/bandit_run/banditrun1.png" id="3_rp414"]
+[ext_resource type="Texture2D" uid="uid://cbp6yokeo2un3" path="res://sprites/enemies/bandit/melee/bandit_run/banditrun2.png" id="4_0a87e"]
+[ext_resource type="Texture2D" uid="uid://pot0w6ibk25w" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice1.png" id="5_4ptt8"]
+[ext_resource type="Texture2D" uid="uid://b0ufy350a334q" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice2.png" id="6_k7b14"]
+[ext_resource type="Texture2D" uid="uid://cq4y3su2cby0q" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice3.png" id="7_obrtk"]
+[ext_resource type="Texture2D" uid="uid://8uxvtf71pubd" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice4.png" id="8_y0fx8"]
+[ext_resource type="Texture2D" uid="uid://dpm4aaebku7i8" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice5.png" id="9_agcb4"]
+[ext_resource type="Texture2D" uid="uid://cvlyc8onifhjh" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice6.png" id="10_8jyuy"]
+[ext_resource type="Texture2D" uid="uid://bn4ckcxhhbldh" path="res://sprites/enemies/bandit/melee/bandit slice/banditslice7.png" id="11_54bv5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
 height = 2.5
@@ -19,22 +19,16 @@ height = 2.5
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_2u7wn")
+"texture": ExtResource("3_rp414")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nu7j2")
+"texture": ExtResource("4_0a87e")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_rp414")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0a87e")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_4ptt8")
 }, {
@@ -49,13 +43,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_agcb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8jyuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_54bv5")
 }],
 "loop": false,
 "name": &"melee",
 "speed": 10.0
 }]
 
-[node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
+[node name="Bandit" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_rkhdv")
@@ -78,7 +78,7 @@ offset = Vector2(64.565, 0)
 billboard = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_2u7wn")
-animation = &"idle"
+animation = &"melee"
 autoplay = "idle"
 
 [node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Animators"]
@@ -89,8 +89,6 @@ texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_2u7wn")
 animation = &"melee"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="Animators"]
 transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
@@ -100,8 +98,6 @@ texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_2u7wn")
 animation = &"melee"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="Animators"]
 transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
@@ -111,38 +107,8 @@ texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_2u7wn")
 animation = &"melee"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
-
-[node name="AnimatedSprite3D5" type="AnimatedSprite3D" parent="Animators"]
-transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
-offset = Vector2(64.565, 0)
-billboard = 2
-texture_filter = 2
-sprite_frames = SubResource("SpriteFrames_2u7wn")
-animation = &"melee"
-autoplay = "idle"
-frame = 6
-frame_progress = 1.0
-
-[node name="AnimatedSprite3D6" type="AnimatedSprite3D" parent="Animators"]
-transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
-offset = Vector2(64.565, 0)
-billboard = 2
-texture_filter = 2
-sprite_frames = SubResource("SpriteFrames_2u7wn")
-animation = &"melee"
-autoplay = "idle"
-frame = 6
-frame_progress = 1.0
-
-[node name="AnimatedSprite3D7" type="AnimatedSprite3D" parent="Animators"]
-transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
-offset = Vector2(64.565, 0)
-billboard = 2
-texture_filter = 2
-sprite_frames = SubResource("SpriteFrames_2u7wn")
-animation = &"idle"
-autoplay = "idle"
 
 [connection signal="animation_finished" from="Animators/AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="animation_finished" from="Animators/AnimatedSprite3D2" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="animation_finished" from="Animators/AnimatedSprite3D3" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="animation_finished" from="Animators/AnimatedSprite3D4" to="." method="_on_animated_sprite_3d_animation_finished"]

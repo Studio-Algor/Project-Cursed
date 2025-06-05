@@ -12,6 +12,7 @@ var is_attacking = false
 
 @export_category("AI")
 var player: Node3D
+@onready var is_active: bool = false
 @onready var nav_agent = $NavigationAgent3D
 
 @export_category("Debug")
@@ -22,6 +23,7 @@ func _ready() -> void:
 	hp = max_hp
 
 func _process(_delta: float) -> void:
+	if not is_active: return
 	# Navigation
 	if is_in_melee_range() and not is_attacking:
 		if debug: print("Attacking the Player")
@@ -89,3 +91,8 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 
 func is_in_melee_range() -> bool:
 	return (global_position - player.global_position).length() <= melee_range
+
+func activate(delay: float):
+	if debug: print("Enemy Activated!")
+	await get_tree().create_timer(delay).timeout
+	is_active = true

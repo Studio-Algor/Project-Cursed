@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://dsgbrttwd5w0i"]
+[gd_scene load_steps=62 format=4 uid="uid://dsgbrttwd5w0i"]
 
 [ext_resource type="Script" uid="uid://c4aas6rmg5h8h" path="res://scripts/dialogue.gd" id="1_5yfbn"]
 [ext_resource type="Script" uid="uid://b5b6j70cgsd64" path="res://scripts/pause_menu.gd" id="2_fp7bw"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://cuig82w0ylxne" path="res://sprites/hand/throwing/fingerfinished5.png" id="50_uar52"]
 [ext_resource type="Texture2D" uid="uid://s3rs023f1gd7" path="res://sprites/pendant.png" id="53_t4sud"]
 [ext_resource type="AudioStream" uid="uid://c2fe5xidyujo1" path="res://sound/effects/player_hit.wav" id="55_g6hcf"]
+[ext_resource type="AudioStream" uid="uid://yq8jplxvsqoe" path="res://sound/music/tavern.mp3" id="56_i4ww5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dg70y"]
 animations = [{
@@ -758,6 +759,11 @@ pitch_scale = 1.57
 stream = ExtResource("55_g6hcf")
 
 [node name="Throwables" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("56_i4ww5")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="choices_updated" from="Dialogue Handler" to="HUD & Gun/Choices" method="_on_dialogue_handler_choices_updated"]
 [connection signal="dialogue_ended" from="Dialogue Handler" to="Pause Menu" method="_on_dialogue_handler_dialogue_ended"]

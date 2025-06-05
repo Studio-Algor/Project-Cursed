@@ -1,13 +1,24 @@
-[gd_scene load_steps=31 format=4 uid="uid://ca2dgxr4qoknj"]
+[gd_scene load_steps=46 format=4 uid="uid://ca2dgxr4qoknj"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_qo7a2"]
 [ext_resource type="Texture2D" uid="uid://cp343eif6f6w0" path="res://sprites/saloon/wood.png" id="3_5ee8h"]
 [ext_resource type="Texture2D" uid="uid://bh528g2iynci7" path="res://sprites/saloon/wallpaper.png" id="6_2nudb"]
+[ext_resource type="Texture2D" uid="uid://bdjx6etnw1mts" path="res://sprites/npcs/venty/venty_1.png" id="8_sjicx"]
+[ext_resource type="Texture2D" uid="uid://l2iqnr7kt7k1" path="res://sprites/npcs/bartender/bartender_1.png" id="8_wgg2v"]
+[ext_resource type="Texture2D" uid="uid://brgt2cm18ttj0" path="res://sprites/npcs/venty/venty_2.png" id="9_fl1ji"]
+[ext_resource type="Texture2D" uid="uid://xnbnqjjkbkri" path="res://sprites/npcs/bartender/bartender_2.png" id="9_h3at4"]
+[ext_resource type="Texture2D" uid="uid://gxseaiuovyah" path="res://sprites/npcs/owner/owner_1.png" id="10_if38b"]
+[ext_resource type="Texture2D" uid="uid://cmch1mg0v4oa6" path="res://sprites/npcs/owner/owner_2.png" id="11_ki7k8"]
+[ext_resource type="Texture2D" uid="uid://cn281d6rnv8un" path="res://sprites/npcs/waiter/waiter_1.png" id="12_p2hyx"]
+[ext_resource type="Texture2D" uid="uid://capmpca3j385t" path="res://sprites/npcs/waiter/waiter_2.png" id="13_65di4"]
+[ext_resource type="Texture2D" uid="uid://dpe7a5d8trdo2" path="res://sprites/npcs/mayor/mayor_1.png" id="14_c2fwb"]
+[ext_resource type="Texture2D" uid="uid://bxttih2b40sbq" path="res://sprites/npcs/mayor/mayor_2.png" id="15_fy668"]
+[ext_resource type="Texture2D" uid="uid://ck4kqnksulest" path="res://sprites/npcs/witch/witch_1.png" id="16_c2fwb"]
+[ext_resource type="Texture2D" uid="uid://c0qgfxjrjsnsh" path="res://sprites/npcs/witch/witch_2.png" id="17_fy668"]
 [ext_resource type="Material" uid="uid://dmd7mgg4qmuhu" path="res://materials/Wood.tres" id="28_y7on2"]
 [ext_resource type="Texture2D" uid="uid://xmp70s57g1si" path="res://sprites/saloon/Shelf.png" id="29_1m2di"]
 [ext_resource type="Texture2D" uid="uid://cqcm6vvdwhwg4" path="res://sprites/saloon/stool.png" id="30_f7dve"]
 [ext_resource type="Script" uid="uid://cg4wo6ajdor22" path="res://scripts/npc.gd" id="33_2c8jv"]
-[ext_resource type="Texture2D" uid="uid://dut5dgeqle58l" path="res://sprites/prototype.png" id="34_nhqn2"]
 
 [sub_resource type="Environment" id="Environment_0bbpv"]
 background_color = Color(1, 1, 1, 1)
@@ -168,33 +179,101 @@ material = SubResource("StandardMaterial3D_g6wdg")
 size = Vector2(0.8, 0.8)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbpv"]
+height = 1.84376
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa025"]
-shading_mode = 0
-specular_mode = 2
-albedo_color = Color(0, 0.833171, 0.379747, 0)
-albedo_texture = ExtResource("34_nhqn2")
-billboard_mode = 2
-billboard_keep_scale = true
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kmbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wgg2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h3at4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
 
-[sub_resource type="QuadMesh" id="QuadMesh_0bbpv"]
-material = SubResource("StandardMaterial3D_xa025")
-size = Vector2(1.5, 2.1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_65di4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_if38b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ki7k8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v0vrg"]
-load_path = "res://.godot/imported/prototype.png-87c9eb645b40fa53be9b5f07b1b384fe.s3tc.ctex"
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjicx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_sjicx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fl1ji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg70y"]
-shading_mode = 0
-specular_mode = 2
-albedo_color = Color(1, 0, 0.207843, 0)
-albedo_texture = SubResource("CompressedTexture2D_v0vrg")
-billboard_mode = 2
-billboard_keep_scale = true
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p2hyx"]
+height = 1.88975
 
-[sub_resource type="QuadMesh" id="QuadMesh_pnhog"]
-material = SubResource("StandardMaterial3D_dg70y")
-size = Vector2(1.5, 2.1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgg2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_p2hyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_65di4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_65di4"]
+height = 3.38119
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3at4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_c2fwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fy668")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgg2v"]
+radius = 0.6
+height = 1.95781
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jp52f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_c2fwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fy668")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
 
 [node name="Node3D" type="Node3D"]
 
@@ -340,11 +419,17 @@ collision_mask = 31
 script = ExtResource("33_2c8jv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Bartender"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00265336, 0)
 shape = SubResource("CapsuleShape3D_0bbpv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Bartender"]
-layers = 4
-mesh = SubResource("QuadMesh_0bbpv")
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Bartender/CollisionShape3D"]
+transform = Transform3D(0.057, 0, 0, 0, 0.057, 0, 0, 0, 0.057, 0, 0, 0)
+gi_mode = 0
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_2kmbh")
+autoplay = "default"
 
 [node name="Owner" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.69862, 1.3529, -3.21148)
@@ -357,8 +442,98 @@ DLG_path = "dialogue/owner.txt"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Owner"]
 shape = SubResource("CapsuleShape3D_0bbpv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCS/Owner"]
-layers = 4
-mesh = SubResource("QuadMesh_pnhog")
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Owner/CollisionShape3D"]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+gi_mode = 0
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_65di4")
+autoplay = "default"
+
+[node name="Venty" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81309, 1.3529, -1.13482)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("33_2c8jv")
+NPC_name = "Venty"
+DLG_path = "dialogue/venty.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Venty"]
+shape = SubResource("CapsuleShape3D_0bbpv")
+
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Venty/CollisionShape3D"]
+transform = Transform3D(0.046, 0, 0, 0, 0.046, 0, 0, 0, 0.046, 0, -0.04, 0)
+cast_shadow = 0
+gi_mode = 0
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_sjicx")
+autoplay = "default"
+
+[node name="Waiter" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2637, 1.3529, 0.984779)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("33_2c8jv")
+NPC_name = "Waiter"
+DLG_path = "dialogue/waiter.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Waiter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.105, 0)
+shape = SubResource("CapsuleShape3D_p2hyx")
+
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Waiter/CollisionShape3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+gi_mode = 0
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_wgg2v")
+autoplay = "default"
+
+[node name="Mayor" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47063, 1.3529, 2.67766)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("33_2c8jv")
+NPC_name = "Mayor"
+DLG_path = "dialogue/mayor.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Mayor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533212, 0)
+shape = SubResource("CapsuleShape3D_65di4")
+
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Mayor/CollisionShape3D"]
+transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0.0651891, 0)
+gi_mode = 0
+offset = Vector2(-133.73, 0)
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_h3at4")
+autoplay = "default"
+
+[node name="Old Lady" type="CharacterBody3D" parent="NPCS" groups=["NPCs"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.94917, 0.740093, -1.31669)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("33_2c8jv")
+NPC_name = "Old Lady"
+DLG_path = "dialogue/old_lady.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCS/Old Lady"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533212, 0)
+shape = SubResource("CapsuleShape3D_wgg2v")
+
+[node name="Sprites" type="AnimatedSprite3D" parent="NPCS/Old Lady/CollisionShape3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+gi_mode = 0
+modulate = Color(0.60933, 0.60933, 0.60933, 1)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_jp52f")
+autoplay = "default"
 
 [editable path="Level Universal"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuk2wgleypos2"]
+[gd_scene load_steps=16 format=3 uid="uid://cuk2wgleypos2"]
 
 [ext_resource type="PackedScene" uid="uid://dsgbrttwd5w0i" path="res://scenes/level_universal.tscn" id="1_55271"]
+[ext_resource type="AudioStream" uid="uid://dpxbiyl7r76jl" path="res://sound/music/Adventure1.mp3" id="2_55271"]
 [ext_resource type="PackedScene" uid="uid://cdbioqw7ry1ef" path="res://scenes/desert/bandit.tscn" id="7_8q4qk"]
 [ext_resource type="Script" uid="uid://bv233a031iljb" path="res://scripts/EnemySpawnData.gd" id="7_ywymk"]
 [ext_resource type="PackedScene" uid="uid://35moj3odvr7k" path="res://scenes/desert/bush.tscn" id="24_83sxt"]
@@ -36,8 +37,9 @@ vertices = PackedVector3Array(-249.5, 0.791, -1.5, -3.5, 0.791, -1.5, -3.25, 0.7
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(6, 5, 3), PackedInt32Array(6, 3, 7), PackedInt32Array(7, 3, 8), PackedInt32Array(8, 3, 9), PackedInt32Array(1, 10, 0), PackedInt32Array(0, 10, 11), PackedInt32Array(11, 10, 12), PackedInt32Array(10, 13, 12), PackedInt32Array(7, 8, 14), PackedInt32Array(14, 8, 15), PackedInt32Array(14, 15, 12), PackedInt32Array(12, 13, 14)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6u1q"]
+shading_mode = 0
 specular_mode = 2
-albedo_color = Color(1, 1, 1, 0)
+albedo_color = Color(0.91, 0.91, 0.91, 0)
 albedo_texture = ExtResource("28_rw0qd")
 uv1_scale = Vector3(1200.07, 1200.07, 1200.07)
 texture_filter = 4
@@ -49,7 +51,7 @@ scene = ExtResource("7_8q4qk")
 amount = 5
 position_bounds_min = Vector3(-20, 1.9, -20)
 position_bounds_max = Vector3(20, 1.9, 20)
-deadzone_radius = 2.0
+deadzone_radius = 5.0
 metadata/_custom_type_script = "uid://bv233a031iljb"
 
 [node name="Node3D" type="Node3D"]
@@ -57,7 +59,10 @@ metadata/_custom_type_script = "uid://bv233a031iljb"
 [node name="Level Universal" parent="." instance=ExtResource("1_55271")]
 
 [node name="Player" parent="Level Universal" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38941, 0)
+
+[node name="BGM" parent="Level Universal" index="5"]
+stream = ExtResource("2_55271")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -96,7 +101,7 @@ maximum_size = Vector2(0.7, 0.7)
 amount = 150
 batch_size = 5
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemies" type="Node3D" parent="."]
 script = ExtResource("28_q8yx2")
 enemies_data = Array[ExtResource("7_ywymk")]([SubResource("Resource_55271")])
 debug = true

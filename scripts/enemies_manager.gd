@@ -14,7 +14,7 @@ var checking_enemies: bool = false
 var enemy_check_timer: SceneTreeTimer
 
 func _ready():
-	spawn_enemies()
+	pass
 
 func spawn_enemies():
 	if enemies_data.is_empty():
@@ -132,10 +132,10 @@ func _spawn_enemies_threaded():
 func _instantiate_enemies(spawn_data: Array[Dictionary]):
 	# This runs on the main thread for safe scene tree manipulation
 	for data in spawn_data:
-		var enemy_instance = data.scene.instantiate()
+		var enemy_instance: CharacterBody3D = data.scene.instantiate()
 		add_child(enemy_instance)
 		enemy_instance.global_position = data.position
-		enemy_instance.add_to_group("Enemies")
+		enemy_instance.activate(1)
 		
 		# Connect death signal if the enemy has one
 		if enemy_instance.has_signal("died"):
