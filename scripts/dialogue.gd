@@ -25,6 +25,7 @@ var memories = {
 # NPC Color Configuration - Edit these in the editor!
 @export var npc_color_overrides: Dictionary = {}
 @export var default_speaker_color: Color = Color.YELLOW
+@export var dialogue_text_color: Color = Color.BLACK
 
 # Signals for UI updates
 signal dialogue_updated(speaker: String, text: String)
@@ -45,8 +46,13 @@ func _ready():
 func setup_default_colors():
 	npc_color_overrides = {
 		"Bartender": Color.GREEN,
-		"Hanna": Color.PURPLE
-	}
+		"Hanna": Color.BLUE_VIOLET,
+		"Owner": Color.REBECCA_PURPLE,
+		"Venty": Color.MEDIUM_AQUAMARINE,
+		"Waiter": Color.DARK_GREEN,
+		"Old Lady": Color.DARK_ORANGE,
+		"Mayor": Color.NAVY_BLUE
+}
 
 # Get color for a specific NPC name
 func get_npc_color(npc_name: String) -> Color:
@@ -191,6 +197,7 @@ func display_current_node():
 	
 	# Clear previous choices when entering a new node
 	current_choices = []
+	$"Dialogue Box".visible = false
 	emit_signal("choices_updated", current_choices) # Send empty choices signal
 	
 	# Prepare dialogue lines for sequential display
@@ -210,6 +217,7 @@ func display_current_node():
 
 # Display the current dialogue line
 func display_current_line():
+	$TextureRect.visible = true
 	if current_line_index >= current_dialogue_lines.size():
 		return
 	
@@ -220,6 +228,7 @@ func display_current_line():
 		dialogue_box.text = formatted_text
 	
 	emit_signal("dialogue_updated", dialogue_line.speaker, dialogue_line.text)
+	$"Dialogue Box".visible = true
 	emit_signal("line_displayed")
 
 # Progress to the next dialogue line (call this function to advance)
@@ -258,14 +267,24 @@ func finish_dialogue_display(node: Dictionary):
 	
 	emit_signal("all_lines_complete")
 
-# Format dialogue line for RichTextLabel with NPC-specific colors
+# Format dialogue line for RichTextLabel with NPC-specific colors and black text
 func format_dialogue_line(speaker: String, text: String) -> String:
 	if speaker != "":
 		var speaker_color = get_npc_color(speaker)
-		var color_hex = "#" + speaker_color.to_html()
-		return "[b][color=" + color_hex + "]" + speaker + ":[/color][/b] " + text
+		var speaker_color_hex = "#" + speaker_color.to_html()
+		var text_color_hex = "#" + dialogue_text_color.to_html()
+		return "[color=" + speaker_color_hex + "]" + speaker + ":[/color] [color=" + text_color_hex + "]" + text + "[/color]"
 	else:
-		return text
+		var text_color_hex = "#" + dialogue_text_color.to_html()
+		return "[color=" + text_color_hex + "]" + text + "[/color]"
+
+# Set the dialogue text color
+func set_dialogue_text_color(color: Color):
+	dialogue_text_color = color
+
+# Get the current dialogue text color
+func get_dialogue_text_color() -> Color:
+	return dialogue_text_color
 
 # Execute special commands
 func execute_command(command: String):
@@ -395,6 +414,7 @@ func trigger_memory(memory_command: String):
 func end_dialogue():
 	var final_rep = npc_reputations.get(current_npc_id, 0)
 	print("Dialogue with ", current_npc_id, " ended. Final reputation: ", final_rep)
+	$TextureRect.visible = false
 	dialogue_box.text = ""
 	emit_signal("dialogue_ended")
 	

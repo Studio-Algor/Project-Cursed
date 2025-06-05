@@ -91,7 +91,6 @@ func explode():
 			body.take_damage(body.global_position, explosion_damage)
 	has_exploded = true
 	velocity = Vector3.ZERO
-	
 
 func _on_explosion_finished():
 	"""Called when explosion animation/effect is complete"""

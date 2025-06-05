@@ -1,17 +1,17 @@
 0::
 Ventriloquist: oh OH I-I-Its you... h-h-hello
 Hanna: Hello?
-:choise_1: confused
-:choise_2: straightforward
-:choise_3: question
-:choise_4: ignore
+:choice_1: confused
+:choice_2: straightforward
+:choice_3: question
+:choice_4: ignore
 ::
 
 1::
 Hanna: Do i know you?
 Ventriloquist: Y-You dont remember me? 
-:choise_1: lie
-:choise_2: truth
+:choice_1: lie
+:choice_2: truth
 ::
 
 11::
@@ -24,8 +24,8 @@ Ventriloquist: H-H-How has l-life been?
 Hanna: oh... Yeah its been something alright...
 Ventriloquist: oh OH... D-D-Do you want some h-help... from a fr-friend...
 Hanna: Friend?
-:choise_1: capitalise!
-:choise_2: deny
+:choice_1: capitalise!
+:choice_2: deny
 ::
 
 111::
@@ -112,8 +112,8 @@ Ventriloquist: Y-Yeah we were once friends...
 Hanna: The only young friend i had wasss...Wait You are the younger girl i used to hang out with?
 Ventriloquist: Y-Yes...
 :memory_happy_3:
-:choise_1: Compliment
-:choise_2: straightforward
+:choice_1: Compliment
+:choice_2: straightforward
 
 31::
 Hanna: Oh my GOD, you are so cute!
@@ -148,4 +148,3 @@ Hanna: ...
 Ventriloquist: o-oh... bye...
 :rep_negative:
 :exit:
-

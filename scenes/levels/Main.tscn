@@ -279,6 +279,18 @@ animations = [{
 
 [node name="Level Universal" parent="." instance=ExtResource("1_qo7a2")]
 
+[node name="Dialogue Box" parent="Level Universal/Dialogue Handler" index="0"]
+anchors_preset = 7
+offset_left = -109.0
+offset_top = -96.0
+offset_right = 109.0
+offset_bottom = 0.0
+
+[node name="TextureRect" parent="Level Universal/Dialogue Handler" index="1"]
+anchors_preset = 7
+offset_top = -210.0
+offset_bottom = 0.0
+
 [node name="Map" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
@@ -535,5 +547,14 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_jp52f")
 autoplay = "default"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "On the Tavern, talk to people with [F].
+Sadly this is where the jam version ends.
+Stay tuned for updates!"
 
 [editable path="Level Universal"]
