@@ -1,0 +1,5 @@
+0::
+Waiter: Agh AGHH... Y-You scared me... please leave... I'm too afraid to talk to you a-at the moment...
+Hanna: Ok?
+:exit:
+::

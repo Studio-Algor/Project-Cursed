@@ -1,0 +1,6 @@
+0::
+Mayor: Sorry but you are disturbing my peaceful drinking...begone...
+Hanna: Sorry...rude~
+Mayor: Shush child
+:exit:
+::

@@ -1,0 +1,9 @@
+0::
+Fellow_Cowboy: Shhhhh
+Hanna: Huh?
+Fellow_Cowboy: Shhhhh
+Hanna: Weirdo...
+Fellow_Cowboy: SHHHHH
+Hanna: Fine FINE I'LL LEAVE
+:exit:
+::
